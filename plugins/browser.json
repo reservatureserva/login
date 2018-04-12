@@ -36,6 +36,9 @@
     },
     "cordova-plugin-vibration": {
       "PACKAGE_NAME": "com.gmail.ronny"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.gmail.ronny"
     }
   },
   "dependent_plugins": {
