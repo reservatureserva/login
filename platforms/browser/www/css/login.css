@@ -96,3 +96,7 @@ a{
     text-align: center;
     font-family: 'Lobster', cursive;
 }
+.mdl-button{
+    padding-left: 110px;
+    padding-right: 110px;
+}
