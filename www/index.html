@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.blue-pink.min.css">
+    <link rel="stylesheet" href="css/material.min.css">
     <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
     <link rel="stylesheet" type="text/css" href="css/login.css">
@@ -30,21 +30,14 @@
                                 <input class="mdl-textfield__input" type="password" id="password">
                                 <label class="mdl-textfield__label" for="password">Password</label>
                             </div>
+                             <a href="#" class="pass-forgot">Recordar contraseña</a>
                             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                                 Login
                             </button>
                         </form> 
                         <hr>
-                        <div class="mdl-grid">
-                            <div class="mdl-cell mdl-cell--6-col">
-                                <a href="#">Registrarme</a>
-                            </div>
-                            <div class="mdl-cell mdl-cell--6-col">
-                                <a href="#">Recordar contraseña</a>
-                            </div>
-                        </div>  
-                        <hr>
                         <div class="login-box">
+                            <a onclick="registro()" class="social-button" id="us-connect"> <span>Connect with us</span></a>
                             <a onclick="google()" class="social-button" id="google-connect"> <span>Connect with Google</span></a>
                         </div>          
                     </div>
