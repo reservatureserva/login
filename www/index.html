@@ -4,19 +4,29 @@
     <title></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="css/material.min.css">
-    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <!-- CSS libs -->
+    <link rel="stylesheet" href="css/lib/material-icons.css">
+    <link rel="stylesheet" href="css/lib/material.min.css">
+    <link href="css/lib/lobster.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/lib/bootstrap-material-datetimepicker.css">
+    <!-- JS libs -->
+    <script src="js/lib/firebase.js"></script>
+    <script type="text/javascript" src="js/lib/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/lib/moment.js"></script>
+    <script type="text/javascript" src="js/lib/bootstrap-material-datetimepicker.js"></script>
+    <script src="js/lib/material.min.js"></script>
+
+    <!-- estilos propios -->
     <link rel="stylesheet" type="text/css" href="css/login.css">
+
+    <!-- js propios -->
     <script type="text/javascript" src="js/user.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 </head>
 <body>
-    <div class="contenido">
-        <div class="mdl-grid">
-            <div class="mdl-cell mdl-cell--12-col login">
-                <div class="demo-card-wide mdl-card mdl-shadow--8dp card-me">
+    <div class="js-contenido">
+        <div id="login" class="mdl-grid">
+            <div class="mdl-cell mdl-cell--12-col ventana">
+                <div class="mdl-card mdl-shadow--8dp card-me">
 
                     <div align="center">
                         <h4 class="titulo">Reserva tu Reserva</h4>
@@ -30,14 +40,14 @@
                                 <input class="mdl-textfield__input" type="password" id="password">
                                 <label class="mdl-textfield__label" for="password">Password</label>
                             </div>
-                             <a href="#" class="pass-forgot">Recordar contraseña</a>
+                            <a href="#" class="pass-forgot">Recordar contraseña</a>
                             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
                                 Login
                             </button>
                         </form> 
                         <hr>
                         <div class="login-box">
-                            <a onclick="registro()" class="social-button" id="us-connect"> <span>Connect with us</span></a>
+                            <a onclick="viewRegistro()" class="social-button" id="us-connect"> <span>Registrarse</span></a>
                             <a onclick="google()" class="social-button" id="google-connect"> <span>Connect with Google</span></a>
                         </div>          
                     </div>

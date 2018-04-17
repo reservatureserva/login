@@ -48,7 +48,16 @@
   });
 }
 
-function registro() {
+function viewRegistro() {
+  console.log("registro");
+  $(".js-contenido").load("../html/registro.html", function() {
+    $('#date').bootstrapMaterialDatePicker({format : 'DD/MM/YYYY', weekStart : 0, time: false });
+    if(!(typeof(componentHandler) == 'undefined')){
+      componentHandler.upgradeAllRegistered();
+    }
+  });
+
+/*
   var email = $("input[name='email']").val();
   var password = $("input[name='password']").val();
   var repassword = $("input[name='repassword']").val();
@@ -62,9 +71,8 @@ function registro() {
      //Se notifica al usuario
      //Si hay error, borrará el registro de elastic
    });
-  } 
+ } */
 } 
-
 
 function google() {
   var provider = new firebase.auth.GoogleAuthProvider();

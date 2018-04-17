@@ -11,7 +11,11 @@ a{
     text-decoration: none !important;
 }
 
-.mdl-button{
+.ventana{
+    margin-top: 25vh;
+}
+
+#login .mdl-button{
     padding-left: 40%;
     padding-right: 40%;
     background-color: ;
@@ -28,17 +32,18 @@ a{
 
 }
 
-.card-me {
+#login .card-me {
     padding-left: 25px;
     padding-right: 25px;
     padding-bottom: 25px;
 }
 
-.login{
+#registro .card-me{
+    width: 50%;
+}
+.mdl-cell--12-col{
     display: flex;
     justify-content: center;
-    position: absolute;
-    top: 25%;
 }
 
 .login-box {
@@ -88,6 +93,7 @@ a{
 }
 
 #us-connect span {
+    text-align: center;
     box-sizing: border-box;
     color: rgb(64,196,255);
     cursor: pointer;
@@ -153,4 +159,24 @@ a{
 .titulo{
     text-align: center;
     font-family: 'Lobster', cursive;
+}
+
+.btn, .input-group-btn .btn {
+    border: none;
+    border-radius: 2px;
+    position: relative;
+    padding: 8px 30px;
+    margin: 10px 1px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    will-change: box-shadow,transform;
+    -webkit-transition: -webkit-box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
+    -o-transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
+    transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
+    outline: 0;
+    cursor: pointer;
+    text-decoration: none;
+    background: 0 0;
 }
