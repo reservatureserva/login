@@ -50,20 +50,13 @@
 
 function viewRegistro() {
   console.log("registro");
-  $(".js-contenido").html('<object type="text/html" data="html/registro.html" ></object>');
-  $(".js-contenido").html($("#registro").outerHTML);
 
-   $('#date').bootstrapMaterialDatePicker({format : 'DD/MM/YYYY', weekStart : 0, time: false });
-    if(!(typeof(componentHandler) == 'undefined')){
-      componentHandler.upgradeAllRegistered();
-    }
-/*
-  $(".js-contenido").load("html/registro.html", function() {
+  $(".js-contenido").load("../html/registro.html", function() {
     $('#date').bootstrapMaterialDatePicker({format : 'DD/MM/YYYY', weekStart : 0, time: false });
     if(!(typeof(componentHandler) == 'undefined')){
       componentHandler.upgradeAllRegistered();
     }
-  });*/
+  });
 
 /*
   var email = $("input[name='email']").val();

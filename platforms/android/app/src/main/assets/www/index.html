@@ -21,6 +21,13 @@
 
     <!-- js propios -->
     <script type="text/javascript" src="js/user.js"></script>
+    <script type="text/javascript">
+        (function() {
+            $(".js-contenido").load(function() {
+                $("object")[0].contentWindow.document;
+            });
+        })
+    </script>
 </head>
 <body>
     <div class="js-contenido">
