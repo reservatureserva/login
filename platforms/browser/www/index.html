@@ -9,12 +9,17 @@
     <link rel="stylesheet" href="css/lib/material.min.css">
     <link href="css/lib/lobster.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/lib/bootstrap-material-datetimepicker.css">
+    <link rel="stylesheet" type="text/css" href="css/lib/dialog-polyfill.css">
+    <link rel="stylesheet" type="text/css" href="css/lib/getmdl-select.min.css">
+
     <!-- JS libs -->
     <script src="js/lib/firebase.js"></script>
     <script type="text/javascript" src="js/lib/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="js/lib/moment.js"></script>
     <script type="text/javascript" src="js/lib/bootstrap-material-datetimepicker.js"></script>
     <script src="js/lib/material.min.js"></script>
+    <script src="js/lib/dialog-polyfill.js"></script>
+    <script src="js/lib/getmdl-select.min.js"></script>
 
     <!-- estilos propios -->
     <link rel="stylesheet" type="text/css" href="css/login.css">
@@ -31,36 +36,46 @@
 </head>
 <body>
     <div class="js-contenido">
-        <div id="login" class="mdl-grid">
-            <div class="mdl-cell mdl-cell--12-col ventana">
-                <div class="mdl-card mdl-shadow--8dp card-me">
-
-                    <div align="center">
-                        <h4 class="titulo">Reserva tu Reserva</h4>
-                        <form action="#">
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="email" id="email">
-                                <label class="mdl-textfield__label" for="email">Email</label>
-                            </div>
-
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <input class="mdl-textfield__input" type="password" id="password">
-                                <label class="mdl-textfield__label" for="password">Password</label>
-                            </div>
-                            <a href="#" class="pass-forgot">Recordar contraseña</a>
-                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                                Login
-                            </button>
-                        </form> 
-                        <hr>
-                        <div class="login-box">
-                            <a onclick="viewRegistro()" class="social-button" id="us-connect"> <span>Registrarse</span></a>
-                            <a onclick="google()" class="social-button" id="google-connect"> <span>Connect with Google</span></a>
-                        </div>          
-                    </div>
+        <button id="show-dialog" type="button" class="mdl-button">Show Dialog</button>
+        <dialog class="mdl-dialog">
+            <h4 class="mdl-dialog__title titulo">¿Qué buscas exactamente?</h4>
+            <div class="mdl-dialog__content">
+                <form method="dialog">
+                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="busqueda">
+                    <label class="mdl-textfield__label" for="busqueda">Busqueda</label>
                 </div>
-            </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select">
+                    <input type="text" value="" class="mdl-textfield__input" id="sample3" readonly>
+                    <input type="hidden" value="" name="sample3">
+                    <label for="sample3" class="mdl-textfield__label">Country</label>
+                    <ul for="sample3" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                        <li class="mdl-menu__item" data-val="DEU">Germany</li>
+                        <li class="mdl-menu__item" data-val="BLR">Belarus</li>
+                        <li class="mdl-menu__item" data-val="RUS">Russia</li>
+                    </ul>
+                </div>
+            </form>
         </div>
-    </div>
+        <div class="mdl-dialog__actions">
+          <button type="button" class="mdl-button">Agree</button>
+          <button type="button" class="mdl-button close">Disagree</button>
+      </div>
+  </dialog>
+  <script>
+    var dialog = document.querySelector('dialog');
+    var showDialogButton = document.querySelector('#show-dialog');
+    if (! dialog.showModal) {
+      dialogPolyfill.registerDialog(dialog);
+  }
+  showDialogButton.addEventListener('click', function() {
+      dialog.showModal();
+  });
+  dialog.querySelector('.close').addEventListener('click', function() {
+      dialog.close();
+  });
+</script>
+</div>
 </body>
 </html>

@@ -7,7 +7,7 @@
 				<form action="#">
 					<div id="registro" class="mdl-grid">
 						<div class="mdl-cell mdl-cell--12-col">
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							<div>
 								<label class="lamina-image-import">
 									<span class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
 										<i class="material-icons">account_circle</i>
@@ -17,7 +17,7 @@
 								</label>
 							</div>
 						</div>
-						<div class="mdl-cell mdl-cell--6-col">
+						<div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
 								<input class="mdl-textfield__input" type="text" id="name"> <label class="mdl-textfield__label" for="name">Nombre</label> 
 							</div>
@@ -31,12 +31,13 @@
 								<label class="mdl-textfield__label" for="password">Password</label> 
 							</div>
 
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-								<input class="mdl-textfield__input" type="text" id="date">
-								<label class="mdl-textfield__label" for="date">dd/mm/yyyy</label> 
+							
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
+								<input class="mdl-textfield__input" type="password" id="repassword">
+								<label class="mdl-textfield__label" for="repassword">Repeat Password</label> 
 							</div>
 						</div>
-						<div class="mdl-cell mdl-cell--6-col">
+						<div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
 							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
 								<input class="mdl-textfield__input" type="text" id="dni"> 
 								<label class="mdl-textfield__label" for="dni">DNI</label> 
@@ -47,11 +48,12 @@
 								<label class="mdl-textfield__label" for="tlf">Teléfono</label>
 							</div>
 
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-								<input class="mdl-textfield__input" type="password" id="repassword">
-								<label class="mdl-textfield__label" for="repassword">Repeat Password</label> 
+							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+								<input class="mdl-textfield__input" type="text" id="date">
+								<label class="mdl-textfield__label" for="date">dd/mm/yyyy</label> 
 							</div>
-							<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
+
+							<div> 
 								<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"> Registro </button>
 							</div>
 						</div>
