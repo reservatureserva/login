@@ -179,5 +179,11 @@ a{
 }
 
 @media only screen and (min-width: 768px) {
+    .mdl-dialog{
+        width: 580px;
+    }
 
+    .mdl-textfield{
+        width: 600px;
+    }
 }

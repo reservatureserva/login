@@ -37,16 +37,39 @@
     <script type="text/javascript" src="js/user.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $( "#slider-range" ).slider({
-              range: true,
-              min: 0,
-              max: 500,
-              values: [ 75, 300 ],
-              slide: function( event, ui ) {
-                $("input[name='precio']").val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
-              }
-          });
-        })
+            $("#slider-precio").slider({
+                range: true,
+                min: 0,
+                max: 5000,
+                values: [0, 5000],
+                slide: function( event, ui ) {
+                    var value = "Cualquier precio";
+                    $(".js-precio").addClass("is-dirty");
+                    var min = ui.values[0] + " €";
+                    var max = ui.values[1] > 4999 ? " o más" : " - " + ui.values[1] + " €" ;
+                    if(!(ui.values[0] === 0 && ui.values[1] === 5000)){
+                        value = min + max;                    
+                    }
+                    if(ui.values[0] === ui.values[1]){
+                        value = min;
+                    }
+                    $("input[name='precio']").val(value);
+                }
+            });
+
+
+            $("#slider-distancia").slider({
+                range: "min",
+                step: 5,
+                min: 0,
+                max: 100,
+                slide: function(event, ui) {
+                    $(".js-distancia").addClass("is-dirty");
+                    $("input[name='distancia']").val(ui.value > 0 && ui.value < 99 ? "menos de "+ui.value + " Km" :"Cualquier distancia");
+                }
+            });
+
+        });
     </script>
 </head>
 <body>
@@ -59,42 +82,17 @@
             <h4 class="mdl-dialog__title titulo">¿Qué buscas exactamente?</h4>
             <div class="mdl-dialog__content">
                 <form method="dialog">
-                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <input class="mdl-textfield__input" type="text" id="busqueda" name="busqueda">
                     <label class="mdl-textfield__label" for="busqueda">Busqueda</label>
                 </div>
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height">
-                    <input type="text" name="categoria" class="mdl-textfield__input" id="sample5" readonly>
-                    <input type="hidden" value="" name="sample5">
+                    <input type="text"  class="mdl-textfield__input" id="categoria" readonly>
+                    <input type="hidden" name="categoria">
                     <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
-                    <label for="sample3" class="mdl-textfield__label">Categoria</label>
-                    <ul for="sample5" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                        <li class="mdl-menu__item" data-val="DEPORTE">Deporte</li>
-                        <li class="mdl-menu__item" data-val="MOTOR">Motor</li>
-                        <li class="mdl-menu__item" data-val="JUGUETE">Juguetes</li>
-                        <li class="mdl-menu__item" data-val="ADULTO">Adulto</li>
-                        <li class="mdl-menu__item" data-val="ELECTRONICA">Electronica</li>
-                        <li class="mdl-menu__item" data-val="DEPORTE">Deporte</li>
-                        <li class="mdl-menu__item" data-val="MOTOR">Motor</li>
-                        <li class="mdl-menu__item" data-val="JUGUETE">Juguetes</li>
-                        <li class="mdl-menu__item" data-val="ADULTO">Adulto</li>
-                        <li class="mdl-menu__item" data-val="ELECTRONICA">Electronica</li>
-                        <li class="mdl-menu__item" data-val="DEPORTE">Deporte</li>
-                        <li class="mdl-menu__item" data-val="MOTOR">Motor</li>
-                        <li class="mdl-menu__item" data-val="JUGUETE">Juguetes</li>
-                        <li class="mdl-menu__item" data-val="ADULTO">Adulto</li>
-                        <li class="mdl-menu__item" data-val="ELECTRONICA">Electronica</li>
-                        <li class="mdl-menu__item" data-val="DEPORTE">Deporte</li>
-                        <li class="mdl-menu__item" data-val="MOTOR">Motor</li>
-                        <li class="mdl-menu__item" data-val="JUGUETE">Juguetes</li>
-                        <li class="mdl-menu__item" data-val="ADULTO">Adulto</li>
-                        <li class="mdl-menu__item" data-val="ELECTRONICA">Electronica</li>
-                        <li class="mdl-menu__item" data-val="DEPORTE">Deporte</li>
-                        <li class="mdl-menu__item" data-val="MOTOR">Motor</li>
-                        <li class="mdl-menu__item" data-val="JUGUETE">Juguetes</li>
-                        <li class="mdl-menu__item" data-val="ADULTO">Adulto</li>
-                        <li class="mdl-menu__item" data-val="ELECTRONICA">Electronica</li>
+                    <label for="categoria" class="mdl-textfield__label">Categoria</label>
+                    <ul for="categoria" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
                         <li class="mdl-menu__item" data-val="DEPORTE">Deporte</li>
                         <li class="mdl-menu__item" data-val="MOTOR">Motor</li>
                         <li class="mdl-menu__item" data-val="JUGUETE">Juguetes</li>
@@ -103,12 +101,30 @@
                     </ul>
                 </div>
 
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="text" id="precio" name="precio">
+                
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-precio">
+                    <input class="mdl-textfield__input" type="text" id="precio" name="precio" readonly>
                     <label class="mdl-textfield__label" for="precio">Precio</label>
                 </div>
-                <div id="slider-range"></div>
+                <div id="slider-precio"></div>
 
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-distancia">
+                    <input class="mdl-textfield__input" type="text" id="distancia" name="distancia" readonly>
+                    <label class="mdl-textfield__label" for="distancia">Distancia</label>
+                </div>
+                <div id="slider-distancia"></div>             
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height">
+                    <input type="text"  class="mdl-textfield__input" id="ordenar" readonly>
+                    <input type="hidden" name="ordenar" >
+                    <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
+                    <label for="ordenar" class="mdl-textfield__label">Ordenar por</label>
+                    <ul for="ordenar" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+                        <li class="mdl-menu__item" data-val="DISTANCIA" data-selected="true" >Distancia</li>
+                        <li class="mdl-menu__item" data-val="PRECIOMIN">Precio más bajo</li>
+                        <li class="mdl-menu__item" data-val="PRECIOMAX">Precio más alto</li>
+                    </ul>
+                </div>
             </form>
         </div>
         <div class="mdl-dialog__actions">
