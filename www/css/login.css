@@ -11,6 +11,10 @@ a{
     text-decoration: none !important;
 }
 
+.ui-slider{
+    margin-bottom: 20px;
+}
+
 .ventana{
     margin-top: 25vh;
 }
