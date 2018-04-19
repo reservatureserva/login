@@ -23,13 +23,6 @@
     <script src="js/lib/dialog-polyfill.js"></script>
     <script src="js/lib/getmdl-select.min.js"></script>
 
-
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-
-
     <!-- estilos propios -->
     <link rel="stylesheet" type="text/css" href="css/login.css">
 
@@ -37,22 +30,30 @@
     <script type="text/javascript" src="js/user.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $( "#slider-range" ).slider({
+            /*$( "#slider-range" ).slider({
               range: true,
               min: 0,
               max: 500,
               values: [ 75, 300 ],
               slide: function( event, ui ) {
-                $("input[name='precio']").val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+
               }
-          });
-        })
-    </script>
+          });*/
+
+          $.ajax({
+            url: 'html/login.html',
+            type: 'GET',
+            dataType: 'text',
+            isLocale: true,
+            success: function(data) {
+              $(".js-contenido").html(data);
+          }
+      });
+      });
+  </script>
 </head>
 <body>
-    <br>
-
-    <br>
+    <div id="slider-range"></div>
     <div class="js-contenido">
         <button id="show-dialog" type="button" class="mdl-button">Show Dialog</button>
         <dialog class="mdl-dialog">
@@ -60,12 +61,12 @@
             <div class="mdl-dialog__content">
                 <form method="dialog">
                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="text" id="busqueda" name="busqueda">
+                    <input class="mdl-textfield__input" type="text" id="busqueda">
                     <label class="mdl-textfield__label" for="busqueda">Busqueda</label>
                 </div>
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height">
-                    <input type="text" name="categoria" class="mdl-textfield__input" id="sample5" readonly>
+                    <input type="text" value="" class="mdl-textfield__input" id="sample5" readonly>
                     <input type="hidden" value="" name="sample5">
                     <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i>
                     <label for="sample3" class="mdl-textfield__label">Categoria</label>
@@ -104,10 +105,10 @@
                 </div>
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input class="mdl-textfield__input" type="text" id="precio" name="precio">
-                    <label class="mdl-textfield__label" for="precio">Precio</label>
+                    <label class="mdl-textfield__label" for="busqueda">Precio</label>
+                    
                 </div>
-                <div id="slider-range"></div>
+                
 
             </form>
         </div>
