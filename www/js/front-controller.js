@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	var user = firebase.auth().currentUser;
-
+	contenido.ini();
 	if (user) {
 		contenido.home();
 	} else {
@@ -9,25 +9,30 @@ $(document).ready(function() {
 });
 
 var contenido = (function() {
+	var idLogin;
+	var idRegistro;
+	var ini = ()=>{
+		idLogin = $("#login");
+		idRegistro = $("#registro");
+	}
+	
+
 	var login = ()=>{
 		console.log("loading login");
-		$(".js-contenido").html($("#login"));
-		//acciones de la pantalla login
+		$(".js-contenido").html(idLogin);
 		loginCo.ini();
 	};
 
 	var registro = ()=>{
 		console.log("loading registro");
-		$(".js-contenido").html($("#registro"));
-		$('#date').bootstrapMaterialDatePicker({format : 'DD/MM/YYYY', weekStart : 0, time: false });
-		if(!(typeof(componentHandler) == 'undefined')){
-			componentHandler.upgradeAllRegistered();
-		}
+		$(".js-contenido").html(idRegistro);
+		registroCo.ini();
 	};
 
 	//muestra el navBar e inserta en js-contenido el contenido
 	var home = (json)=>{
 		console.log("loading home");
+		
 
 	};
 
@@ -63,6 +68,7 @@ var contenido = (function() {
 
 	
 	return{
+		ini 				: 		ini,
 		login				:		login,
 		registro			:		registro,
 		home				: 		home,

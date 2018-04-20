@@ -1,3 +1,4 @@
+/********** INDEX *********************/
 body{
     background: url("../img/background.jpg") no-repeat center center fixed;
     -moz-background-size: cover;
@@ -5,21 +6,111 @@ body{
     -khtml-opacity: .50;
     height: 100%;
 }
-.js-draft{
-    display: none;
-}
 
 a{
     font-size: 12px;
     text-decoration: none !important;
 }
+.js-draft{
+    display: none;
+}
 
-.ui-slider{
-    margin-bottom: 20px;
+.titulo{
+    white-space: nowrap;
+    text-align: center;
+    font-family: 'Lobster', cursive;
 }
 
 .ventana{
     margin-top: 25vh;
+}
+
+/********** navBar *********************/
+.mdl-layout__header-row{
+    padding-left: 10px;
+}
+nav {
+    width:100%;
+}
+.search:focus {
+    outline: none !important;
+    border:0px 0px 1px 0px solid black;
+    box-shadow: 0 0 0px;
+}
+.img {
+    height: 50px;
+    width: 50px;
+    background-image: url("https://http2.mlstatic.com/fotos-5x5-cm-visa-estados-unidos-eeuu-y-otros-6-fotos-carnet-D_NQ_NP_23142-MLA20241872874_022015-F.jpg");
+    background-size: 50px 50px;
+    border-radius:50%;
+    float: right;
+}
+.buscarMovil {
+    height: 60px;
+    width: 60px;
+    margin-bottom: 3.5%;
+    margin-right: 3.5%;
+}
+.buscarPC {
+    visibility: hidden;
+}
+
+.botonEmp .float{
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:40px;
+    right:40px;
+    background-color:green;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    box-shadow: 2px 2px 3px #999;
+    z-index:1000;
+    animation: bot-to-top 2s ease-out;
+    
+}
+
+.botonEmp ul{
+    position:fixed;
+    right:40px;
+    padding-bottom:20px;
+    bottom:80px;
+    z-index:100;
+}
+
+.botonEmp ul li{
+    list-style:none;
+    margin-bottom:10px;
+}
+
+.botonEmp ul li a{
+    background-color:green;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    box-shadow: 2px 2px 3px #999;
+    width:60px;
+    height:60px;
+    display:block;
+}
+
+
+.botonEmp .my-float{
+  font-size:24px;
+  margin-top:18px;
+}
+
+.botonEmp a#menu-share + ul{
+  visibility: hidden;
+}
+
+
+/********** login *********************/
+
+
+.ui-slider{
+    margin-bottom: 20px;
 }
 
 #login .mdl-button{
@@ -27,6 +118,12 @@ a{
     padding-right: 40%;
     background-color: ;
 }
+
+
+#registro .volver{
+    margin: 20px 10px -35px 10px;
+}
+
 
 .pass-forgot{
     width: 100%;
@@ -39,7 +136,7 @@ a{
 
 }
 
-#login .card-me {
+.card-me {
     padding-left: 25px;
     padding-right: 25px;
     padding-bottom: 25px;
@@ -160,10 +257,6 @@ a{
     -o-transition: all .3s ease;
     transition: all .3s ease;
 }
-.titulo{
-    text-align: center;
-    font-family: 'Lobster', cursive;
-}
 
 .btn, .input-group-btn .btn {
     border: none;
@@ -186,11 +279,21 @@ a{
 }
 
 @media only screen and (min-width: 768px) {
-    .mdl-dialog{
+    .buscarMovil {
+        display: none;
+    }
+    .buscarPC{
+        visibility: visible;
+    }
+    .botonEmp{
+        display: none;
+    }
+
+    .card-me, .mdl-dialog{
         width: 580px;
     }
 
-    .mdl-textfield{
+    #login .mdl-textfield, #registro .mdl-textfield{
         width: 600px;
     }
 }
