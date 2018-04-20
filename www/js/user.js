@@ -50,14 +50,7 @@
 
 function viewRegistro() {
   console.log("registro");
-  //window.location.replace("./html/registro.html");
 
-  $(".js-contenido").load("../html/registro.html", function() {
-    $('#date').bootstrapMaterialDatePicker({format : 'DD/MM/YYYY', weekStart : 0, time: false });
-    if(!(typeof(componentHandler) == 'undefined')){
-      componentHandler.upgradeAllRegistered();
-    }
-  });
 
 /*
   var email = $("input[name='email']").val();

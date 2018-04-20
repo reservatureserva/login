@@ -5,6 +5,9 @@ body{
     -khtml-opacity: .50;
     height: 100%;
 }
+.js-draft{
+    display: none;
+}
 
 a{
     font-size: 12px;
