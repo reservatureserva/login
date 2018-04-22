@@ -67,6 +67,10 @@ var contenido = (function() {
 
 	};
 
+	var feedBack = (mensaje)=>{
+		document.querySelector('#feedBack').MaterialSnackbar.showSnackbar({message: mensaje});
+	};
+
 	
 	return{
 		ini 				: 		ini,
@@ -78,6 +82,7 @@ var contenido = (function() {
 		resultCards			: 		resultCards,
 		detailsResult		: 		detailsResult,
 		alquilarDialog		: 		alquilarDialog,
-		alquilarDialog		: 		alquilarDialog
+		alquilarDialog		: 		alquilarDialog,
+		feedBack 			: 		feedBack
 	}
 })();

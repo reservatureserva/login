@@ -17,14 +17,9 @@
     var isAnonymous = user.isAnonymous;
     var uid = user.uid;
     var providerData = user.providerData;
-    alert("Bienvenido "+email);
-    firebase.auth().signOut().then(function() {
-      alert('Cerrando sesion');
-    }, function(error) {
-      alert('Sign Out Error'+ error);
-    });
-  } else {
-
+    /** #### Node #### **/
+    console.log("Lamada al servidor");
+    contenido.home(user); 
   }
 });
 
@@ -33,69 +28,68 @@
     firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
       var errorCode = error.code;
       var errorMessage = error.message;
-      //contenido.informError(errorCode, errorMessage);
-      document.querySelector('#feedBack').MaterialSnackbar.showSnackbar({message: errorMessage});
+      contenido.feedBack(errorMessage);
     });
   };
 
   var registro = (email, password)=>{
+    var email = $("input[name='email']").val();
+    var password = $("input[name='password']").val();
+    var repassword = $("input[name='repassword']").val();
 
-  };
-  return{
-    login     :     login,
-    registro  :     registro
-  }
-})();
-
-
-function viewRegistro() {
-  console.log("registro");
-
-
-/*
-  var email = $("input[name='email']").val();
-  var password = $("input[name='password']").val();
-  var repassword = $("input[name='repassword']").val();
-
-  if(password === repassword && $("input[name='dni']").val() !== ''){
-    console.log("Guardando en ElasticSearch");
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-     var errorCode = error.code;
-     var errorMessage = error.message;
-     console.log(error);
+    if(password === repassword && $("input[name='dni']").val() !== ''){
+      console.log("Guardando en ElasticSearch");
+      firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+       var errorCode = error.code;
+       var errorMessage = error.message;
+       console.log(error);
      //Se notifica al usuario
      //Si hay error, borrará el registro de elastic
    });
- } */
-} 
+    } 
+  };
 
-function google() {
-  var provider = new firebase.auth.GoogleAuthProvider();
+  var google = ()=>{
+    var provider = new firebase.auth.GoogleAuthProvider();
+    /* firebase.auth().getRedirectResult().then(function(result) {
+       if (result.credential) {
+         var token = result.credential.accessToken;
+       }
+       var user = result.user;
+     });
 
- /* firebase.auth().getRedirectResult().then(function(result) {
-    if (result.credential) {
+     provider.addScope('profile');
+     provider.addScope('email');
+     firebase.auth().signInWithRedirect(provider);
+     */
+
+     firebase.auth().signInWithPopup(provider).then(function(result) {
       var token = result.credential.accessToken;
-    }
-    var user = result.user;
-  });
+      var user = result.user;
+      alert("Bienvenido "+user.email);
+    }).catch(function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
 
-  provider.addScope('profile');
-  provider.addScope('email');
-  firebase.auth().signInWithRedirect(provider);
-*/
- 
-  firebase.auth().signInWithPopup(provider).then(function(result) {
-    var token = result.credential.accessToken;
-    var user = result.user;
-    alert("Bienvenido "+user.email);
-  }).catch(function(error) {
-    var errorCode = error.code;
-    var errorMessage = error.message;
+      var email = error.email;
 
-    var email = error.email;
+      var credential = error.credential;
+      console.log(errorMessage);
 
-    var credential = error.credential;
-    console.log(errorMessage);
+    });
+  };
 
-  });
-}
+  var logOut = ()=>{
+    firebase.auth().signOut().then(function() {
+      alert('Cerrando sesion');
+    }, function(error) {
+      alert('Sign Out Error'+ error);
+    });
+  };
+
+  return{
+    login     :     login,
+    registro  :     registro,
+    google    :     google
+  }
+})();
