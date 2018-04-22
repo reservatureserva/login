@@ -28,25 +28,25 @@
   }
 });
 
- function login() {
-  var email = $("input[name='email']").val();
-  var password = $("input[name='password']").val();
+ var userCo = (function() {
+  var login = (email, password)=>{
+    firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      //contenido.informError(errorCode, errorMessage);
+      document.querySelector('#feedBack').MaterialSnackbar.showSnackbar({message: errorMessage});
+    });
+  };
 
-  firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+  var registro = (email, password)=>{
 
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    if(errorCode == "auth/user-not-found"){
-      var c = confirm("No dispone de cuenta\n¿Desea registrarse?");
-      if(c){
-        window.location.href = "http://localhost/login/registro.html";
-      }
-    }else{
-      alert(errorCode);
-      alert(errorMessage);  
-    }
-  });
-}
+  };
+  return{
+    login     :     login,
+    registro  :     registro
+  }
+})();
+
 
 function viewRegistro() {
   console.log("registro");
@@ -71,6 +71,19 @@ function viewRegistro() {
 
 function google() {
   var provider = new firebase.auth.GoogleAuthProvider();
+
+ /* firebase.auth().getRedirectResult().then(function(result) {
+    if (result.credential) {
+      var token = result.credential.accessToken;
+    }
+    var user = result.user;
+  });
+
+  provider.addScope('profile');
+  provider.addScope('email');
+  firebase.auth().signInWithRedirect(provider);
+*/
+ 
   firebase.auth().signInWithPopup(provider).then(function(result) {
     var token = result.credential.accessToken;
     var user = result.user;

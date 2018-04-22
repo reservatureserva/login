@@ -25,7 +25,14 @@ a{
     margin-top: 25vh;
 }
 
+#feedBack{
+    background-color: rgba(244, 67, 54, 1);
+}
+
 /********** navBar *********************/
+#navBar{
+    display: none;
+}
 .mdl-layout__header-row{
     padding-left: 10px;
 }
