@@ -1,0 +1,63 @@
+
+#login {
+  //background-color: #FAFAF9;
+  //background-image: -moz-linear-gradient(#e8e8e8, #fafafa);
+  //background-image: -o-linear-gradient(#e8e8e8, #fafafa);
+  //background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #e8e8e8), color-stop(1, #fafafa));
+  //background-image: -webkit-linear-gradient(#e8e8e8, #fafafa);
+  //background-image: -ms-linear-gradient(#e8e8e8, #fafafa);
+  //background-image: linear-gradient(#e8e8e8, #fafafa);
+  //background-attachment: fixed;
+
+  background-color: #fafaf9;
+  margin: 0;
+  padding: 0;
+  height: calc(100vh - #{$navPathHeight});
+  color: #555;
+
+  text-align: center;
+  .wrapper {
+    max-width: 400px;
+    //background: #fff;
+    margin: 0 auto;
+    padding: 35px 0;
+    @include down-xs {
+      width: calc(100% - 1em)
+    }
+
+    form.login {
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      padding: 20px;
+      background: #fff;
+      width: 100%;
+      text-align: center;
+      .login-logo {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+      }
+      .divider {
+        width: 70px;
+        height: 2px;
+        background-color: $redNormal;
+        margin: 0 auto;
+      }
+      .mdl-textfield {
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .mdl-button {
+        margin: 1em 0;
+        background-color: $redDark;
+        color: #fff;
+        width: 100%;
+        &:hover{
+          background-color: lighten($redDark,10%);
+        }
+      }
+    }
+  }
+}
