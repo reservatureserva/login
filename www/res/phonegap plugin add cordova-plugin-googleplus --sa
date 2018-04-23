@@ -1,0 +1,1 @@
+phonegap plugin add cordova-plugin-googleplus --save --variable REVERSED_CLIENT_ID=com.googleusercontent.apps.18277841873-1gklhfst9hbtibj17gup0kn022ll2dk5 --variable WEB_APPLICATION_CLIENT_ID=18277841873-1gklhfst9hbtibj17gup0kn022ll2dk5.apps.googleusercontent.com
