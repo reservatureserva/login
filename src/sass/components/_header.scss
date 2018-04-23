@@ -1,0 +1,41 @@
+$headerHeight: 54px;
+header {
+  background-color: #606060;
+  padding: 10px 0;
+  @include down-xs{
+    text-align: center;
+  }
+  @include clearfix();
+  .app-icon {
+    float: left;
+    padding-left: $paddingLateral;
+    @include down-xs{
+      float: none;
+      padding-left: 0;
+    }
+    img {
+      height: $headerHeight;
+      width: auto;
+    }
+  }
+  .user {
+    float: right;
+    height: $headerHeight;
+    text-align: center;
+    color: #fff;
+    padding-right: $paddingLateral;
+    @include down-xs{
+      float: none;
+      padding-right: 0;
+    }
+    .user-middle {
+      line-height: $headerHeight;
+      vertical-align: middle;
+    }
+    a {
+      text-decoration: none;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+$navPathHeight: 50px;
+$navPathColorActive: rgb(63, 81, 181);
+$navPathColorSep: #c9d4d7;
+$navPathColorParent: #c9d4d7;
+$navPathBgColor: #fafaf9;
+
+#nav-path {
+  height: $navPathHeight;
+  background-color: $navPathBgColor;
+
+  span {
+    font-size: $navPathHeight/4;
+    line-height: $navPathHeight;
+    color: $navPathColorParent;
+    &.active {
+      color: $navPathColorActive;
+    }
+    &:first-child {
+      margin-left: $paddingLateral;
+    }
+
+    &:not(:last-child):after {
+      margin: 0 25px;
+      font-size: 20px;
+      content: "/";
+      color: $navPathColorSep;
+    }
+  }
+}
