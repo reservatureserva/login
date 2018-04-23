@@ -50,31 +50,31 @@
   };
 
   var google = ()=>{
-    window.plugins.googleplus.login(
+    /*window.plugins.googleplus.login(
     {
       'scopes': 'profile email', // optional, space-separated list of scopes, If not included or empty, defaults to `profile` and `email`.
       'webClientId': '18277841873-q1supd0dkeclqt8h8gm7f5dn6rmll234.apps.googleusercontent.com', // optional clientId of your Web application from Credentials settings of your project - On Android, this MUST be included to get an idToken. On iOS, it is not required.
-      'offline': true // optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
+      'offline': false // optional, but requires the webClientId - if set to true the plugin will also return a serverAuthCode, which can be used to grant offline access to a non-Google server
     },
     function (obj) {
       alert(JSON.stringify(obj)); // do something useful instead of alerting
     },
     function (msg) {
-      alert('error: ' + msg);
+      console.log('error: ' + msg.error);
     }
-    );
-    /*var provider = new firebase.auth.GoogleAuthProvider();
-    /* firebase.auth().getRedirectResult().then(function(result) {
-       if (result.credential) {
-         var token = result.credential.accessToken;
-       }
-       var user = result.user;
-     });
+    );*/
+    var provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().getRedirectResult().then(function(result) {
+     if (result.credential) {
+       var token = result.credential.accessToken;
+     }
+     var user = result.user;
+   });
 
-     provider.addScope('profile');
-     provider.addScope('email');
-     firebase.auth().signInWithRedirect(provider);
-     */
+    provider.addScope('profile');
+    provider.addScope('email');
+    firebase.auth().signInWithRedirect(provider);
+
 
     /* firebase.auth().signInWithPopup(provider).then(function(result) {
       var token = result.credential.accessToken;
@@ -103,6 +103,7 @@
   return{
     login     :     login,
     registro  :     registro,
-    google    :     google
+    google    :     google,
+    logOut    :     logOut
   }
 })();

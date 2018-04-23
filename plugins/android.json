@@ -39,9 +39,6 @@
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.gmail.ronny"
-    },
-    "cordova-plugin-googleplus": {
-      "PACKAGE_NAME": "com.gmail.ronny"
     }
   },
   "dependent_plugins": {

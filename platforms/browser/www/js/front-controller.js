@@ -1,5 +1,6 @@
 $(document).ready(function() {
 	var user = firebase.auth().currentUser;
+
 	contenido.ini();
 	if (user) {
 		contenido.home();
@@ -11,10 +12,16 @@ $(document).ready(function() {
 var contenido = (function() {
 	var idLogin;
 	var idRegistro;
+	var dialog;
+	var cardReserva;
+	var cardBusqueda
 	var ini = ()=>{
 		idLogin = $("#login");
 		idRegistro = $("#registro");
-	}
+		dialog = document.querySelector('dialog');
+		cardReserva = $("#cardReserva");
+		cardBusqueda = $("#cardBusqueda");
+	};
 	
 
 	var login = ()=>{
@@ -34,18 +41,22 @@ var contenido = (function() {
 		console.log("loading home");
 		$(".js-contenido").html("");
 		homeCo.ini();
+		reservasCards();
+		filtroDialog();
 
 	};
 
 	//generará y mostrará las reservas actuales recibidas del servidor
-	var reservasCards = (json)=>{
-
+	var reservasCards = ()=>{
+		console.log("loading card reserva");
+		$(".js-contenido").html(cardReserva);
 	};
 
 
 	var filtroDialog = ()=>{
 		console.log("loading filtroDialog");
-
+		$(".js-contenido").append(dialog);
+		modalFiltro.ini(dialog);
 
 	};
 

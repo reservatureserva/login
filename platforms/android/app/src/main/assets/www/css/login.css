@@ -15,6 +15,7 @@ a{
     display: none;
 }
 
+
 .titulo{
     white-space: nowrap;
     text-align: center;
@@ -22,11 +23,15 @@ a{
 }
 
 .ventana{
-    margin-top: 25vh;
+    margin-top: 17vh;
 }
 
 #feedBack{
     background-color: rgba(244, 67, 54, 1);
+}
+
+.js-contenido{
+    padding-top: 8vh;
 }
 
 /********** navBar *********************/
@@ -285,6 +290,76 @@ nav {
     background: 0 0;
 }
 
+/********** dialog *********************/
+.titulo-dialog{
+    text-align: center;
+    font-family: 'Lobster', cursive;
+}
+
+
+
+/********** cards *********************/
+
+.demo-card-wide.mdl-card {
+    width: 512px;
+}
+
+.demo-card-wide>.mdl-card__title {
+    color: #fff;
+    height: 176px;
+    background: rgba(0, 0, 0, .5) url('http://icons.iconarchive.com/icons/fasticon/twitter-square/256/twitter-square-icon.png') center / cover;
+}
+
+.demo-card-wide>.mdl-card__menu {
+    color: #fff;
+}
+
+.precio {
+    float: right;
+    background-color: red;
+    width: 20%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border-radius: 15px 0 15px 0;
+}
+
+.pre {
+    margin: 0;
+    padding: 0;
+}
+
+.serv {
+    /*border: 1px solid black;*/
+    background-color: white;
+    border-radius: 0 0 15px 15px;
+}
+
+.valPre {
+    margin: 10px 0;
+}
+
+.cardBackground {
+    text-align: center;
+}
+
+.cardImg {
+    height: 150px;
+    width: 150px;
+    background: url("http://icons.iconarchive.com/icons/fasticon/twitter-square/256/twitter-square-icon.png") no-repeat center;
+    margin: 0px auto;
+}
+
+.fechaIni {
+    float: left;
+    background-color: red;
+    width: 35%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    border-radius: 0 15px 0 15px;
+}
+
 @media only screen and (min-width: 768px) {
     .buscarMovil {
         display: none;
@@ -300,7 +375,7 @@ nav {
         width: 580px;
     }
 
-    #login .mdl-textfield, #registro .mdl-textfield{
+    .mdl-textfield{
         width: 600px;
     }
 }

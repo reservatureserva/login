@@ -1,6 +1,6 @@
 var modalFiltro = (function() {
 
-	var modalIni = ()=>{
+	var ini = (dialog)=>{
 		var dialog = document.querySelector('dialog');
 		var showDialogButton = document.querySelector('#search-button');
 		if (! dialog.showModal) {
@@ -56,7 +56,7 @@ var modalFiltro = (function() {
 
 
 	return{
-		modalIni		: 		modalIni,
+		ini				: 		ini,
 		sliders			: 		sliders
 	}
 })();
