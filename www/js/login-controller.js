@@ -8,6 +8,11 @@ var loginCo = (function() {
 			contenido.registro();
 		});
 
+
+		$("#google-connect").click(function(){
+			userCo.google();
+		});
+
 		$("#btn-login").click(function(){
 			login();
 			//contenido.home();
