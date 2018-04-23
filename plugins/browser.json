@@ -39,6 +39,10 @@
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.gmail.ronny"
+    },
+    "cordova-plugin-googleplus": {
+      "WEB_APPLICATION_CLIENT_ID": "18277841873-q1supd0dkeclqt8h8gm7f5dn6rmll234.apps.googleusercontent.com",
+      "PACKAGE_NAME": "com.gmail.ronny"
     }
   },
   "dependent_plugins": {
