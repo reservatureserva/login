@@ -7,6 +7,10 @@ body{
     height: 100%;
 }
 
+.mdl-layout__container{
+    height: 120px;
+}
+
 a{
     font-size: 12px;
     text-decoration: none !important;
@@ -30,7 +34,7 @@ a{
 }
 
 .js-contenido{
-    padding-top: 8vh 0vh;
+    padding: 8vh 0vh;
 }
 
 /********** navBar *********************/

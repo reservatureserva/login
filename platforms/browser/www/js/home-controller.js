@@ -3,6 +3,7 @@ var homeCo = (function() {
 	var ini = (json)=>{
 		$("#navBar").css("display", "block");
 		empresaAction();
+		perfilEvents();
 
 	};
 
@@ -23,6 +24,23 @@ var homeCo = (function() {
 				$("#plus").html("add");
 			}
 		});
+	};
+
+	var perfilEvents = ()=>{
+		$("#home").click(function() {
+			/** #### Node #### **/
+			contenido.perfil();
+		});
+		
+		$("#verPerfil").click(function() {
+			/** #### Node #### **/
+			contenido.perfil();
+		});
+
+		$("#logout").click(function() {
+			userCo.logOut();			
+		});
+
 	};
 
 	return{

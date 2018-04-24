@@ -1,24 +1,15 @@
-$(document).ready(function() {
-	var user = firebase.auth().currentUser;
-
-	contenido.ini();
-	if (user) {
-		contenido.home();
-	} else {
-		contenido.login();
-	}
-});
-
 var contenido = (function() {
 	var idLogin;
 	var idRegistro;
 	var cardReserva;
 	var cardBusqueda
+	var perfil;
 	var ini = ()=>{
 		idLogin = $("#login");
 		idRegistro = $("#registro");
 		cardReserva = $("#cardReserva");
 		cardBusqueda = $("#cardBusqueda");
+		perfil = $("#perfil");
 	};
 	
 
@@ -73,8 +64,10 @@ var contenido = (function() {
 
 	};
 
-	var alquilarDialog = (json)=>{
-
+	var perfil = (json)=>{
+		console.log("loading login");
+		$(".js-contenido").html(perfil);
+		perfil.ini(json);
 	};
 
 	var feedBack = (mensaje)=>{
@@ -93,6 +86,7 @@ var contenido = (function() {
 		detailsResult		: 		detailsResult,
 		alquilarDialog		: 		alquilarDialog,
 		alquilarDialog		: 		alquilarDialog,
-		feedBack 			: 		feedBack
+		feedBack 			: 		feedBack,
+		perfil 				: 		perfil
 	}
 })();

@@ -9,7 +9,8 @@
  firebase.initializeApp(config);
 
  firebase.auth().onAuthStateChanged(function(user) {
-   if (user) {
+  app.ini();
+  if (user) {
     var displayName = user.displayName;
     var email = user.email;
     var emailVerified = user.emailVerified;
@@ -19,7 +20,7 @@
     var providerData = user.providerData;
     /** #### Node #### **/
     console.log("Lamada al servidor");
-    contenido.home(user); 
+    contenido.home(user);
   }
 });
 
@@ -94,7 +95,7 @@
 
   var logOut = ()=>{
     firebase.auth().signOut().then(function() {
-      alert('Cerrando sesion');
+      app.ini();
     }, function(error) {
       alert('Sign Out Error'+ error);
     });
