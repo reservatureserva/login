@@ -39,6 +39,17 @@
   <script type="text/javascript" src="js/modalFiltro-controller.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
   <script type="text/javascript">
+    function editField(field, button) {
+    var f = $("#" + field);
+    $(f).attr("hidden", "true");
+    var type = field === 'tlf' ? 'number' : 'text';
+
+    $("input[name='" + field + "']").attr("type", type);
+
+    $(button).attr("style", "display: none");
+    $("#update").removeAttr("style");
+}
+
   </script>
 
 
@@ -258,7 +269,7 @@
 
 
   <!-- cardReserva --> 
-  <div class="margin mdl-grid" id="cardReserva">
+  <!--<div class="margin mdl-grid" id="cardReserva">
     <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet serv mdl-shadow--2dp ">
      <div class="demo-card-wide producto">
       <div class="mdl-card__supporting-text">
@@ -292,7 +303,7 @@
 </div>
 </div>
 
-</div>
+</div>-->
 
 <!-- cardBusqueda --> 
 <div class = "mdl-grid" id="cardBusqueda">
@@ -346,5 +357,68 @@
 </div>
 </div>
 </div>
+
+<!-- perfil -->
+  <div class="margin mdl-grid" id="cardReserva">
+
+
+
+
+
+
+
+                               
+                                <div class="box box-info" style="background-color: white">
+                                  <h6>Email:</h6>
+                                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <p id="email">pepe@gmail.es</p> 
+                                  </div>
+                                  <br/>
+                                  <h6>Nombre:</h6>
+                                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" name="name" type="hidden" id="user-name" value="pepe">
+                                    <p id="name">pepe</p> 
+                                  </div>
+                                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  onclick="editField('name', this)"> 
+                                    <i class="material-icons">mode_edit</i> 
+                                  </button>
+                                  <br/>
+                                  <h6>Teléfono:</h6>
+                                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" name="tlf" type="hidden" id="user-tlf" value="123456789">
+                                    <p id="tlf">123456789</p>
+                                  </div>
+                                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"  onclick="editField('tlf', this)"> 
+                                    <i class="material-icons">mode_edit</i> 
+                                  </button>
+                                  <br/>
+                                  <h6>DNI:</h6>
+                                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <p id="name">12345678P</p> 
+                                  </div>  
+                                  <br/>
+                                  <h6>Fecha de Nacimiento:</h6>
+                                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <p id="email">24/5/2018</p> 
+                                  </div>
+                                  <br/> 
+                                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"> 
+                                    Modificar 
+                                  </button>
+                                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"> 
+                                    Ver Historial
+                                  </button> 
+                                  <label >
+                                    <div class="imgProfile">
+                                    </div>
+                                    <input type="file" name="" hidden=""S>
+                                  </label>
+                                                               
+                                </div>
+
+
+
+
+  </div>
 </body>
 </html>
