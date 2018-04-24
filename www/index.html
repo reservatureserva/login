@@ -54,7 +54,7 @@
                     <div class="mdl-cell--7-col mdl-cell--6-col-tablet buscarPC" align="center">
                         <form action="#">
                             <div class="mdl-textfield mdl-cell--11-col mdl-cell--5-col-tablet">
-                                <input class="mdl-textfield__input search" type="text" id="sample6">
+                                <input class="mdl-textfield__input search" type="text" name="searchBoxHeader">
                             </div>
                             <label id="search-button" class="mdl-button mdl-js-button mdl-button--icon mdl-cell--1-col mdl-cell--1-col-tablet ">
                                 <i class="material-icons">search</i>
@@ -105,6 +105,42 @@
     <div class="mdl-snackbar__text"></div>
     <button class="mdl-snackbar__action" type="button"></button>
 </div>
+
+<!-- modal --> 
+<dialog class="mdl-dialog">
+   <h4 class="mdl-dialog__title titulo">¿Qué buscas exactamente?</h4>
+   <div class="mdl-dialog__content">
+      <form method="dialog">
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
+            <input class="mdl-textfield__input" type="text" id="busqueda" name="busqueda"> 
+            <label class="mdl-textfield__label" for="busqueda">Busqueda</label> 
+        </div>
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height">
+            <input type="text" class="mdl-textfield__input" id="categoria" readonly> <input type="hidden" name="categoria"> <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i> <label for="categoria" class="mdl-textfield__label">Categoria</label> 
+            <ul for="categoria" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+               <li class="mdl-menu__item" data-val="DEPORTE">Deporte</li>
+               <li class="mdl-menu__item" data-val="MOTOR">Motor</li>
+               <li class="mdl-menu__item" data-val="JUGUETE">Juguetes</li>
+               <li class="mdl-menu__item" data-val="ADULTO">Adulto</li>
+               <li class="mdl-menu__item" data-val="ELECTRONICA">Electronica</li>
+            </ul>
+         </div>
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-precio"> <input class="mdl-textfield__input" type="text" id="precio" name="precio" readonly> <input type="hidden" name="precio" readonly> <label class="mdl-textfield__label" for="precio">Precio</label> </div>
+         <div id="slider-precio"></div>
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-distancia"> <input class="mdl-textfield__input" type="text" id="distancia" name="distancia" readonly> <label class="mdl-textfield__label" for="distancia">Distancia</label> </div>
+         <div id="slider-distancia"></div>
+         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height">
+            <input type="text" class="mdl-textfield__input" id="ordenar" readonly> <input type="hidden" name="ordenar" > <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i> <label for="ordenar" class="mdl-textfield__label">Ordenar por</label> 
+            <ul for="ordenar" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+               <li class="mdl-menu__item" data-val="DISTANCIA" data-selected="true" >Distancia</li>
+               <li class="mdl-menu__item" data-val="PRECIOMIN">Precio más bajo</li>
+               <li class="mdl-menu__item" data-val="PRECIOMAX">Precio más alto</li>
+            </ul>
+         </div>
+      </form>
+   </div>
+   <div class="mdl-dialog__actions"> <button type="button" class="mdl-button buscar" id="search-modal">Buscar</button> <button type="button" class="mdl-button close">Cancelar</button> </div>
+</dialog>
 
 <div class="js-draft">
     <!-- login -->
@@ -215,8 +251,7 @@
 
 
     <!-- cardReserva --> 
-    <div id="cardReserva">
-       <div class="margin mdl-grid">
+       <div class="margin mdl-grid" id="cardReserva">
           <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet serv mdl-shadow--2dp ">
              <div class="demo-card-wide producto">
                 <div class="mdl-card__supporting-text">
@@ -251,41 +286,7 @@
           </div>
 
     </div>
-    <!-- modal --> 
-    <dialog class="mdl-dialog">
-       <h3 class="mdl-dialog__title titulo-dialog">¿Qué buscas exactamente?</h3>
-       <div class="mdl-dialog__content">
-          <form method="dialog">
-             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-                <input class="mdl-textfield__input" type="text" id="busqueda" name="busqueda"> 
-                <label class="mdl-textfield__label" for="busqueda">Busqueda</label> 
-            </div>
-             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height">
-                <input type="text" class="mdl-textfield__input" id="categoria" readonly> <input type="hidden" name="categoria"> <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i> <label for="categoria" class="mdl-textfield__label">Categoria</label> 
-                <ul for="categoria" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                   <li class="mdl-menu__item" data-val="DEPORTE">Deporte</li>
-                   <li class="mdl-menu__item" data-val="MOTOR">Motor</li>
-                   <li class="mdl-menu__item" data-val="JUGUETE">Juguetes</li>
-                   <li class="mdl-menu__item" data-val="ADULTO">Adulto</li>
-                   <li class="mdl-menu__item" data-val="ELECTRONICA">Electronica</li>
-                </ul>
-             </div>
-             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-precio"> <input class="mdl-textfield__input" type="text" id="precio" name="precio" readonly> <input type="hidden" name="precio" readonly> <label class="mdl-textfield__label" for="precio">Precio</label> </div>
-             <div id="slider-precio"></div>
-             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-distancia"> <input class="mdl-textfield__input" type="text" id="distancia" name="distancia" readonly> <label class="mdl-textfield__label" for="distancia">Distancia</label> </div>
-             <div id="slider-distancia"></div>
-             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height">
-                <input type="text" class="mdl-textfield__input" id="ordenar" readonly> <input type="hidden" name="ordenar" > <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i> <label for="ordenar" class="mdl-textfield__label">Ordenar por</label> 
-                <ul for="ordenar" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                   <li class="mdl-menu__item" data-val="DISTANCIA" data-selected="true" >Distancia</li>
-                   <li class="mdl-menu__item" data-val="PRECIOMIN">Precio más bajo</li>
-                   <li class="mdl-menu__item" data-val="PRECIOMAX">Precio más alto</li>
-                </ul>
-             </div>
-          </form>
-       </div>
-       <div class="mdl-dialog__actions"> <button type="button" class="mdl-button buscar" id="search-modal">Buscar</button> <button type="button" class="mdl-button close">Cancelar</button> </div>
-    </dialog>
+
     <!-- cardBusqueda --> 
     <div class = "mdl-grid" id="cardBusqueda">
        <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet serv mdl-shadow--2dp ">

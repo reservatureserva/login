@@ -1,12 +1,18 @@
 var modalFiltro = (function() {
 
-	var ini = (dialog)=>{
+	var ini = ()=>{
 		var dialog = document.querySelector('dialog');
-		var showDialogButton = document.querySelector('#search-button');
-		if (! dialog.showModal) {
+		if (!dialog.showModal) {
 			dialogPolyfill.registerDialog(dialog);
 		}
-		showDialogButton.addEventListener('click', function() {
+		document.querySelector('#search-button').addEventListener('click', function() {
+			var searchHeader = $("input[name='searchBoxHeader'").val();
+			if(searchHeader!== ''){
+				$("input[name='busqueda'").parent().addClass("is-dirty");
+			}else{
+				$("input[name='busqueda'").parent().removeClass("is-dirty");
+			}
+			$("input[name='busqueda'").val(searchHeader);
 			dialog.showModal();
 		});
 
@@ -16,8 +22,10 @@ var modalFiltro = (function() {
 
 		//lanzar la query
 		dialog.querySelector('.buscar').addEventListener('click', function() {
+			contenido.resultCards();
 			dialog.close();
 		});
+		sliders();
 	};
 
 	var sliders = ()=>{

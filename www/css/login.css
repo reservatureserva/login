@@ -17,7 +17,6 @@ a{
 
 
 .titulo{
-    white-space: nowrap;
     text-align: center;
     font-family: 'Lobster', cursive;
 }
@@ -35,6 +34,10 @@ a{
 }
 
 /********** navBar *********************/
+header{
+    white-space: nowrap;
+}
+
 #navBar{
     display: none;
 }
@@ -291,10 +294,6 @@ nav {
 }
 
 /********** dialog *********************/
-.titulo-dialog{
-    text-align: center;
-    font-family: 'Lobster', cursive;
-}
 
 
 
