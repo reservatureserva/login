@@ -5,7 +5,8 @@ var modalFiltro = (function() {
 		if (!dialog.showModal) {
 			dialogPolyfill.registerDialog(dialog);
 		}
-		document.querySelector('#search-button').addEventListener('click', function() {
+
+		$(".search-button").click(function() {
 			var searchHeader = $("input[name='searchBoxHeader'").val();
 			if(searchHeader!== ''){
 				$("input[name='busqueda'").parent().addClass("is-dirty");
@@ -15,6 +16,8 @@ var modalFiltro = (function() {
 			$("input[name='busqueda'").val(searchHeader);
 			dialog.showModal();
 		});
+
+
 
 		dialog.querySelector('.close').addEventListener('click', function() {
 			dialog.close();

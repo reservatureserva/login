@@ -8,7 +8,8 @@ var homeCo = (function() {
 	};
 
 	var empresaAction = ()=>{
-		$("#menu-share").on("click", function(event){
+		$("#menu-share").click(function(event){
+			event.preventDefault();
 			if(!menu){
 				menu = !menu;
 				$(".botonEmp ul").css("visibility", "visible");
@@ -27,11 +28,13 @@ var homeCo = (function() {
 	};
 
 	var perfilEvents = ()=>{
-		$("#home").click(function() {
-			/** #### Node #### **/
-			contenido.perfil();
+		$("#home").click(function(e) {
+			
+			e.preventDefault();
+			e.stopPropagation();
+			contenido.backHome();
 		});
-		
+
 		$("#verPerfil").click(function() {
 			/** #### Node #### **/
 			contenido.perfil();

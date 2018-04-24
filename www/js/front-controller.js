@@ -10,11 +10,13 @@ var contenido = (function() {
 		cardReserva = $("#cardReserva");
 		cardBusqueda = $("#cardBusqueda");
 		perfil = $("#perfil");
+		$(".js-draft").html();
 	};
 	
 
 	var login = ()=>{
 		console.log("loading login");
+		$("#navBar").css("display", "none");
 		$(".js-contenido").html(idLogin);
 		loginCo.ini();
 	};
@@ -33,6 +35,12 @@ var contenido = (function() {
 		reservasCards();
 		filtroDialog();
 
+	};
+
+	var backHome = ()=>{
+		console.log("loading home");
+		$(".js-contenido").html("");
+		reservasCards();
 	};
 
 	//generará y mostrará las reservas actuales recibidas del servidor
@@ -67,14 +75,21 @@ var contenido = (function() {
 	var perfil = (json)=>{
 		console.log("loading login");
 		$(".js-contenido").html(perfil);
-		perfil.ini(json);
+		//perfil.ini(json);
 	};
 
 	var feedBack = (mensaje)=>{
 		document.querySelector('#feedBack').MaterialSnackbar.showSnackbar({message: mensaje});
 	};
 
-	
+	var logOut = ()=>{
+		$(".js-draft").append(idLogin);
+		$(".js-draft").append(idRegistro);
+		$(".js-draft").append(cardReserva);
+		$(".js-draft").append(cardBusqueda);
+		$(".js-draft").append(perfil);
+	};
+
 	return{
 		ini 				: 		ini,
 		login				:		login,
@@ -87,6 +102,8 @@ var contenido = (function() {
 		alquilarDialog		: 		alquilarDialog,
 		alquilarDialog		: 		alquilarDialog,
 		feedBack 			: 		feedBack,
-		perfil 				: 		perfil
+		perfil 				: 		perfil,
+		logOut 				: 		logOut,
+		backHome			: 		backHome
 	}
 })();

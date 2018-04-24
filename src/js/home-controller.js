@@ -8,6 +8,9 @@ var homeCo = (function() {
 
 	var empresaAction = ()=>{
 		$("#menu-share").on("click", function(event){
+			
+			event.preventDefault();
+			event.stopPropagation();
 			if(!menu){
 				menu = !menu;
 				$(".botonEmp ul").css("visibility", "visible");
