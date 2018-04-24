@@ -22,6 +22,7 @@ var modalFiltro = (function() {
 
 		//lanzar la query
 		dialog.querySelector('.buscar').addEventListener('click', function() {
+			/** #### Node #### **/
 			contenido.resultCards();
 			dialog.close();
 		});

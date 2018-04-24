@@ -38,6 +38,10 @@ header{
     white-space: nowrap;
 }
 
+.mdl-menu__container {
+    right: 10px !important;
+}
+
 #navBar{
     display: none;
 }
@@ -376,5 +380,9 @@ nav {
 
     .mdl-textfield{
         width: 600px;
+    }
+
+    .mdl-menu__container {
+        right: 80px !important;
     }
 }

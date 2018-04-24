@@ -2,12 +2,11 @@ $(document).ready(function() {
 	var user = firebase.auth().currentUser;
 
 	contenido.ini();
-	contenido.home();
-	/*if (user) {
+	if (user) {
 		contenido.home();
 	} else {
 		contenido.login();
-	}*/
+	}
 });
 
 var contenido = (function() {
