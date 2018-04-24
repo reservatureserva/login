@@ -12,13 +12,11 @@ $(document).ready(function() {
 var contenido = (function() {
 	var idLogin;
 	var idRegistro;
-	var dialog;
 	var cardReserva;
 	var cardBusqueda
 	var ini = ()=>{
 		idLogin = $("#login");
 		idRegistro = $("#registro");
-		dialog = document.querySelector('dialog');
 		cardReserva = $("#cardReserva");
 		cardBusqueda = $("#cardBusqueda");
 	};
@@ -55,14 +53,15 @@ var contenido = (function() {
 
 	var filtroDialog = ()=>{
 		console.log("loading filtroDialog");
-		$(".js-contenido").append(dialog);
-		modalFiltro.ini(dialog);
+		//$(".js-contenido").append(dialog);
+		modalFiltro.ini();
 
 	};
 
 	//generará y mostrará los resultados recibidos del servidor
 	var resultCards = (json)=>{
-
+		console.log("loading card Busqueda");
+		$(".js-contenido").html(cardBusqueda);
 	};
 
 	var detailsResult = (json)=>{

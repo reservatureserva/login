@@ -17,7 +17,6 @@ a{
 
 
 .titulo{
-    white-space: nowrap;
     text-align: center;
     font-family: 'Lobster', cursive;
 }
@@ -31,10 +30,18 @@ a{
 }
 
 .js-contenido{
-    padding-top: 8vh;
+    padding-top: 8vh 0vh;
 }
 
 /********** navBar *********************/
+header{
+    white-space: nowrap;
+}
+
+.mdl-menu__container {
+    right: 10px !important;
+}
+
 #navBar{
     display: none;
 }
@@ -291,10 +298,6 @@ nav {
 }
 
 /********** dialog *********************/
-.titulo-dialog{
-    text-align: center;
-    font-family: 'Lobster', cursive;
-}
 
 
 
@@ -377,5 +380,12 @@ nav {
 
     .mdl-textfield{
         width: 600px;
+    }
+
+    .mdl-menu__container {
+        right: 80px !important;
+    }
+    .js-contenido{
+        padding-top: 8vh;
     }
 }

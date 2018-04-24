@@ -30,7 +30,7 @@ a{
 }
 
 .js-contenido{
-    padding-top: 8vh;
+    padding-top: 8vh 0vh;
 }
 
 /********** navBar *********************/
@@ -384,5 +384,8 @@ nav {
 
     .mdl-menu__container {
         right: 80px !important;
+    }
+    .js-contenido{
+        padding-top: 8vh;
     }
 }
