@@ -64,7 +64,8 @@ gulp.task('templates', function (cb) {
         htmls[path.parse(p).name] = data;
     });
     fs.writeFile('src/js/templates.js', 'const components = ' + JSON.stringify(htmls), function (err) {
-        cb(err)
+        cb(err)const gulp = require('gulp');
+
     })
 });
 

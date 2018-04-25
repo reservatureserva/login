@@ -5,8 +5,9 @@ var rememberCo = (function() {
 
 	var eventButtons = ()=>{
 		$("#btn-rem-send").click(function(){
-			contenido.login();
+			userCo.rememberPassword($("#remember-email").val());
 		});
+
 	};
 
 	return{

@@ -76,10 +76,19 @@
     });
   };
 
+  var rememberPassword = (emailAddress)=>{
+    firebase.auth().sendPasswordResetEmail(emailAddress).then(function() {
+      contenido.login();
+    }).catch(function(error) {
+      contenido.feedBack("Error, vuelva a intentarlo");
+    });
+  };
+
   return{
     login     :     login,
     registro  :     registro,
     google    :     google,
-    logOut    :     logOut
+    logOut    :     logOut,
+    rememberPassword  :   rememberPassword
   }
 })();

@@ -9,9 +9,11 @@ var loginCo = (function() {
 		});
 
 
-		$("#google-connect").click(function(){
-			userCo.google();
+		$("#btn-remember").click(function(){
+			contenido.remember();
 		});
+
+
 
 		$("#btn-login").click(function(){
 			login();
