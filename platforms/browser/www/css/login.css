@@ -13,6 +13,7 @@ body{
 
 a{
     font-size: 12px;
+    color: white;
     text-decoration: none !important;
 }
 
@@ -27,7 +28,6 @@ a:visited{
 
 
 .titulo{
-
     text-align: center;
     font-family: 'Lobster', cursive;
 }
@@ -123,12 +123,12 @@ nav {
 
 
 .botonEmp button{
-    background-color: #00bacf;
+    background-color: #607d8b;
     color: white;
 }
 
 .mdl-button:hover{
-    background-color: #00bacf;
+    background-color: #607d8b;
 }
 
 
@@ -137,7 +137,7 @@ nav {
   margin-top:18px;
 }
 
-.botonEmp a#menu-share + ul{
+.botonEmp a#menu-empresa + ul{
   visibility: hidden;
 }
 
@@ -149,10 +149,17 @@ nav {
     margin-bottom: 20px;
 }
 
+.ui-slider-range{
+    background-color: rgb(0, 167, 186);
+}
+
+
 #login .mdl-button{
     padding-left: 40%;
     padding-right: 40%;
-    background-color: ;
+    background-color: #00bacf;
+    color: white;
+    margin-top: 20px;
 }
 
 
@@ -160,17 +167,6 @@ nav {
     margin: 20px 10px -35px 10px;
 }
 
-
-.pass-forgot{
-    width: 100%;
-    float: right;
-    text-align: right;
-    color: rgba(0, 0, 0, 0.4);
-    font-size: 13px;
-    padding-bottom: 20px;
-    color : rgb(64,196,255);
-
-}
 
 .card-me {
     padding-left: 25px;
@@ -188,110 +184,9 @@ nav {
     letter-spacing: 1px;
     position: relative;
 }
-
-.social-button {
-    background-position: 25px 0px;
-    box-sizing: border-box;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    display: inline-block;
-    height: 50px;
-    line-height: 50px;
-    text-align: left;
-    text-decoration: none;
-    text-transform: uppercase;
-    vertical-align: middle;
-    width: 100%;
-    border-radius: 3px;
-    margin: 10px auto;
-    outline: rgb(255, 255, 255) none 0px;
-    padding-left: 20%;
-    transition: all 0.2s cubic-bezier(0.72, 0.01, 0.56, 1) 0s;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
-}
-
-#us-connect {
-    background: rgb(255, 255, 255) no-repeat scroll 5px 0px / 50px 50px padding-box border-box;
-    border: 1px solid rgb(64,196,255);
-}
-
-#us-connect:hover {
-    border-color: rgb(64,196,255);
-    background: rgb(64,196,255) no-repeat scroll 5px 0px / 50px 50px padding-box border-box;
-    -webkit-transition: all .8s ease-out;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease-out;
-}
-
-#us-connect span {
-    text-align: center;
-    box-sizing: border-box;
-    color: rgb(64,196,255);
-    cursor: pointer;
-    text-align: center;
-    text-transform: uppercase;
-    border: 0px none rgb(64,196,255);
-    outline: rgb(255, 255, 255) none 0px;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
-}
-
-#us-connect:hover span {
-    color: #FFF;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
-}
-
-
-#google-connect {
-    background: rgb(255, 255, 255) url('https://eswarasai.com/projects/social-login/img/google-plus.png') no-repeat scroll 5px 0px / 50px 50px padding-box border-box;
-    border: 1px solid rgb(220, 74, 61);
-}
-
-#google-connect:hover {
-    border-color: rgb(220, 74, 61);
-    background: rgb(220, 74, 61) url('https://eswarasai.com/projects/social-login/img/google-plus-white.png') no-repeat scroll 5px 0px / 50px 50px padding-box border-box;
-    -webkit-transition: all .8s ease-out;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease-out;
-}
-
-#google-connect span {
-    box-sizing: border-box;
-    color: rgb(220, 74, 61);
-    cursor: pointer;
-    text-align: center;
-    text-transform: uppercase;
-    border: 0px none rgb(220, 74, 61);
-    outline: rgb(255, 255, 255) none 0px;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
-}
-
-#google-connect:hover span {
-    color: #FFF;
-    -webkit-transition: all .3s ease;
-    -moz-transition: all .3s ease;
-    -ms-transition: all .3s ease;
-    -o-transition: all .3s ease;
-    transition: all .3s ease;
+.loginArchors a{
+    color: #00bacf;
+    margin-bottom: 30px;
 }
 
 .btn, .input-group-btn .btn {
@@ -339,7 +234,7 @@ nav {
 }
 
 .precio {
-    background-color: #607d8b;
+    background-color: #0f8fa2;
     float: right;
     width: 20%;
     margin: 0;
@@ -382,7 +277,7 @@ h6{
 
 .fechaIni {
     float: left;
-    background-color: #607d8b;
+    background-color: #0f8fa2;
     width: 35%;
     margin: 0;
     padding: 0;

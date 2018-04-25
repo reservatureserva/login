@@ -123,12 +123,12 @@ nav {
 
 
 .botonEmp button{
-    background-color: #00bacf;
+    background-color: #607d8b;
     color: white;
 }
 
 .mdl-button:hover{
-    background-color: #00bacf;
+    background-color: #607d8b;
 }
 
 
@@ -137,7 +137,7 @@ nav {
   margin-top:18px;
 }
 
-.botonEmp a#menu-share + ul{
+.botonEmp a#menu-empresa + ul{
   visibility: hidden;
 }
 
@@ -234,7 +234,7 @@ nav {
 }
 
 .precio {
-    background-color: #607d8b;
+    background-color: #0f8fa2;
     float: right;
     width: 20%;
     margin: 0;
@@ -277,7 +277,7 @@ h6{
 
 .fechaIni {
     float: left;
-    background-color: #607d8b;
+    background-color: #0f8fa2;
     width: 35%;
     margin: 0;
     padding: 0;
