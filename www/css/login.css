@@ -285,6 +285,14 @@ h6{
     border-radius: 0 15px 0 15px;
 }
 
+/************ Perfil *********************/
+.profilePicture {
+    height: 100%;
+    width: 100%;
+    background-image: url("https://http2.mlstatic.com/fotos-5x5-cm-visa-estados-unidos-eeuu-y-otros-6-fotos-carnet-D_NQ_NP_23142-MLA20241872874_022015-F.jpg");
+    background-size: 100% 100%;
+}
+
 @media only screen and (min-width: 768px) {
     .buscarMovil {
         display: none;

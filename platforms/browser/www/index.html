@@ -39,6 +39,17 @@
   <script type="text/javascript" src="js/modalFiltro-controller.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
   <script type="text/javascript">
+    function editField(field, button) {
+        var f = $("#" + field);
+        $(f).attr("hidden", "true");
+        var type = field === 'tlf' ? 'number' : 'text';
+
+        $("input[name='" + field + "']").attr("type", type);
+
+        $(button).attr("style", "display: none");
+        $("#update").removeAttr("style");
+    }
+
   </script>
 
 
@@ -347,6 +358,116 @@
 </div>
 </div>
 </div>
+
+
+<!-- perfil -->
+  <div class="mdl-grid" id="perfil">
+    <div class="mdl-cell mdl-cell--12-col ventana">
+      <div class="mdl-card mdl-shadow--8dp card-me">
+        <div align="center">
+          <h4 class="titulo">Perfil de Usuario</h4>                            
+          <form action="#">
+            <div class="mdl-grid">
+              <div class="mdl-cell mdl-cell--12-col">
+                <div>
+                  <label class="lamina-image-import">
+                    <span class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                      <div class="profilePicture"></div>
+                      <input type="file" name="avatar" accept=".jpg,.png" hidden="">
+                    </span>
+                    <input ng-upload-change="lamina.onFotoChange($event)" hidden="" type="file" accept="image/*" class="ng-isolate-scope">
+                  </label>
+                </div>
+              </div>
+              <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
+                  <input class="mdl-textfield__input" type="text" id="name" value="pepe"> <label class="mdl-textfield__label" for="name">Nombre</label> 
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
+                  <input class="mdl-textfield__input" type="email" id="email" value="pepe@gmail.es" readonly> <label class="mdl-textfield__label" for="email">Email</label> 
+                </div>
+                <div class="js-date mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="date" value="24/7/1990" readonly>
+                  <label class="mdl-textfield__label" for="date">Fecha de Nacimiento</label> 
+                </div>
+                
+              </div>
+              <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
+                  <input class="mdl-textfield__input" type="text" id="dni" value="12345678P" readonly> 
+                  <label class="mdl-textfield__label" for="dni">DNI</label> 
+                </div>
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
+                  <input class="mdl-textfield__input" type="number" id="tlf" value="612345678"> 
+                  <label class="mdl-textfield__label" for="tlf">Teléfono</label>
+                </div>
+
+                <div class="js-date mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="nreservas" value="3" readonly>
+                  <label class="mdl-textfield__label" for="nreservas">Nº de Reservas</label> 
+                </div>
+
+                
+              </div>
+            </div>
+          </form>
+          <hr>
+
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
+                <input class="mdl-textfield__input" type="password" id="password"> 
+                  <label class="mdl-textfield__label" for="password">Cambiar contraseña</label> 
+                </div>
+
+
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
+                  <input class="mdl-textfield__input" type="password" id="repassword">
+                  <label class="mdl-textfield__label" for="repassword">Repetir contraseña</label> 
+                </div>
+          </div>
+        <div>
+        <span style="float:left;">
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"> Guardar cambios </button>
+        </span>
+        <span style="float:right;"> 
+          <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"> Borrar Usuario </button>
+        </span>
+        </div> 
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQS -->
+  <div class="mdl-grid" id="faqs">
+    <div class="mdl-cell mdl-cell--12-col ventana">
+      <div class="mdl-card mdl-shadow--8dp card-me">
+        <div align="center">
+          <h4 class="titulo">FAQS</h4>                            
+          <form action="#">
+            <div class="mdl-grid">
+              <div class="mdl-cell mdl-cell--12-col">
+                <h6 class="titulo" style="text-align: left;">¿Quienes somos?</h6>
+              </div>
+              <div class="mdl-cell mdl-cell--12-col">
+                <p  style="text-align: left;">Somos un gestor de reservas que se facilita la comunicación entre la empresa que presta un servicio y el cliente que lo solicita</p>
+              </div>        
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+                               
+                               
+
+
+
+
+  </div>
 </div>
 </body>
 </html>
