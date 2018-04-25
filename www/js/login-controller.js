@@ -4,7 +4,7 @@ var loginCo = (function() {
 	};
 
 	var eventButtons = ()=>{
-		$("#us-connect").click(function(){
+		$("#btn-register").click(function(){
 			contenido.registro();
 		});
 
