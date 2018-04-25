@@ -19,7 +19,7 @@ var modalFiltro = (function() {
 
 
 
-		dialog.querySelector('.close').addEventListener('click', function() {
+		dialog.querySelector('.cancelar').addEventListener('click', function() {
 			dialog.close();
 		});
 

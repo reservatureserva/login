@@ -13,6 +13,7 @@ var registroCo = (function() {
 		});
 	};
 
+
 	return{
 		ini			: 			ini
 	}

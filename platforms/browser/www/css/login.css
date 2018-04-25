@@ -1,313 +1,307 @@
 /********** INDEX *********************/
-body{
-    background: url("../img/background.jpg") no-repeat center center fixed;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    -khtml-opacity: .50;
-    height: 100%;
+ body{
+     background: url("../img/background.jpg") no-repeat center center fixed;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     -khtml-opacity: .50;
+     height: 100%;
+}
+ .mdl-layout__container{
+     height: 120px;
+}
+ a{
+     font-size: 12px;
+     color: white;
+     text-decoration: none !important;
+}
+ a:visited{
+     color: white;
+     text-decoration: none !important;
 }
 
-.mdl-layout__container{
-    height: 120px;
+ .js-draft{
+     display: none;
 }
-
-a{
-    font-size: 12px;
-    color: white;
-    text-decoration: none !important;
+ .titulo{
+     text-align: center;
+     font-family: 'Lobster', cursive;
 }
-
-a:visited{
-    color: white;
-    text-decoration: none !important;
+ .ventana{
+     margin-top: 17vh;
 }
-
-.js-draft{
-    display: none;
+ #feedBack{
+     background-color: rgba(244, 67, 54, 1);
 }
-
-
-.titulo{
-    text-align: center;
-    font-family: 'Lobster', cursive;
+ .js-contenido{
+     padding: 8vh 0vh;
 }
-
-.ventana{
-    margin-top: 17vh;
-}
-
-#feedBack{
-    background-color: rgba(244, 67, 54, 1);
-}
-
-.js-contenido{
-    padding: 8vh 0vh;
-}
-
 /********** navBar *********************/
-header{
-    white-space: nowrap;
+ header{
+     white-space: nowrap;
 }
-
-.mdl-menu__container {
-    right: 10px !important;
+ .mdl-menu__container {
+     right: 10px !important;
 }
-
-#navBar{
-    display: none;
+ #navBar{
+     display: none;
 }
-.mdl-layout__header-row{
-    padding-left: 10px;
+ .mdl-layout__header-row{
+     padding-left: 10px;
 }
-nav {
-    width:100%;
+ nav {
+     width:100%;
 }
-.search:focus {
-    outline: none !important;
-    border:0px 0px 1px 0px solid black;
-    box-shadow: 0 0 0px;
+ .search:focus {
+     outline: none !important;
+     border:0px 0px 1px 0px solid black;
+     box-shadow: 0 0 0px;
 }
-.img {
-    height: 50px;
-    width: 50px;
-    background-image: url("https://http2.mlstatic.com/fotos-5x5-cm-visa-estados-unidos-eeuu-y-otros-6-fotos-carnet-D_NQ_NP_23142-MLA20241872874_022015-F.jpg");
-    background-size: 50px 50px;
-    border-radius:50%;
-    float: right;
+ .img {
+     height: 50px;
+     width: 50px;
+     background-image: url("https://http2.mlstatic.com/fotos-5x5-cm-visa-estados-unidos-eeuu-y-otros-6-fotos-carnet-D_NQ_NP_23142-MLA20241872874_022015-F.jpg");
+     background-size: 50px 50px;
+     border-radius:50%;
+     float: right;
 }
-.buscarMovil {
-    height: 60px;
-    width: 60px;
-    margin-bottom: 3.5%;
-    margin-right: 3.5%;
+ .buscarMovil {
+     height: 60px;
+     width: 60px;
+     margin-bottom: 3.5%;
+     margin-right: 3.5%;
 }
-.buscarPC {
-    visibility: hidden;
+ .buscarPC {
+     visibility: hidden;
 }
-
-.botonEmp .float{
-    position:fixed;
-    width:60px;
-    height:60px;
-    bottom:40px;
-    right:40px;
-    color:#FFF;
-    border-radius:50px;
-    text-align:center;
-    z-index:1000;
-    animation: bot-to-top 2s ease-out;
-    
+ .botonEmp .float{
+     position:fixed;
+     width:60px;
+     height:60px;
+     bottom:40px;
+     right:40px;
+     color:#FFF;
+     border-radius:50px;
+     text-align:center;
+     z-index:1000;
+     animation: bot-to-top 2s ease-out;
 }
-
-.botonEmp ul{
-    position:fixed;
-    right:40px;
-    padding-bottom:20px;
-    bottom:80px;
-    z-index:100;
+ .botonEmp ul{
+     position:fixed;
+     right:40px;
+     padding-bottom:20px;
+     bottom:80px;
+     z-index:100;
 }
-
-.botonEmp ul li{
-    list-style:none;
-    margin-bottom:10px;
+ .botonEmp ul li{
+     list-style:none;
+     margin-bottom:10px;
 }
-
-.botonEmp ul li a{
-    color:#FFF;
-    border-radius:50px;
-    text-align:center;
-    width:60px;
-    height:60px;
-    display:block;
+ .botonEmp ul li a{
+     color:#FFF;
+     border-radius:50px;
+     text-align:center;
+     width:60px;
+     height:60px;
+     display:block;
 }
-
-
-.botonEmp button{
-    background-color: #607d8b;
-    color: white;
+ .botonEmp button{
+     background-color: #607d8b;
+     color: white;
 }
-
-.mdl-button:hover{
-    background-color: #607d8b;
+ .mdl-button:hover{
+     background-color: #607d8b;
 }
-
-
-.botonEmp .my-float{
-  font-size:24px;
-  margin-top:18px;
+ .botonEmp .my-float{
+     font-size:24px;
+     margin-top:18px;
 }
-
-.botonEmp a#menu-empresa + ul{
-  visibility: hidden;
+ .botonEmp a#menu-empresa + ul{
+     visibility: hidden;
 }
-
-
 /********** login *********************/
-
-
-.ui-slider{
-    margin-bottom: 20px;
+ .ui-slider{
+     margin-bottom: 20px;
 }
-
-.ui-slider-range{
-    background-color: rgb(0, 167, 186);
+ .ui-slider-range{
+     background-color: rgb(0, 167, 186);
 }
-
-
-#login .mdl-button{
-    padding-left: 40%;
-    padding-right: 40%;
-    background-color: #00bacf;
-    color: white;
-    margin-top: 20px;
+ #login .mdl-button, #registro button{
+     padding-left: 40%;
+     padding-right: 40%;
+     background-color: #30a7ba;
+     color: white;
+     margin-top: 20px;
+     text-transform: capitalize;
+     font-weight: bolder;
 }
-
-
-#registro .volver{
-    margin: 20px 10px -35px 10px;
+ #registro .volver{
+     margin: 20px 10px -35px 10px;
 }
-
-
-.card-me {
-    padding-left: 25px;
-    padding-right: 25px;
-    padding-bottom: 25px;
+ .card-me {
+     padding-left: 25px;
+     padding-right: 25px;
+     padding-bottom: 25px;
 }
-
-.mdl-cell--12-col{
-    display: flex;
-    justify-content: center;
+ .mdl-cell--12-col{
+     display: flex;
+     justify-content: center;
 }
-
-.login-box {
-    text-align: center;
-    letter-spacing: 1px;
-    position: relative;
+ .login-box {
+     text-align: center;
+     letter-spacing: 1px;
+     position: relative;
 }
-.loginArchors a{
-    color: #00bacf;
-    margin-bottom: 30px;
+ .loginArchors a{
+     color: #00bacf;
+     margin-bottom: 30px;
 }
-
-.btn, .input-group-btn .btn {
-    border: none;
-    border-radius: 2px;
-    position: relative;
-    padding: 8px 30px;
-    margin: 10px 1px;
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0;
-    will-change: box-shadow,transform;
-    -webkit-transition: -webkit-box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
-    -o-transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
-    transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
-    outline: 0;
-    cursor: pointer;
-    text-decoration: none;
-    background: 0 0;
+ .btn, .input-group-btn .btn {
+     border: none;
+     border-radius: 2px;
+     position: relative;
+     padding: 8px 30px;
+     margin: 10px 1px;
+     font-size: 14px;
+     font-weight: 500;
+     text-transform: uppercase;
+     letter-spacing: 0;
+     will-change: box-shadow,transform;
+     -webkit-transition: -webkit-box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
+     -o-transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
+     transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
+     outline: 0;
+     cursor: pointer;
+     text-decoration: none;
+     background: 0 0;
 }
-
 /********** dialog *********************/
-
-
-
+ .mdl-dialog button{
+     background-color: #30a7ba;
+     color: white;
+     margin-top: 20px;
+     text-transform: capitalize;
+     font-weight: bolder;
+}
 /********** cards *********************/
-
-.demo-card-wide.mdl-card {
-    width: 512px;
+ .demo-card-wide.mdl-card {
+     width: 512px;
 }
-
-.producto{
-    position: relative;
+ .producto{
+     position: relative;
 }
-
-.demo-card-wide>.mdl-card__title {
-    color: #fff;
-    height: 176px;
-    background: rgba(0, 0, 0, .5) url('http://icons.iconarchive.com/icons/fasticon/twitter-square/256/twitter-square-icon.png') center / cover;
+ .demo-card-wide>.mdl-card__title {
+     font-weight: bolder;
+     color: #fff;
+     height: 176px;
+     background: rgba(0, 0, 0, .5) url('http://icons.iconarchive.com/icons/fasticon/twitter-square/256/twitter-square-icon.png') center / cover;
 }
-
-.demo-card-wide>.mdl-card__menu {
-    color: #fff;
+ .demo-card-wide>.mdl-card__menu {
+     color: #fff;
 }
-
-.precio {
-    background-color: #0f8fa2;
-    float: right;
-    width: 20%;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    border-radius: 15px 0 15px 0;
+ .precio {
+     background-color: #30a7ba;
+     float: right;
+     width: 20%;
+     margin: 0;
+     padding: 0;
+     text-align: center;
+     border-radius: 15px 0 15px 0;
+     font-weight: bolder;
 }
-
-.pre {
-    margin: 0;
-    padding: 0;
-    color: white;
+ .pre {
+     margin: 0;
+     padding: 0;
+     color: white;
 }
-
-.serv {
-    /*border: 1px solid black;*/
-    background-color: white;
-    border-radius: 0 0 20px 20px;
+ .serv {
+     background-color: white;
+     border-radius: 0 0 20px 20px;
 }
-
-h6{
-    margin: 10px 0;
+ h6{
+     margin: 10px 0;
 }
-
-.cardBackground {
-    text-align: center;
-    filter: blur(6px);
+ .cardBackground {
+     text-align: center;
+     filter: blur(6px);
 }
-
-.cardImg {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 5%;
-    height: 150px;
-    width: 150px;
-    background: url("http://icons.iconarchive.com/icons/fasticon/twitter-square/256/twitter-square-icon.png") no-repeat center;
-    margin: 0px auto;
+ .cardImg {
+     position: absolute;
+     left: 0;
+     right: 0;
+     top: 5%;
+     height: 150px;
+     width: 150px;
+     background: url("http://icons.iconarchive.com/icons/fasticon/twitter-square/256/twitter-square-icon.png") no-repeat center;
+     margin: 0px auto;
 }
-
-.fechaIni {
-    float: left;
-    background-color: #0f8fa2;
-    width: 35%;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    border-radius: 0 15px 0 15px;
+ .fechaIni {
+     font-weight: bolder;
+     float: left;
+     background-color: #30a7ba;
+     width: 35%;
+     margin: 0;
+     padding: 0;
+     text-align: center;
+     border-radius: 0 15px 0 15px;
 }
-
-@media only screen and (min-width: 768px) {
-    .buscarMovil {
-        display: none;
+/**** servicio ****/
+ .servicio {
+     width: 95%;
+     margin-left:2.5%;
+     background-color:white;
+     padding:20px;
+     border-radius: 50px;
+}
+ .carousel-inner>.item>a>img, .carousel-inner>.item>img {
+     width: 100%;
+     height: 350px;
+}
+ .imagenes {
+     border-radius: 100% 0 0 0;
+}
+ .carousel-control {
+     opacity:0;
+}
+ .carousel-control:hover {
+     opacity:0;
+}
+ img {
+     border-radius: 90px;
+}
+ .carousel-control.right {
+     background: none;
+}
+ .carousel-control.left {
+     background: none;
+}
+ @media only screen and (min-width: 768px) {
+     .buscarMovil {
+         display: none;
     }
-    .buscarPC{
-        visibility: visible;
+     .buscarPC{
+         visibility: visible;
     }
-    .botonEmp{
-        display: none;
+     .botonEmp{
+         display: none;
     }
-
-    .card-me, .mdl-dialog{
-        width: 580px;
+     .card-me, .mdl-dialog{
+         width: 580px;
     }
-
-    .mdl-textfield{
-        width: 600px;
+     .mdl-textfield{
+         width: 600px;
     }
-
-    .mdl-menu__container {
-        right: 80px !important;
+     .mdl-menu__container {
+         right: 80px !important;
     }
-    .js-contenido{
-        padding: 8vh;
+     .js-contenido{
+         padding: 8vh;
+    }
+     .servicio {
+         width: 80%;
+         margin-left:10%;
+    }
+     .carousel-inner>.item>a>img, .carousel-inner>.item>img {
+         width: 100%;
+         height: 700px;
     }
 }

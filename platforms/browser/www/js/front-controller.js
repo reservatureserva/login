@@ -1,15 +1,19 @@
 var contenido = (function() {
 	var idLogin;
+	var idRemember;
 	var idRegistro;
 	var cardReserva;
 	var cardBusqueda
 	var perfil;
+	var oferta;
 	var ini = ()=>{
 		idLogin = $("#login");
 		idRegistro = $("#registro");
+		idRemember = $("#remember");
 		cardReserva = $("#cardReserva");
 		cardBusqueda = $("#cardBusqueda");
 		perfil = $("#perfil");
+		oferta = $("#oferta");
 		$(".js-draft").html();
 	};
 	
@@ -61,10 +65,11 @@ var contenido = (function() {
 	var resultCards = (json)=>{
 		console.log("loading card Busqueda");
 		$(".js-contenido").html(cardBusqueda);
+		busquedaCo.ini();
 	};
 
-	var detailsResult = (json)=>{
-
+	var ofertaView = (json)=>{
+		$(".js-contenido").html(oferta);
 	};
 
 	//Dialogo de texto con las condiciones que tenga la oferta, un check de aceptar condiciones
@@ -90,6 +95,12 @@ var contenido = (function() {
 		$(".js-draft").append(perfil);
 	};
 
+	var remember = ()=>{
+		console.log("loading remember");
+		$(".js-contenido").html(idRemember);
+		rememberCo.ini();
+	};
+
 	return{
 		ini 				: 		ini,
 		login				:		login,
@@ -98,12 +109,13 @@ var contenido = (function() {
 		reservasCards		: 		reservasCards,
 		filtroDialog		: 		filtroDialog,
 		resultCards			: 		resultCards,
-		detailsResult		: 		detailsResult,
+		ofertaView			: 		ofertaView,
 		alquilarDialog		: 		alquilarDialog,
 		alquilarDialog		: 		alquilarDialog,
 		feedBack 			: 		feedBack,
 		perfil 				: 		perfil,
 		logOut 				: 		logOut,
-		backHome			: 		backHome
+		backHome			: 		backHome,
+		remember 			: 		remember
 	}
 })();

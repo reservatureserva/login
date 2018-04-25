@@ -4,13 +4,15 @@
   <title></title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!-- CSS libs -->
+  <link rel="stylesheet" href="css/lib/bootstrap.min.css">
   <link rel="stylesheet" href="css/lib/material-icons.css">
   <link rel="stylesheet" href="css/lib/material.min.css">
-  <link href="css/lib/lobster.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/lib/bootstrap-material-datetimepicker.css">
   <link rel="stylesheet" type="text/css" href="css/lib/dialog-polyfill.css">
   <link rel="stylesheet" type="text/css" href="css/lib/getmdl-select.min.css">
+  <link rel="stylesheet" href="css/lib/lobster.css">
   <link rel="stylesheet" href="css/lib/jquery-ui.css">
 
 
@@ -18,6 +20,7 @@
   <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
   <script type="text/javascript" src="js/lib/firebase.js"></script>
   <script type="text/javascript" src="js/lib/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/lib/jquery-ui.js"></script>
   <script type="text/javascript" src="js/lib/jquery.ui.touch-punch.min.js"></script>
   <script type="text/javascript" src="js/lib/moment.js"></script>
@@ -37,6 +40,8 @@
   <script type="text/javascript" src="js/registro-controller.js"></script>
   <script type="text/javascript" src="js/home-controller.js"></script>
   <script type="text/javascript" src="js/modalFiltro-controller.js"></script>
+  <script type="text/javascript" src="js/busqueda-controller.js"></script>
+  <script type="text/javascript" src="js/remmeber-controller.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
   <script type="text/javascript">
   </script>
@@ -146,7 +151,14 @@
 </div>
 </form>
 </div>
-<div class="mdl-dialog__actions"> <button type="button" class="mdl-button buscar" id="search-modal">Buscar</button> <button type="button" class="mdl-button close">Cancelar</button> </div>
+<div class="mdl-dialog__actions">
+
+    <button type="button" style="margin-left: auto;" class="mdl-button cancelar">Cancelar</button> 
+
+  
+    <button type="button" style="margin-right: auto;" class="mdl-button buscar" id="search-modal">Buscar</button>
+
+</div>
 </dialog>
 
 <div class="js-draft">
@@ -172,7 +184,7 @@
                 <a href="#" id="btn-register">Registrarse</a>
               </span>
               <span style="float: right">
-                <a href="#">Recordar contraseña</a>
+                <a href="#" id="btn-remember">Recordar contraseña</a>
               </span>
             </div>
             <button type="button" id="btn-login" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
@@ -198,7 +210,7 @@
         <div align="center">
           <h4 class="titulo">Reserva tu reserva</h4>                            
           <form action="#">
-            <div id="registro" class="mdl-grid">
+            <div class="mdl-grid">
               <div class="mdl-cell mdl-cell--12-col">
                 <div>
                   <label class="lamina-image-import">
@@ -245,12 +257,9 @@
                   <input class="mdl-textfield__input" type="text" id="date">
                   <label class="mdl-textfield__label" for="date">dd/mm/yyyy</label> 
                 </div>
-
-                <div> 
-                  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"> Registro </button>
-                </div>
               </div>
             </div>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"> Registro </button>
           </form>
           <hr>
         </div>
@@ -261,10 +270,10 @@
 
   <!-- cardReserva --> 
   <div class="margin mdl-grid" id="cardReserva">
-    <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet serv mdl-shadow--2dp ">
+    <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-shadow--2dp serv reservaCard" data-reserva="1r">
      <div class="demo-card-wide producto">
       <div class="mdl-card__supporting-text">
-       <h2 class="mdl-card__title-text"><b>COCHE</b></h2>
+       <h2 class="mdl-card__title-text">COCHE</h2>
        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia... by empresa 
      </div>
      <div class="mdl-card__actions pre">
@@ -272,23 +281,23 @@
         <h6>24/05/2018</h6>
       </div>
       <div class="precio">
-        <h6><b>7000 €</b></h6>
+        <h6>7000 €</h6>
       </div>
     </div>
   </div>
 </div>
-<div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet serv mdl-shadow--2dp ">
+<div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet serv mdl-shadow--2dp servicioCard" data-reserva="kjlkhvghfdtehrt">
  <div class="demo-card-wide producto">
   <div class="mdl-card__supporting-text">
-   <h2 class="mdl-card__title-text"><b>COCHE</b></h2>
+   <h2 class="mdl-card__title-text">COCHE</h2>
    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia... by empresa 
  </div>
  <div class="mdl-card__actions pre">
    <div class="fechaIni">
-    <h6 class="valPre">24/05/2018</h6>
+    <h6>24/05/2018</h6>
   </div>
   <div class="precio">
-    <h6 class="valPre">7000 €</h6>
+    <h6>7000 €</h6>
   </div>
 </div>
 </div>
@@ -298,55 +307,122 @@
 
 <!-- cardBusqueda --> 
 <div class = "mdl-grid" id="cardBusqueda">
- <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet serv mdl-shadow--2dp ">
+ <div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet serv mdl-shadow--2dp servicioCard">
   <div class="demo-card-wide producto">
-   <div class="mdl-card__title cardBackground">
+   <div class="mdl-card__title cardBackground" data-oferta="tygchdyjut">
    </div>
    <div class="cardImg"></div>
    <div class="mdl-card__supporting-text">
-    <h2 class="mdl-card__title-text"><b>COCHE</b></h2>
+    <h2 class="mdl-card__title-text">COCHE</h2>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia... by empresa 
   </div>
   <div class="mdl-card__actions pre">
     <div class="precio">
-     <h6 class="valPre">7000 €</h6>
+     <h6>7000 €</h6>
    </div>
  </div>
 </div>
 </div>
-<div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet serv mdl-shadow--2dp ">
+<div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet serv mdl-shadow--2dp" data-oferta="2b">
   <div class="demo-card-wide producto">
    <div class="mdl-card__title cardBackground">
    </div>
    <div class=" cardImg"></div>
    <div class="mdl-card__supporting-text">
-    <h2 class="mdl-card__title-text"><b>COCHE</b></h2>
+    <h2 class="mdl-card__title-text">COCHE</h2>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia... by empresa 
   </div>
   <div class="mdl-card__actions pre">
     <div class="precio">
-     <h6 class="valPre">7000 €</h6>
+     <h6>7000 €</h6>
    </div>
  </div>
 </div>
 </div>
-<div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet serv mdl-shadow--2dp ">
+<div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-tablet serv mdl-shadow--2dp " data-oferta="3b">
   <div class="demo-card-wide producto">
    <div class="mdl-card__title cardBackground">
    </div>
    <div class=" cardImg"></div>
    <div class="mdl-card__supporting-text">
-    <h2 class="mdl-card__title-text"><b>COCHE</b></h2>
+    <h2 class="mdl-card__title-text">COCHE</h2>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia... by empresa 
   </div>
   <div class="mdl-card__actions pre">
     <div class="precio">
-     <h6 class="valPre">7000 €</h6>
+     <h6>7000 €</h6>
    </div>
  </div>
 </div>
 </div>
 </div>
+
+<!-- Oferta -->
+<div id="oferta" class="mdl-cell mdl-cell--4-col servicio">
+   <div class="demo-card-wide producto">
+      <div id="myCarousel" class="carousel slide imagenes" data-ride="carousel">
+         <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+         </ol>
+         <div class="carousel-inner">
+            <div class="item active">
+               <div class="prod1"> </div>
+               <img src="https://www.diariomotor.com/imagenes/picscache/750x/mito-coche-rojo-seguro-4-1440px_750x.jpg" alt="<i class='material-icons'>add_a_photo</i>"> 
+            </div>
+            <div class="item">
+               <div class="prod2"></div>
+               <img src="http://www.parquesdisney.info/Imagenes-de-Disney/Walt-Disney-Studios/Coche-rojo.jpg" alt=""> 
+            </div>
+            <div class="item"> <img src="https://www.pita-baby.com/7901-large_default/orinal-coche-rojo-ninos-orinal-ninos-rojo-orinal-ninos-dibujo-orinal-ninos-economico-orinal-ninos-forma-coche-rojo.jpg" alt="<i class='material-icons'>add_a_photo</i>"> </div>
+         </div>
+         <a class="left carousel-control" href="#myCarousel" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#myCarousel" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> <span class="sr-only">Next</span> </a> 
+      </div>
+      <br /><br /> 
+      <div >
+         <h1 class="mdl-card__title-text"><font size="20px"><b>COCHE</b></font></h1>
+         <div class="mdl-grid">
+            <div class="mdl-cell--10-col">
+               <h3>Empresa</h3>
+            </div>
+            <div class="mdl-cell--2-col">
+               <h3>7000 €</h3>
+            </div>
+         </div>
+         <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia...</h4>
+      </div>
+      <div class="mdl-card__actions"> <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"> RESERVAR </button> </div>
+      <div class="mdl-card__menu"> <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"> <i class="material-icons">share</i> </button> </div>
+   </div>
+</div>
+
+
+<!-- remember password -->
+  <div id="remember" class="mdl-grid">
+    <div class="mdl-cell mdl-cell--12-col ventana">
+      <div class="mdl-card mdl-shadow--8dp card-me">
+
+        <div align="center">
+          <h4 class="titulo">Reserva tu Reserva</h4>
+          <h6 class="titulo">Recuperar tu contraseña</h6>
+          <form method="post" action="#">
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <input class="mdl-textfield__input" name="email" type="email" id="remember-email">
+              <label class="mdl-textfield__label" for="remember-email">Email</label>
+            </div>
+            <button type="button" id="btn-rem-send" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+              Enviar al correo
+            </button>
+          </form> 
+        </div>          
+      </div>
+    </div>
+  </div>
+
+
+
+
 </div>
 </body>
 </html>
