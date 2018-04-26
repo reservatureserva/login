@@ -4,7 +4,7 @@
      -moz-background-size: cover;
      -o-background-size: cover;
      -khtml-opacity: .50;
-     height: 100%;
+     background-size: 100% 100%;
 }
  .mdl-layout__container{
      height: 120px;

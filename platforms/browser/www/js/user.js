@@ -83,12 +83,23 @@
       contenido.feedBack("Error, vuelva a intentarlo");
     });
   };
+  var updateUser = ()=>{
+    changePassword($("#password").val());
+  };
+  var changePassword = (newPassword)=>{
+    firebase.auth().currentUser.updatePassword(newPassword).then(function() {
+    }).catch(function(error) {
+      contenido.feedBack("Error al cambiar la contraseña, vuelva a intentarlo");
+    });
+
+  };
 
   return{
     login     :     login,
     registro  :     registro,
     google    :     google,
     logOut    :     logOut,
-    rememberPassword  :   rememberPassword
+    rememberPassword  :   rememberPassword,
+    updateUser        :   updateUser
   }
 })();

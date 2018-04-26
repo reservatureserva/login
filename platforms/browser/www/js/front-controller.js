@@ -7,6 +7,7 @@ var contenido = (function() {
 	var perfil;
 	var oferta;
 	var faqs;
+	var createOferta;
 	var ini = ()=>{
 		idLogin = $("#login");
 		idRegistro = $("#registro");
@@ -16,6 +17,7 @@ var contenido = (function() {
 		perfil = $("#perfil");
 		oferta = $("#oferta");
 		faqs = $("#faqs");
+		createOferta = $("#createOferta");
 		$(".js-draft").html();
 		globalListeners();
 	};
@@ -46,7 +48,6 @@ var contenido = (function() {
 		homeCo.ini();
 		reservasCards();
 		filtroDialog();
-
 	};
 
 	var backHome = ()=>{
@@ -88,7 +89,6 @@ var contenido = (function() {
 	var perfil = (json)=>{
 		console.log("loading login");
 		$(".js-contenido").html(perfil);
-		//perfil.ini(json);
 	};
 
 	var feedBack = (mensaje)=>{
@@ -114,6 +114,10 @@ var contenido = (function() {
 		faqsCo.ini();
 	};
 
+	var createOfertaView = ()=>{
+		$(".js-contenido").html(createOferta);
+	};
+
 	return{
 		ini 				: 		ini,
 		login				:		login,
@@ -130,6 +134,7 @@ var contenido = (function() {
 		logOut 				: 		logOut,
 		backHome			: 		backHome,
 		remember 			: 		remember,
-		faqsView 			: 		faqsView
+		faqsView 			: 		faqsView,
+		createOfertaView 	: 		createOfertaView
 	}
 })();
