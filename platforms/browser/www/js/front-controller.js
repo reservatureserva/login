@@ -6,6 +6,7 @@ var contenido = (function() {
 	var cardBusqueda
 	var perfil;
 	var oferta;
+	var faqs;
 	var ini = ()=>{
 		idLogin = $("#login");
 		idRegistro = $("#registro");
@@ -14,9 +15,16 @@ var contenido = (function() {
 		cardBusqueda = $("#cardBusqueda");
 		perfil = $("#perfil");
 		oferta = $("#oferta");
+		faqs = $("#faqs");
 		$(".js-draft").html();
+		globalListeners();
 	};
 	
+	var globalListeners = ()=>{
+		$(".faqs").click(function() {
+			faqsView();
+		});
+	};
 
 	var login = ()=>{
 		console.log("loading login");
@@ -101,6 +109,11 @@ var contenido = (function() {
 		rememberCo.ini();
 	};
 
+	var faqsView = ()=>{
+		$(".js-contenido").html(faqs);
+		faqsCo.ini();
+	};
+
 	return{
 		ini 				: 		ini,
 		login				:		login,
@@ -116,6 +129,7 @@ var contenido = (function() {
 		perfil 				: 		perfil,
 		logOut 				: 		logOut,
 		backHome			: 		backHome,
-		remember 			: 		remember
+		remember 			: 		remember,
+		faqsView 			: 		faqsView
 	}
 })();

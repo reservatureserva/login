@@ -8,6 +8,10 @@ var rememberCo = (function() {
 			userCo.rememberPassword($("#remember-email").val());
 		});
 
+		$(".volver").click(function(e) {
+			contenido.login();
+		});
+
 	};
 
 	return{

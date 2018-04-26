@@ -134,7 +134,7 @@
      text-transform: capitalize;
      font-weight: bolder;
 }
- #registro .volver{
+.volver{
      margin: 20px 10px -35px 10px;
 }
  .card-me {
@@ -193,7 +193,7 @@
      font-weight: bolder;
      color: #fff;
      height: 176px;
-     background: rgba(0, 0, 0, .5) url('http://icons.iconarchive.com/icons/fasticon/twitter-square/256/twitter-square-icon.png') center / cover;
+     background: rgba(0, 0, 0, .5) url('http://www.europaperu.org/wp-content/themes/p-blog-theme/assets/images/No-image-full.jpg') center / cover;
 }
  .demo-card-wide>.mdl-card__menu {
      color: #fff;
@@ -231,7 +231,7 @@
      top: 5%;
      height: 150px;
      width: 150px;
-     background: url("http://icons.iconarchive.com/icons/fasticon/twitter-square/256/twitter-square-icon.png") no-repeat center;
+     background: url("http://www.europaperu.org/wp-content/themes/p-blog-theme/assets/images/No-image-full.jpg") no-repeat center;
      margin: 0px auto;
 }
  .fechaIni {

@@ -7,14 +7,12 @@ var modalFiltro = (function() {
 		}
 
 		$(".search-button").click(function() {
-			var searchHeader = $("input[name='searchBoxHeader'").val();
-			if(searchHeader!== ''){
-				$("input[name='busqueda'").parent().addClass("is-dirty");
-			}else{
-				$("input[name='busqueda'").parent().removeClass("is-dirty");
-			}
-			$("input[name='busqueda'").val(searchHeader);
-			dialog.showModal();
+			showModal(dialog);
+		});
+
+		$("form[name='navBarForm']").submit(function() {
+			showModal(dialog);
+			return false;
 		});
 
 
@@ -30,6 +28,17 @@ var modalFiltro = (function() {
 			dialog.close();
 		});
 		sliders();
+	};
+
+	var showModal = (dialog)=>{
+		var searchHeader = $("input[name='searchBoxHeader'").val();
+		if(searchHeader!== ''){
+			$("input[name='busqueda'").parent().addClass("is-dirty");
+		}else{
+			$("input[name='busqueda'").parent().removeClass("is-dirty");
+		}
+		$("input[name='busqueda'").val(searchHeader);
+		dialog.showModal();
 	};
 
 	var sliders = ()=>{

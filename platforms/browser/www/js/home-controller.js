@@ -28,8 +28,7 @@ var homeCo = (function() {
 	};
 
 	var perfilEvents = ()=>{
-		$("#home").click(function(e) {
-			
+		$("#home").click(function(e) {	
 			e.preventDefault();
 			e.stopPropagation();
 			contenido.backHome();
@@ -43,7 +42,6 @@ var homeCo = (function() {
 		$("#logout").click(function() {
 			userCo.logOut();			
 		});
-
 	};
 
 	return{

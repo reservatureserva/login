@@ -8,16 +8,12 @@ var loginCo = (function() {
 			contenido.registro();
 		});
 
-
 		$("#btn-remember").click(function(){
 			contenido.remember();
 		});
 
-
-
 		$("#btn-login").click(function(){
 			login();
-			//contenido.home();
 		});
 	};
 
