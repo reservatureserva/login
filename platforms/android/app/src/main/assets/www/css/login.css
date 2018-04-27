@@ -134,9 +134,11 @@
      text-transform: capitalize;
      font-weight: bolder;
 }
-.volver{
+.volver, .volver:hover, .volver:focus{
+    color: black;
      margin: 20px 10px -35px 10px;
 }
+
  .card-me {
      padding-left: 25px;
      padding-right: 25px;

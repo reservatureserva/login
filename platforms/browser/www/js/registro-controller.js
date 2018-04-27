@@ -9,10 +9,6 @@ var registroCo = (function() {
 			componentHandler.upgradeAllRegistered();
 		}
 
-		$(".volver").click(function() {
-			contenido.login();
-		});
-
 		//listener click del btn-registro llame a procesarRegistro
 		$("form[name='registroFormu']").submit(function() {
 			procesarRegistro();
