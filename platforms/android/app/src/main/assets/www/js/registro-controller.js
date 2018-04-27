@@ -18,16 +18,16 @@ var registroCo = (function() {
 
 
 	};
-	var createJSON = (dni, name, email, tlf, date, foto)=>{
+	var createJSON = (dni, name, email, tlf, date, foto, password)=>{
 		var json = {
 			"dni":dni,
-			"nombreCompleto":name,
+			"nombre":name,
 			"email":email,
-			"telefono":tlf,
+			"tlf":tlf,
 			"fecha_nacimiento":date,
-			"foto":foto
+			"foto_perfil":foto
 		}
-		console.log(json);
+		peticionesAJAX.registro(json, userCo.registro(email, password));
 	};
 	var procesarRegistro = ()=>{
 		var foto = "";
@@ -50,12 +50,12 @@ var registroCo = (function() {
 
 			FR.addEventListener("load", function(e) {
 				foto = e.target.result;
-				createJSON(dni, name, email, tlf, date, foto);
+				createJSON(dni, name, email, tlf, date, foto, password);
 			}); 
 
 			FR.readAsDataURL( avatar.files[0] );
 		} else {
-			createJSON(dni, name, email, tlf, date, foto);
+			createJSON(dni, name, email, tlf, date, foto, password);
 		}
 
 

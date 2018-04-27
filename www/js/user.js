@@ -31,10 +31,9 @@
       firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
        var errorCode = error.code;
        var errorMessage = error.message;
-       console.log(error);
-     //Se notifica al usuario
-     //Si hay error, borrará el registro de elastic
-   });
+       contenido.feedBack(error.message);
+       peticionesAJAX.borrarUsuario(email);
+     });
     } 
   };
 
@@ -83,9 +82,7 @@
       contenido.feedBack("Error, vuelva a intentarlo");
     });
   };
-  var updateUser = ()=>{
-    changePassword($("#password").val());
-  };
+
   var changePassword = (newPassword)=>{
     firebase.auth().currentUser.updatePassword(newPassword).then(function() {
     }).catch(function(error) {
@@ -100,6 +97,7 @@
     google    :     google,
     logOut    :     logOut,
     rememberPassword  :   rememberPassword,
-    updateUser        :   updateUser
+    updateUser        :   updateUser,
+    changePassword    :   changePassword
   }
 })();

@@ -49,16 +49,20 @@ var modalFiltro = (function() {
 			values: [0, 5000],
 			slide: function( event, ui ) {
 				var value = "Cualquier precio";
+				var realValue = -1;
 				$(".js-precio").addClass("is-dirty");
 				var min = ui.values[0] + " €";
 				var max = ui.values[1] > 4999 ? " o más" : " - " + ui.values[1] + " €" ;
 				if(!(ui.values[0] === 0 && ui.values[1] === 5000)){
-					value = min + max;                    
+					value = min + max;
+					realValue = ui.values[0] + ", " + ui.values[1];
 				}
 				if(ui.values[0] === ui.values[1]){
 					value = min;
+					realValue = ui.values[0];
 				}
-				$("input[name='precio']").val(value);
+				$("input[name='precio'][type='text']").val(value);
+				$("input[name='precio'][type='hidden']").val(realValue);
 			}
 		});
 
@@ -69,8 +73,10 @@ var modalFiltro = (function() {
 			min: 0,
 			max: 100,
 			slide: function(event, ui) {
+				var realValue = -1;
 				$(".js-distancia").addClass("is-dirty");
-				$("input[name='distancia']").val(ui.value > 0 && ui.value < 99 ? "menos de "+ui.value + " Km" :"Cualquier distancia");
+				$("input[name='distancia'][type='text']").val(ui.value > 0 && ui.value < 99 ? "menos de "+ui.value + " Km" :"Cualquier distancia");
+				$("input[name='distancia'][type='hidden']").val(ui.value > 0 && ui.value < 99 ? ui.value : realValue);
 			}
 		});
 	};

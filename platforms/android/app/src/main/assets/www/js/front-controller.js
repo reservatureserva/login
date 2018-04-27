@@ -89,6 +89,7 @@ var contenido = (function() {
 	var perfil = (json)=>{
 		console.log("loading login");
 		$(".js-contenido").html(perfil);
+		perfilCo.ini();
 	};
 
 	var feedBack = (mensaje)=>{

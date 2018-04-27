@@ -9,13 +9,9 @@
  .mdl-layout__container{
      height: 120px;
 }
- a{
+
+a, a:visited, a:hover, a:focus{
      font-size: 12px;
-     color: white;
-     text-decoration: none !important;
-}
- a:visited, a:hover, a:focus{
-     color: white;
      text-decoration: none !important;
 }
 
@@ -134,11 +130,9 @@
      text-transform: capitalize;
      font-weight: bolder;
 }
-.volver, .volver:hover, .volver:focus{
-    color: black;
+.volver{
      margin: 20px 10px -35px 10px;
 }
-
  .card-me {
      padding-left: 25px;
      padding-right: 25px;
