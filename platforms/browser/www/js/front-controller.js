@@ -18,7 +18,7 @@ var contenido = (function() {
 		oferta = $("#oferta");
 		faqs = $("#faqs");
 		createOferta = $("#createOferta");
-		$(".js-draft").html();
+		$(".js-draft").html("");
 		globalListeners();
 	};
 	

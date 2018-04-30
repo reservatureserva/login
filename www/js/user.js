@@ -97,7 +97,6 @@
     google    :     google,
     logOut    :     logOut,
     rememberPassword  :   rememberPassword,
-    updateUser        :   updateUser,
     changePassword    :   changePassword
   }
 })();

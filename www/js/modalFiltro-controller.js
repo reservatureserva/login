@@ -24,6 +24,7 @@ var modalFiltro = (function() {
 		//lanzar la query
 		dialog.querySelector('.buscar').addEventListener('click', function() {
 			/** #### Node #### **/
+			procesarBusqueda();
 			contenido.resultCards();
 			dialog.close();
 		});
@@ -79,6 +80,17 @@ var modalFiltro = (function() {
 				$("input[name='distancia'][type='hidden']").val(ui.value > 0 && ui.value < 99 ? ui.value : realValue);
 			}
 		});
+	};
+
+	var procesarBusqueda = ()=>{
+		var json = {
+			busqueda: 		$("form[name='dialog'] input[name='busqueda']").val(),
+			categoria: 		$("form[name='dialog'] input[name='categoria']").val(),
+			precio: 		$("form[name='dialog'] input[name='precio'][type='hidden']").val(),
+			distancia: 		$("form[name='dialog'] input[name='distancia'][type='hidden']").val(),
+			ordenar: 		$("form[name='dialog'] input[name='ordenar']").val()
+		};
+		peticionesAJAX.busqueda(json, contenido.resultCards);
 	};
 
 

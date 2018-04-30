@@ -44,6 +44,7 @@
   <script type="text/javascript" src="js/remember-controller.js"></script>
   <script type="text/javascript" src="js/faqs-controller.js"></script>
   <script type="text/javascript" src="js/perfil-controller.js"></script>
+  <script type="text/javascript" src="js/ajax-controller.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
   <script type="text/javascript">
   </script>
@@ -125,13 +126,13 @@
 <dialog class="mdl-dialog">
  <h4 class="mdl-dialog__title titulo">¿Qué buscas exactamente?</h4>
  <div class="mdl-dialog__content">
-  <form method="dialog">
+  <form method="dialog" name="dialog">
    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
     <input class="mdl-textfield__input" type="text" id="busqueda" name="busqueda"> 
     <label class="mdl-textfield__label" for="busqueda">Busqueda</label> 
   </div>
   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height">
-    <input type="text" class="mdl-textfield__input" id="categoria" readonly> <input type="hidden" name="categoria"> <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i> <label for="categoria" class="mdl-textfield__label">Categoria</label> 
+    <input type="text" class="mdl-textfield__input" id="categoria-modal" readonly> <input type="hidden" name="categoria"> <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i> <label for="categoria-modal" class="mdl-textfield__label">Categoria</label> 
     <ul for="categoria" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
      <li class="mdl-menu__item" data-val="DEPORTE">Deporte</li>
      <li class="mdl-menu__item" data-val="MOTOR">Motor</li>
@@ -140,7 +141,7 @@
      <li class="mdl-menu__item" data-val="ELECTRONICA">Electronica</li>
    </ul>
  </div>
- <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-precio"> <input class="mdl-textfield__input" type="text" id="precio" name="precio" readonly> <input type="hidden" name="precio" readonly> <label class="mdl-textfield__label" for="precio">Precio</label> </div>
+ <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-precio"> <input class="mdl-textfield__input" type="text" id="precio-modal" name="precio" readonly> <input type="hidden" name="precio" readonly> <label class="mdl-textfield__label" for="precio-modal">Precio</label> </div>
  <div id="slider-precio"></div>
  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label js-distancia"> <input class="mdl-textfield__input" type="text" id="distancia" name="distancia" readonly><input type="hidden" name="distancia" readonly> <label class="mdl-textfield__label" for="distancia">Distancia</label> </div>
  <div id="slider-distancia"></div>
@@ -233,11 +234,11 @@
               </div>
               <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-                  <input class="mdl-textfield__input" name="name" type="text" id="name" required> <label class="mdl-textfield__label" for="name">Nombre</label> 
+                  <input class="mdl-textfield__input" name="name" type="text" id="name-registro" required> <label class="mdl-textfield__label" for="name-registro">Nombre</label> 
                 </div>
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-                  <input class="mdl-textfield__input" name="email" type="email" id="email" required> <label class="mdl-textfield__label" for="email">Email</label> 
+                  <input class="mdl-textfield__input" name="email" type="email" id="email-registro" required> <label class="mdl-textfield__label" for="email-registro">Email</label> 
                 </div>
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
@@ -253,18 +254,18 @@
               </div>
               <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-                  <input class="mdl-textfield__input" name="dni" type="text" id="dni" required> 
+                  <input class="mdl-textfield__input" name="dni" type="text" id="dni-registro" required> 
                   <label class="mdl-textfield__label" for="dni">DNI</label> 
                 </div>
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-                  <input class="mdl-textfield__input" name="tlf" type="number" id="tlf" max="999999999 " required> 
-                  <label class="mdl-textfield__label" for="tlf">Teléfono</label>
+                  <input class="mdl-textfield__input" name="tlf" type="number" id="tlf-registro" max="999999999 " required> 
+                  <label class="mdl-textfield__label" for="tlf-registro">Teléfono</label>
                 </div>
 
                 <div class="js-date mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input class="mdl-textfield__input" name="date" type="text" id="date" required>
-                  <label class="mdl-textfield__label" for="date">dd/mm/yyyy</label> 
+                  <input class="mdl-textfield__input" name="date" type="text" id="date-registro" required>
+                  <label class="mdl-textfield__label" for="date-registro">dd/mm/yyyy</label> 
                 </div>
               </div>
             </div>
@@ -369,25 +370,32 @@
 <!-- Oferta -->
 <div id="oferta" class="mdl-cell mdl-cell--4-col servicio">
  <div class="demo-card-wide producto">
-  <div id="myCarousel" class="carousel slide imagenes" data-ride="carousel">
+
+ <div id="carousel" class="carousel slide imagenes" data-interval="false" data-ride="carousel">
    <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel" data-slide-to="1"></li>
+    <li data-target="#carousel" data-slide-to="2"></li>
   </ol>
   <div class="carousel-inner">
     <div class="item active">
-     <div class="prod1"> </div>
-     <img src="https://www.diariomotor.com/imagenes/picscache/750x/mito-coche-rojo-seguro-4-1440px_750x.jpg" alt="<i class='material-icons'>add_a_photo</i>"> 
-   </div>
-   <div class="item">
-     <div class="prod2"></div>
-     <img src="http://www.parquesdisney.info/Imagenes-de-Disney/Walt-Disney-Studios/Coche-rojo.jpg" alt=""> 
-   </div>
-   <div class="item"> <img src="https://www.pita-baby.com/7901-large_default/orinal-coche-rojo-ninos-orinal-ninos-rojo-orinal-ninos-dibujo-orinal-ninos-economico-orinal-ninos-forma-coche-rojo.jpg" alt="<i class='material-icons'>add_a_photo</i>"> </div>
- </div>
- <a class="left carousel-control" href="#myCarousel" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#myCarousel" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> <span class="sr-only">Next</span> </a> 
+      <img src="img/background1.jpg" alt="First slide">
+    </div>
+    <div class="item">
+      <img src="img/background2.jpg" alt="Second slide">
+    </div>
+    <div class="item">
+      <img src="img/background3.jpg" alt="Third slide">
+    </div>
+  </div>
+  <a class="carousel-control left" href="#carousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="carousel-control right" href="#carousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
 </div>
+
 <br /><br /> 
 <div >
  <h1 class="mdl-card__title-text"><font size="20px"><b>COCHE</b></font></h1>
@@ -402,7 +410,12 @@
 <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia...</h4>
 </div>
 <div class="mdl-card__actions"> <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"> RESERVAR </button> </div>
-<div class="mdl-card__menu"> <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"> <i class="material-icons">share</i> </button> </div>
+<!-- share button --
+<div class="mdl-card__menu"> 
+<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"> 
+<i class="material-icons">share</i> 
+</button> 
+</div-->
 </div>
 </div>
 
@@ -438,42 +451,46 @@
 
 <!-- perfil --> 
 <div class="mdl-grid" id="perfil">
-   <div class="mdl-cell mdl-cell--12-col ventana">
-      <div class="mdl-card mdl-shadow--8dp card-me">
-         <div align="center">
-            <h4 class="titulo">Perfil de Usuario</h4>
-            <form action="#" name="updateFormu">
-               <div class="mdl-grid">
-                  <div class="mdl-cell mdl-cell--12-col">
-                     <div>
-                        <label class="lamina-image-import">
-                           <span class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
-                              <div class="profilePicture"></div>
-                              <input type="file" name="fotoPer" accept=".jpg,.png" hidden=""> 
-                           </span>
-                           <input ng-upload-change="lamina.onFotoChange($event)" hidden="" type="file" accept="image/*" class="ng-isolate-scope"> 
-                        </label>
-                     </div>
-                  </div>
-                  <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
-                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="text" id="name" value="pepe" name="nombre"> <label class="mdl-textfield__label" for="name">Nombre</label> </div>
-                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="email" id="email" value="pepe@gmail.es" readonly> <label class="mdl-textfield__label" for="email">Email</label> </div>
-                     <div class="js-date mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="text" id="date" value="24/7/1990" readonly> <label class="mdl-textfield__label" for="date">Fecha de Nacimiento</label> </div>
-                  </div>
-                  <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
-                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="text" id="dni" value="12345678P" readonly> <label class="mdl-textfield__label" for="dni">DNI</label> </div>
-                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="number" id="tlf" value="612345678" name="tlfn"> <label class="mdl-textfield__label" for="tlf">Teléfono</label> </div>
-                     <div class="js-date mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="text" id="nreservas" value="3" readonly> <label class="mdl-textfield__label" for="nreservas">Nº de Reservas</label> </div>
-                  </div>
-               </div>
-               <hr>
-               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="password" id="password" name="pass"> <label class="mdl-textfield__label" for="password">Cambiar contraseña</label> </div>
-               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="password" id="repassword" name="repass"> <label class="mdl-textfield__label" for="repassword">Repetir contraseña</label> </div>
-            </form>
-         </div>
-         <div> <span style="float:left;" id="btn-guardar"> <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"> Guardar cambios </button> </span> <span style="float:right;" id="btn-borrar"> <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"> Borrar Usuario </button> </span> </div>
-      </div>
-   </div>
+ <div class="mdl-cell mdl-cell--12-col ventana">
+  <div class="mdl-card mdl-shadow--8dp card-me">
+   <div align="center">
+    <h4 class="titulo">Perfil de Usuario</h4>
+    <form action="#" name="updateFormu">
+     <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--12-col">
+       <div>
+        <label class="lamina-image-import">
+         <span class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+          <div class="profilePicture"></div>
+          <input type="file" name="fotoPer" accept=".jpg,.png" hidden=""> 
+        </span>
+        <input ng-upload-change="lamina.onFotoChange($event)" hidden="" type="file" accept="image/*" class="ng-isolate-scope"> 
+      </label>
+    </div>
+  </div>
+  <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
+   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="text" id="name-perfil" value="pepe" name="nombre"> <label class="mdl-textfield__label" for="name-perfil">Nombre</label> </div>
+   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="email" id="email-perfil" value="pepe@gmail.es" readonly> <label class="mdl-textfield__label" for="email-perfil">Email</label> </div>
+   <div class="js-date mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="text" id="date-perfil" value="24/7/1990" readonly> <label class="mdl-textfield__label" for="date-perfil">Fecha de Nacimiento</label> </div>
+ </div>
+ <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
+   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="text" id="dni-perfil" value="12345678P" readonly> <label class="mdl-textfield__label" for="dni-perfil">DNI</label> </div>
+   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="number" id="tlf-perfil" value="612345678" name="tlfn"> <label class="mdl-textfield__label" for="tlf-registro">Teléfono</label> </div>
+   <div class="js-date mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="text" id="nreservas" value="3" readonly> <label class="mdl-textfield__label" for="nreservas">Nº de Reservas</label> </div>
+ </div>
+</div>
+<hr>
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="password" id="password-perfil" name="pass"> 
+ <label class="mdl-textfield__label" for="password-perfil">Cambiar contraseña</label> 
+</div>
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="password" id="repassword-perfil" name="repass">
+ <label class="mdl-textfield__label" for="repassword-perfil">Repetir contraseña</label>
+</div>
+</form>
+</div>
+<div> <span style="float:left;" id="btn-guardar"> <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"> Guardar cambios </button> </span> <span style="float:right;" id="btn-borrar"> <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"> Borrar Usuario </button> </span> </div>
+</div>
+</div>
 </div>
 <!-- FAQS --> 
 <div class="mdl-grid" id="faqs">
@@ -509,11 +526,11 @@
 
 
 
-    <div id="myCarousel" class="carousel slide imagenes" data-ride="carousel">
+    <div id="carousel-oferta" class="carousel slide imagenes" data-ride="carousel">
       <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel" data-slide-to="1"></li>
+        <li data-target="#carousel" data-slide-to="2"></li>
       </ol>
 
       <div class="carousel-inner">
@@ -533,11 +550,11 @@
         </div>
       </div>
 
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <a class="left carousel-control" href="#carousel" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left"></span>
         <span class="sr-only">Previous</span>
       </a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <a class="right carousel-control" href="#carousel" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right"></span>
         <span class="sr-only">Next</span>
       </a>
@@ -569,8 +586,8 @@
         </div>
         <div class="mdl-cell--2-col">
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" type="text" id="precio">
-            <label class="mdl-textfield__label" for="precio">Precio Base</label>
+            <input class="mdl-textfield__input" type="text" id="precio-oferta">
+            <label class="mdl-textfield__label" for="precio-oferta">Precio Base</label>
           </div>
         </div>
       </div>
