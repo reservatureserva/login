@@ -9,7 +9,7 @@ var peticionesAJAX = (function() {
 			//registrar en Firebase
 			callback();
 		}).fail(function(error) {
-			contenido.feedBack(error);
+			contenido.feedBack(JSON.stringify(error));
 		});
 	};
 
@@ -17,33 +17,45 @@ var peticionesAJAX = (function() {
 		$.ajax({
 			type: "POST",
 			dataType: "json",
-			data: json,
+			data: {email: email},
 			url: "app/user/borrar"
 		}).done(function(user) {
-			//registrar en Firebase
 			callback();
 		}).fail(function(error) {
-			contenido.feedBack(error);
+			contenido.feedBack(JSON.stringify(error));
 		});
 	}
 
-	var busqueda = (json, createCard)=>{
+	var busqueda = (query, createBCard)=>{
 		$.ajax({
 			type: "POST",
 			dataType: "json",
-			data: json,
+			data: query,
 			url: "app/shared/search"
 		}).done(function(jsonArray) {
-			//registrar en Firebase
-			return createCard(jsonArray);
+			return createBCard(jsonArray);
 		}).fail(function(error) {
-			contenido.feedBack(error);
+			contenido.feedBack(JSON.stringify(error));
+		});
+	};
+
+	var reservas = (email, createRCard)=>{
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			data: {email: email},
+			url: "app/user/reservas"
+		}).done(function(jsonArray) {
+			return createRCard(jsonArray);
+		}).fail(function(error) {
+			contenido.feedBack(JSON.stringify(error));
 		});
 	};
 
 	return{
 		registro		: 		registro,
 		borrarUsuario	:		borrarUsuario,
-		busqueda		: 		busqueda
+		busqueda		: 		busqueda,
+		reservas		: 		reservas
 	};
 })();

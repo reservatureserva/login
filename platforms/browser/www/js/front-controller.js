@@ -46,8 +46,10 @@ var contenido = (function() {
 		console.log("loading home");
 		$(".js-contenido").html("");
 		homeCo.ini();
-		reservasCards();
 		filtroDialog();
+		var json = "";
+		reservaCo.createCard(json);
+		//peticionesAJAX.reservas("", reservaCo.createCard);
 	};
 
 	var backHome = ()=>{
@@ -57,16 +59,15 @@ var contenido = (function() {
 	};
 
 	//generará y mostrará las reservas actuales recibidas del servidor
-	var reservasCards = ()=>{
+	var reservasCards = (cards)=>{
 		console.log("loading card reserva");
-		$(".js-contenido").html(cardReserva);
+		$(".js-contenido").html(cards);
 		utils.truncateTexts();
 	};
 
 
 	var filtroDialog = ()=>{
 		console.log("loading filtroDialog");
-		//$(".js-contenido").append(dialog);
 		modalFiltro.ini();
 
 	};
@@ -125,6 +126,10 @@ var contenido = (function() {
 		return cardBusqueda;
 	};
 
+	var getCardReserva = ()=>{
+		return cardReserva;
+	};
+
 	return{
 		ini 				: 		ini,
 		login				:		login,
@@ -143,6 +148,7 @@ var contenido = (function() {
 		remember 			: 		remember,
 		faqsView 			: 		faqsView,
 		createOfertaView 	: 		createOfertaView,
-		getCardBusqueda		: 		getCardBusqueda
+		getCardBusqueda		: 		getCardBusqueda,
+		getCardReserva 		: 		getCardReserva
 	}
 })();

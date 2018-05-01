@@ -89,8 +89,8 @@ var modalFiltro = (function() {
 			distancia: 		$("form[name='dialog'] input[name='distancia'][type='hidden']").val(),
 			ordenar: 		$("form[name='dialog'] input[name='ordenar']").val()
 		};
-		busquedaCo.createCard(json);
-		//peticionesAJAX.busqueda(json, busquedaCo.createCard);
+		//busquedaCo.createCard(json);
+		peticionesAJAX.busqueda(json, busquedaCo.createCard);
 	};
 
 
