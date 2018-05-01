@@ -7,16 +7,18 @@ var contenido = (function() {
 	var oferta;
 	var faqs;
 	var createOferta;
+	var cardBusqueda;
 	var ini = ()=>{
 		idLogin = $("#login");
 		idRegistro = $("#registro");
 		idRemember = $("#remember");
+		cardBusqueda = $("#cardBusqueda");
 		cardReserva = $("#cardReserva");
 		perfil = $("#perfil");
 		oferta = $("#oferta");
 		faqs = $("#faqs");
 		createOferta = $("#createOferta");
-		//$(".js-draft").html("");
+		$(".js-draft").html("");
 		globalListeners();
 	};
 	
@@ -58,6 +60,7 @@ var contenido = (function() {
 	var reservasCards = ()=>{
 		console.log("loading card reserva");
 		$(".js-contenido").html(cardReserva);
+		utils.truncateTexts();
 	};
 
 
@@ -71,7 +74,8 @@ var contenido = (function() {
 	//generará y mostrará los resultados recibidos del servidor
 	var resultCards = (cards)=>{
 		console.log("loading card Busqueda");
-		$(".js-contenido").html($("#cardBusqueda")[0]);
+		$(".js-contenido").html(cards);
+		utils.truncateTexts();
 		busquedaCo.ini();
 	};
 
@@ -117,6 +121,10 @@ var contenido = (function() {
 		$(".js-contenido").html(createOferta);
 	};
 
+	var getCardBusqueda = ()=>{
+		return cardBusqueda;
+	};
+
 	return{
 		ini 				: 		ini,
 		login				:		login,
@@ -134,6 +142,7 @@ var contenido = (function() {
 		backHome			: 		backHome,
 		remember 			: 		remember,
 		faqsView 			: 		faqsView,
-		createOfertaView 	: 		createOfertaView
+		createOfertaView 	: 		createOfertaView,
+		getCardBusqueda		: 		getCardBusqueda
 	}
 })();

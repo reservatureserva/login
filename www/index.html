@@ -28,6 +28,7 @@
   <script type="text/javascript" src="js/lib/material.min.js"></script>
   <script type="text/javascript" src="js/lib/dialog-polyfill.js"></script>
   <script type="text/javascript" src="js/lib/getmdl-select.min.js"></script>
+  <script type="text/javascript" src="js/lib/clamp.min.js"></script>
 
   <!-- estilos propios -->
   <link rel="stylesheet" type="text/css" href="css/login.css">
@@ -45,6 +46,7 @@
   <script type="text/javascript" src="js/faqs-controller.js"></script>
   <script type="text/javascript" src="js/perfil-controller.js"></script>
   <script type="text/javascript" src="js/ajax-controller.js"></script>
+  <script type="text/javascript" src="js/utils.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
   <script type="text/javascript">
   </script>
@@ -284,7 +286,11 @@
      <div class="demo-card-wide producto">
       <div class="mdl-card__supporting-text">
        <h2 class="mdl-card__title-text">COCHE</h2>
-       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia... by empresa 
+       <p class="truncate">
+         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia
+         <br>
+         <b class="by">By empresa</b>
+       </p>
      </div>
      <div class="mdl-card__actions pre">
        <div class="fechaIni">
@@ -296,23 +302,6 @@
     </div>
   </div>
 </div>
-<div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet serv mdl-shadow--2dp servicioCard" data-reserva="kjlkhvghfdtehrt">
- <div class="demo-card-wide producto">
-  <div class="mdl-card__supporting-text">
-   <h2 class="mdl-card__title-text">COCHE</h2>
-   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia... by empresa 
- </div>
- <div class="mdl-card__actions pre">
-   <div class="fechaIni">
-    <h6>24/05/2018</h6>
-  </div>
-  <div class="precio">
-    <h6>7000 €</h6>
-  </div>
-</div>
-</div>
-</div>
-
 </div>
 
 <!-- cardBusqueda --> 
@@ -323,12 +312,15 @@
    </div>
    <div class="cardImg"></div>
    <div class="mdl-card__supporting-text">
-    <h2 class="mdl-card__title-text">COCHE</h2>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia... by empresa 
+   <h2 class="mdl-card__title-text truncate"></h2>
+    <p class="truncate">
+    </p>
+    <br>
+    <b class="by"></b>
   </div>
   <div class="mdl-card__actions pre">
     <div class="precio">
-     <h6>7000 €</h6>
+     <h6></h6>
    </div>
  </div>
 </div>

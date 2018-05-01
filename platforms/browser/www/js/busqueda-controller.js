@@ -1,5 +1,4 @@
 var busquedaCo = (function() {
-	var cardBusqueda = $("#cardBusqueda")[0];
 	var ini = ()=>{
 		$(".servicioCard").click((event)=>{
 			var str = dataOfertaID(event);
@@ -16,6 +15,7 @@ var busquedaCo = (function() {
 	};
 
 	var createCard = (jsonArray)=>{
+		var cardBusqueda = contenido.getCardBusqueda()[0].cloneNode(true);
 		for(var i = 0; i < jsonArray.length; i++){
 			var result = jsonArray[i];
 			var cardTmp = cardBusqueda.firstElementChild.cloneNode(true);
@@ -27,20 +27,23 @@ var busquedaCo = (function() {
 			$(cardTmp).find(".cardImg").css("background-image", "url('https://ksassets.timeincuk.net/wp/uploads/sites/55/2015/11/2014Skrillex_Getty166442228110314-1.jpg')");
 
 			//title 
-			$(cardTmp).find("h2")
+			$(cardTmp).find("h2").text(result.titulo);
 
 			//description
+			$(cardTmp).find("p.truncate").text(result.descripcion);
+
+			//empresa
+			$(cardTmp).find(".by").text("By "+ result.agencia.nombre);
 
 			//price
-			$(cardTmp).find("h6")
+			$(cardTmp).find("h6").text(result.precio_base+" €");
 
 			//capsule in cardBusqueda
 			cardBusqueda.append(cardTmp);
-
-
-
-			console.log(result);
 		}
+		cardBusqueda.firstElementChild.remove();
+		console.log(cardBusqueda);
+		contenido.resultCards(cardBusqueda);
 	};
 
 	return{
