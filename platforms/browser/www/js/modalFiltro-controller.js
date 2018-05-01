@@ -25,7 +25,6 @@ var modalFiltro = (function() {
 		dialog.querySelector('.buscar').addEventListener('click', function() {
 			/** #### Node #### **/
 			procesarBusqueda();
-			contenido.resultCards();
 			dialog.close();
 		});
 		sliders();
@@ -90,7 +89,8 @@ var modalFiltro = (function() {
 			distancia: 		$("form[name='dialog'] input[name='distancia'][type='hidden']").val(),
 			ordenar: 		$("form[name='dialog'] input[name='ordenar']").val()
 		};
-		peticionesAJAX.busqueda(json, contenido.resultCards);
+		busquedaCo.createCard(json);
+		//peticionesAJAX.busqueda(json, busquedaCo.createCard);
 	};
 
 

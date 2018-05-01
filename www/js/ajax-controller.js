@@ -27,7 +27,7 @@ var peticionesAJAX = (function() {
 		});
 	}
 
-	var busqueda = (json, callback)=>{
+	var busqueda = (json, createCard)=>{
 		$.ajax({
 			type: "POST",
 			dataType: "json",
@@ -35,7 +35,7 @@ var peticionesAJAX = (function() {
 			url: "app/shared/search"
 		}).done(function(jsonArray) {
 			//registrar en Firebase
-			return callback(jsonArray);
+			return createCard(jsonArray);
 		}).fail(function(error) {
 			contenido.feedBack(error);
 		});

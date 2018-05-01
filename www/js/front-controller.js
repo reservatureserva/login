@@ -3,7 +3,6 @@ var contenido = (function() {
 	var idRemember;
 	var idRegistro;
 	var cardReserva;
-	var cardBusqueda
 	var perfil;
 	var oferta;
 	var faqs;
@@ -13,12 +12,11 @@ var contenido = (function() {
 		idRegistro = $("#registro");
 		idRemember = $("#remember");
 		cardReserva = $("#cardReserva");
-		cardBusqueda = $("#cardBusqueda");
 		perfil = $("#perfil");
 		oferta = $("#oferta");
 		faqs = $("#faqs");
 		createOferta = $("#createOferta");
-		$(".js-draft").html("");
+		//$(".js-draft").html("");
 		globalListeners();
 	};
 	
@@ -71,9 +69,9 @@ var contenido = (function() {
 	};
 
 	//generará y mostrará los resultados recibidos del servidor
-	var resultCards = (json)=>{
+	var resultCards = (cards)=>{
 		console.log("loading card Busqueda");
-		$(".js-contenido").html(cardBusqueda);
+		$(".js-contenido").html($("#cardBusqueda")[0]);
 		busquedaCo.ini();
 	};
 
@@ -97,11 +95,11 @@ var contenido = (function() {
 	};
 
 	var logOut = ()=>{
-		$(".js-draft").append(idLogin);
+		/*$(".js-draft").append(idLogin);
 		$(".js-draft").append(idRegistro);
 		$(".js-draft").append(cardReserva);
 		$(".js-draft").append(cardBusqueda);
-		$(".js-draft").append(perfil);
+		$(".js-draft").append(perfil);*/
 	};
 
 	var remember = ()=>{
