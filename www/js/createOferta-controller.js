@@ -4,6 +4,7 @@ var createOfertaCo = (function() {
 		$('#btn-crear').click(function() {
 			crearOferta();
 		});
+		utils.efectoInputs();
 	};
 	var crearOferta = ()=>{
 		var json = {

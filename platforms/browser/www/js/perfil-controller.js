@@ -1,5 +1,6 @@
 var perfilCo = (function() {
 	var ini = ()=>{
+		createPerfil();
 		//Cambia los datos de un usuario
 		$('#btn-guardar').click(function() {
 			procesarUpdate();
@@ -8,10 +9,7 @@ var perfilCo = (function() {
 		$('#btn-borrar').click(function() {
 			
 		});
-
-
-
-
+		utils.efectoInputs();
 	};
 	var createJSON = (name, tlf, foto)=>{
 		var json = {

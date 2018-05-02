@@ -11,8 +11,15 @@ var utils = (function() {
 		return date.getUTCDate() + '/' + (date.getUTCMonth() + 1)+ '/' + date.getUTCFullYear();
 	};
 
+	var efectoInputs = ()=>{
+		if(!(typeof(componentHandler) == 'undefined')){
+			componentHandler.upgradeAllRegistered();
+		}
+	};
+
 	return{
 		truncateTexts 	: 	truncateTexts,
-		formatSeconds	: 	formatSeconds
+		formatSeconds	: 	formatSeconds,
+		efectoInputs	: 	efectoInputs
 	}
 })();

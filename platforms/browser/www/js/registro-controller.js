@@ -5,9 +5,8 @@ var registroCo = (function() {
 			$(".js-date").addClass("is-dirty");
 			$(".js-date").removeClass("is-invalid");
 		});
-		if(!(typeof(componentHandler) == 'undefined')){
-			componentHandler.upgradeAllRegistered();
-		}
+		
+		utils.efectoInputs();
 
 		//listener click del btn-registro llame a procesarRegistro
 		$("form[name='registroFormu']").submit(function() {
