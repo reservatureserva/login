@@ -120,6 +120,9 @@ var contenido = (function() {
 
 	var createOfertaView = ()=>{
 		$(".js-contenido").html(createOferta);
+		if(!(typeof(componentHandler) == 'undefined')){
+			componentHandler.upgradeAllRegistered();
+		}
 	};
 
 	var getCardBusqueda = ()=>{

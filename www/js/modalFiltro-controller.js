@@ -10,6 +10,10 @@ var modalFiltro = (function() {
 			showModal(dialog);
 		});
 
+		$(".create-button").click(function() {
+			contenido.createOfertaView();
+		});
+
 		$("form[name='navBarForm']").submit(function() {
 			showModal(dialog);
 			return false;
@@ -89,8 +93,8 @@ var modalFiltro = (function() {
 			distancia: 		$("form[name='dialog'] input[name='distancia'][type='hidden']").val(),
 			ordenar: 		$("form[name='dialog'] input[name='ordenar']").val()
 		};
-		//busquedaCo.createCard(json);
-		peticionesAJAX.busqueda(json, busquedaCo.createCard);
+		busquedaCo.createCard(json);
+		//peticionesAJAX.busqueda(json, busquedaCo.createCard);
 	};
 
 

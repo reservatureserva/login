@@ -5,21 +5,14 @@ var createOfertaCo = (function() {
 			crearOferta();
 		});
 	};
-	var createJSON = (nombre, categoria, precio, descripcion)=>{
-		var json = {
-			"titulo":nombre,
-			"categoria":categoria,
-			"precio_base":precio,
-			"descripcion":descripcion
-		}
-		console.log(json);
-	};
 	var crearOferta = ()=>{
-		var nombre = $("input[name='servicio']").val();
-		var categoria = $("input[name='cat'][type='hidden']").val();
-		var precio = $("input[name='pre']").val();
-		var descripcion = $("textarea[name='desc']").val();
-		createJSON(nombre, categoria, precio, descripcion);
+		var json = {
+			titulo 		: $("form[name='createOferta'] input[name='nombre-oferta']").val(),
+			categoria	: $("form[name='createOferta'] input[name='categoria'][type='hidden']").val(),
+			precio_base	: $("form[name='createOferta'] input[name='precio-oferta']").val(),
+			descripcion : $("form[name='createOferta'] textarea[name='descripcion-oferta']").val()
+		};
+		console.log(json);
 
 
 	};

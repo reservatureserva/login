@@ -21,6 +21,18 @@ var perfilCo = (function() {
 		}
 		console.log(json);
 	};
+
+	var createPerfil = (json)=>{
+		json = {"dni":"66666666R","nombre":"Arturo Molls","email":"alx@gmail.com","tlf":"666266666","fecha_nacimiento":"704332800","fecha_registro":"704332800","foto_perfil":"http://jsequeiros.com/sites/default/files/imagen-cachorro-comprimir.jpg"}
+		var form = $("form[name='updateFormu']");
+		$(form).find("input[name='nombre']").val(json.nombre);
+		$(form).find("input[name='email']").val(json.email);
+		$(form).find("input[name='dni']").val(json.dni);
+		$(form).find("input[name='tlfn']").val(json.tlf);
+		$(form).find("input[name='fecha']").val(utils.formatSeconds(json.fecha_nacimiento));
+		$('.profilePicture').css('background-image','url(' + json.foto_perfil + ')');
+
+	};
 	var procesarUpdate = ()=>{
 		var foto = "";
 		var name = $("form[name='updateFormu'] input[name='nombre']").val();

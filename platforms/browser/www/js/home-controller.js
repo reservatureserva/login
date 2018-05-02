@@ -1,10 +1,9 @@
 var homeCo = (function() {
 	var menu = false;
 	var ini = (json)=>{
-		$("#navBar").css("display", "block");
+		printNav(json);
 		empresaAction();
 		perfilEvents();
-
 	};
 
 	var empresaAction = ()=>{
@@ -25,6 +24,13 @@ var homeCo = (function() {
 				$("#plus").html("add");
 			}
 		});
+	};
+
+
+	var printNav = (json)=>{
+		json = {"dni":"66666666R","nombre":"Arturo Molls","email":"alx@gmail.com","tlf":"666266666","fecha_nacimiento":"704332800","fecha_registro":"704332800","foto_perfil":"http://jsequeiros.com/sites/default/files/imagen-cachorro-comprimir.jpg"}
+		$('.img').css('background-image','url(' + json.foto_perfil + ')');
+		$("#navBar").css("display", "block");
 	};
 
 	var perfilEvents = ()=>{
