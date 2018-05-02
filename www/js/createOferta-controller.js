@@ -1,9 +1,6 @@
 var createOfertaCo = (function() {
 	var ini = ()=>{
-		//Crea una nueva oferta
-		$('#btn-crear').click(function() {
-			crearOferta();
-		});
+		eventButtons();
 		utils.efectoInputs();
 	};
 	var crearOferta = ()=>{
@@ -16,6 +13,23 @@ var createOfertaCo = (function() {
 		console.log(json);
 
 
+	};
+
+	var eventButtons = ()=>{
+		$(".js-addCondicion").click(function() {
+			var condiciones = $(".js-condiciones")[0].cloneNode(true);
+			var nCondi = ++$(condiciones).find("input").length;
+			var newCondition = condiciones.firstElementChild.cloneNode(true);
+			$(newCondition).find("input").attr("name", "condicion"+nCondi);
+			$(newCondition).find("input").attr("id", "condicion"+nCondi);
+			$(newCondition).find("label").attr("for", "condicion"+nCondi);
+			$(newCondition).find("label").text("Condición "+nCondi);
+			$(".js-condiciones").append(newCondition);
+		});
+
+		$('#btn-crear').click(function() {
+			crearOferta();
+		});
 	};
 
 	return{
