@@ -9,11 +9,14 @@ var createOfertaCo = (function() {
 			categoria	: $("form[name='createOferta'] input[name='categoria-oferta'][type='hidden']").val(),
 			precio_base	: $("form[name='createOferta'] input[name='precio-oferta']").val(),
 			descripcion : $("form[name='createOferta'] textarea[name='descripcion-oferta']").val(),
-			condiciones : getConditions()
+			
 		};
-		console.log(json);
-
-
+		if(utils.dataOK(json)){
+			json.condiciones = getConditions();
+			/** peticion ajax insert oferta **/
+			//peticionesAJAX.insertOferta(json);
+			contenido.createCalendarView();
+		}
 	};
 
 	var getConditions = ()=>{
@@ -22,7 +25,7 @@ var createOfertaCo = (function() {
 		for (var i = 0; i < length; i++) {
 			condiciones[i] = $("form[name='createOferta'] input[name='condicion"+(++i)+"']").val();
 		}
-		return condiciones;
+		return condiciones.length > 0 ? condiciones : "";
 
 	};
 

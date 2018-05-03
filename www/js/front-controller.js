@@ -3,11 +3,12 @@ var contenido = (function() {
 	var idRemember;
 	var idRegistro;
 	var cardReserva;
+	var cardBusqueda;
 	var perfil;
 	var oferta;
 	var faqs;
 	var createOferta;
-	var cardBusqueda;
+	var createCalendar;
 	var ini = ()=>{
 		idLogin = $("#login");
 		idRegistro = $("#registro");
@@ -18,7 +19,8 @@ var contenido = (function() {
 		oferta = $("#oferta");
 		faqs = $("#faqs");
 		createOferta = $("#createOferta");
-		$(".js-draft").html("");
+		createCalendar = $("#createCalendar");
+		//$(".js-draft").html("");
 		globalListeners();
 	};
 	
@@ -123,6 +125,11 @@ var contenido = (function() {
 		createOfertaCo.ini();
 	};
 
+	var createCalendarView = ()=>{
+		$(".js-contenido").html(createCalendar);
+		createCalendarCo.ini();
+	};
+
 	var getCardBusqueda = ()=>{
 		return cardBusqueda;
 	};
@@ -149,6 +156,7 @@ var contenido = (function() {
 		remember 			: 		remember,
 		faqsView 			: 		faqsView,
 		createOfertaView 	: 		createOfertaView,
+		createCalendarView	: 		createCalendarView,
 		getCardBusqueda		: 		getCardBusqueda,
 		getCardReserva 		: 		getCardReserva
 	}

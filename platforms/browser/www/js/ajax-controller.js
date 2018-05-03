@@ -52,10 +52,24 @@ var peticionesAJAX = (function() {
 		});
 	};
 
+	var insertOferta = (json)=>{
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			data: json,
+			url: "app/empresa/createOferta"
+		}).done(function(oferta) {
+
+		}).fail(function(error) {
+			contenido.feedBack(JSON.stringify(error));
+		});
+	};
+
 	return{
 		registro		: 		registro,
 		borrarUsuario	:		borrarUsuario,
 		busqueda		: 		busqueda,
-		reservas		: 		reservas
+		reservas		: 		reservas,
+		insertOferta	: 		insertOferta
 	};
 })();

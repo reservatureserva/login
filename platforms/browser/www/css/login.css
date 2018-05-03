@@ -285,6 +285,11 @@ h6{
     background-size: 100% 100%;
 }
 
+/************ Crear calendario ********************/ 
+#horario td, #horario th { 
+    text-align: center; 
+}
+
 @media only screen and (min-width: 768px) {
     .buscarMovil {
      display: none;
