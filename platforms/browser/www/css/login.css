@@ -121,7 +121,7 @@ nav {
 .ui-slider-range{
     background-color: rgb(0, 167, 186);
 }
-#login .mdl-button, #registro .mdl-button, #perfil button, #createOferta button{
+#login .mdl-button, #registro .mdl-button, #perfil button, #createOferta button, #remember button, #createCalendar button{
     padding-left: 40%;
     padding-right: 40%;
     background-color: #30a7ba;
@@ -138,7 +138,7 @@ nav {
     padding-right: 25px;
     padding-bottom: 25px;
 }
-#login .mdl-cell--12-col , #registro .mdl-cell--12-col, #perfil .mdl-cell--12-col, #faqs .mdl-cell--12-col{
+#login .mdl-cell--12-col , #registro .mdl-cell--12-col, #perfil .mdl-cell--12-col, #faqs .mdl-cell--12-col, #remember .mdl-cell--12-col{
     display: flex;
     justify-content: center;
 }

@@ -1,7 +1,7 @@
 var modalFiltro = (function() {
 
 	var ini = ()=>{
-		var dialog = document.querySelector('dialog');
+		var dialog = $("#modalSearch")[0];
 		if (!dialog.showModal) {
 			dialogPolyfill.registerDialog(dialog);
 		}
@@ -14,19 +14,19 @@ var modalFiltro = (function() {
 			contenido.createOfertaView();
 		});
 
+		//when enter was pressed
 		$("form[name='navBarForm']").submit(function() {
 			showModal(dialog);
 			return false;
 		});
 
 
-
-		dialog.querySelector('.cancelar').addEventListener('click', function() {
+		$('.js-cancelar').click(function() {
 			dialog.close();
 		});
 
 		//lanzar la query
-		dialog.querySelector('.buscar').addEventListener('click', function() {
+		$('.js-buscar').click(function() {
 			/** #### Node #### **/
 			procesarBusqueda();
 			dialog.close();

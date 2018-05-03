@@ -18,7 +18,7 @@ var utils = (function() {
 	};
 
 	var dataOK = (json)=>{
-		for (var key in json){
+		for(var key in json){
 			var data = json[key];
 			if(data === undefined || data === null || data == ""){
 				contenido.feedBack("Has de rellenar el campo "+key);

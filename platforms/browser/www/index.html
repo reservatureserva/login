@@ -128,7 +128,7 @@
 </div>
 
 <!-- modal --> 
-<dialog class="mdl-dialog">
+<dialog class="mdl-dialog" id="modalSearch">
  <h4 class="mdl-dialog__title titulo">¿Qué buscas exactamente?</h4>
  <div class="mdl-dialog__content">
   <form method="dialog" name="dialog">
@@ -162,10 +162,10 @@
 </div>
 <div class="mdl-dialog__actions">
 
-  <button type="button" style="margin-left: auto;" class="mdl-button cancelar">Cancelar</button> 
+  <button type="button" style="margin-left: auto;" class="mdl-button js-cancelar">Cancelar</button> 
 
   
-  <button type="button" style="margin-right: auto;" class="mdl-button buscar" id="search-modal">Buscar</button>
+  <button type="button" style="margin-right: auto;" class="mdl-button js-buscar">Buscar</button>
 
 </div>
 </dialog>
@@ -239,37 +239,37 @@
               </div>
               <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-                  <input class="mdl-textfield__input" name="name" type="text" id="name-registro" required> <label class="mdl-textfield__label" for="name-registro">Nombre</label> 
+                  <input class="mdl-textfield__input" name="name" type="text" id="name-registro"> <label class="mdl-textfield__label" for="name-registro">Nombre</label> 
                 </div>
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-                  <input class="mdl-textfield__input" name="email" type="email" id="email-registro" required> <label class="mdl-textfield__label" for="email-registro">Email</label> 
+                  <input class="mdl-textfield__input" name="email" type="email" id="email-registro"> <label class="mdl-textfield__label" for="email-registro">Email</label> 
                 </div>
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-                  <input class="mdl-textfield__input" name="password" type="password" id="password" required> 
+                  <input class="mdl-textfield__input" name="password" type="password" id="password"> 
                   <label class="mdl-textfield__label" for="password">Password</label> 
                 </div>
 
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-                  <input class="mdl-textfield__input" name="repassword" type="password" id="repassword" required>
+                  <input class="mdl-textfield__input" name="repassword" type="password" id="repassword">
                   <label class="mdl-textfield__label" for="repassword">Repeat Password</label> 
                 </div>
               </div>
               <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-                  <input class="mdl-textfield__input" name="dni" type="text" id="dni-registro" required> 
+                  <input class="mdl-textfield__input" name="dni" type="text" id="dni-registro"> 
                   <label class="mdl-textfield__label" for="dni">DNI</label> 
                 </div>
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-                  <input class="mdl-textfield__input" name="tlf" type="number" id="tlf-registro" max="999999999 " required> 
+                  <input class="mdl-textfield__input" name="tlf" type="number" id="tlf-registro" max="999999999"> 
                   <label class="mdl-textfield__label" for="tlf-registro">Teléfono</label>
                 </div>
 
                 <div class="js-date mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input class="mdl-textfield__input" name="date" type="text" id="date-registro" required>
+                  <input class="mdl-textfield__input" name="date" type="text" id="date-registro">
                   <label class="mdl-textfield__label" for="date-registro">dd/mm/yyyy</label> 
                 </div>
               </div>
@@ -382,6 +382,26 @@
 </div>
 
 
+<!-- Aceptar Condiciones (al haber seleccionado el dia en el calendario y aceptar)--> 
+<dialog class="mdl-dialog" id="modalCondiciones">
+ <h4 class="mdl-dialog__title titulo">Lee atentamente las condiciones</h4>
+ <div class="mdl-dialog__content">
+  Al confirmar acepta que cumple con los siguientes requisitos
+  <ul class="js-listaCondiciones">
+  </ul>
+</div>
+<div class="mdl-dialog__actions">
+
+  <button type="button" style="margin-left: auto;" class="mdl-button js-cancelar">Cancelar</button> 
+
+  
+  <button type="button" style="margin-right: auto;" class="mdl-button js-aceptar">Aceptar</button>
+
+</div>
+</dialog>
+
+
+
 <!-- remember password -->
 <div id="remember" class="mdl-grid">
   <div class="mdl-cell mdl-cell--12-col ventana">
@@ -401,7 +421,7 @@
             <label class="mdl-textfield__label" for="remember-email">Email</label>
           </div>
           <button type="button" id="btn-rem-send" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-            Enviar al correo
+            Enviar email
           </button>
         </form> 
       </div>          
@@ -486,82 +506,82 @@
  </div>
 
 
-<!-- crear calendario --> 
-<div id="createCalendar" class="mdl-cell mdl-cell--4-col servicio">
+ <!-- crear calendario --> 
+ <div id="createCalendar" class="mdl-cell mdl-cell--4-col servicio">
    <div class="demo-card-wide producto">
-      <div style="overflow-x: auto">
-         <table style="width:100%;" id="horario" class="mdl-data-table mdl-shadow--2dp">
-            <tr>
-               <th></th>
-               <th class="mdl-data-table__cell--non-numeric">ABIERTO</th>
-               <th>CERRADO</th>
-               <th>DIVIDIR</th>
-               <th>Hora Apertura</th>
-               <th>Hora Cierre</th>
-            </tr>
-            <tr>
-               <td class="mdl-data-table__cell--non-numeric">Lunes</td>
-               <td><input type="radio" name="lunes" onclick="utils.abrir(this)"></td>
-               <td><input type="radio" name="lunes" checked onclick="utils.cerrar(this)"></td>
-               <td><input type="radio" name="lunes" onclick="utils.dividir(this)"></td>
-               <td colspan="2">CERRADO</td>
-            </tr>
-            <tr>
-               <td class="mdl-data-table__cell--non-numeric">Martes</td>
-               <td><input type="radio" name="martes" onclick="utils.abrir(this)"></td>
-               <td><input type="radio" name="martes" checked onclick="utils.cerrar(this)"></td>
-               <td><input type="radio" name="martes" onclick="utils.dividir(this)"></td>
-               <td colspan="2">CERRADO</td>
-            </tr>
-            <tr>
-               <td class="mdl-data-table__cell--non-numeric">Miercoles</td>
-               <td><input type="radio" name="miercoles" onclick="utils.abrir(this)"></td>
-               <td><input type="radio" name="miercoles" checked onclick="utils.cerrar(this)"></td>
-               <td><input type="radio" name="miercoles" onclick="utils.dividir(this)"></td>
-               <td colspan="2">CERRADO</td>
-            </tr>
-            <tr>
-               <td class="mdl-data-table__cell--non-numeric">Jueves</td>
-               <td><input type="radio" name="jueves" onclick="utils.abrir(this)"></td>
-               <td><input type="radio" name="jueves" checked onclick="utils.cerrar(this)"></td>
-               <td><input type="radio" name="jueves" onclick="utils.dividir(this)"></td>
-               <td colspan="2">CERRADO</td>
-            </tr>
-            <tr>
-               <td class="mdl-data-table__cell--non-numeric">Viernes</td>
-               <td><input type="radio" name="viernes" onclick="utils.abrir(this)"></td>
-               <td><input type="radio" name="viernes" checked onclick="utils.cerrar(this)"></td>
-               <td><input type="radio" name="viernes" onclick="utils.dividir(this)"></td>
-               <td colspan="2">CERRADO</td>
-            </tr>
-            <tr>
-               <td class="mdl-data-table__cell--non-numeric">Sabado</td>
-               <td><input type="radio" name="sabado" onclick="utils.abrir(this)"></td>
-               <td><input type="radio" name="sabado" checked onclick="utils.cerrar(this)"></td>
-               <td><input type="radio" name="sabado" onclick="utils.dividir(this)"></td>
-               <td colspan="2">CERRADO</td>
-            </tr>
-            <tr>
-               <td class="mdl-data-table__cell--non-numeric">Domingo</td>
-               <td><input type="radio" name="domingo" onclick="utils.abrir(this)"></td>
-               <td><input type="radio" name="domingo" checked onclick="utils.cerrar(this)"></td>
-               <td><input type="radio" name="domingo" onclick="utils.dividir(this)"></td>
-               <td colspan="2">CERRADO</td>
-            </tr>
-         </table>
-      </div>
-      <div class="mdl-cell mdl-cell--4-col">
-         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="text" id="total_disponible" name="total_disponible"> <label class="mdl-textfield__label" for="total_disponible">Stock</label> </div>
-      </div>
-      <div class="mdl-card__actions">
-        <button id="btn-crearCalendario" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"> CREAR OFERTA </button>
-      </div>
-   </div>
+    <div style="overflow-x: auto">
+     <table style="width:100%;" id="horario" class="mdl-data-table mdl-shadow--2dp">
+      <tr>
+       <th></th>
+       <th class="mdl-data-table__cell--non-numeric">ABIERTO</th>
+       <th>CERRADO</th>
+       <th>DIVIDIR</th>
+       <th>Hora Apertura</th>
+       <th>Hora Cierre</th>
+     </tr>
+     <tr>
+       <td class="mdl-data-table__cell--non-numeric">Lunes</td>
+       <td><input type="radio" name="lunes" onclick="utils.abrir(this)"></td>
+       <td><input type="radio" name="lunes" checked onclick="utils.cerrar(this)"></td>
+       <td><input type="radio" name="lunes" onclick="utils.dividir(this)"></td>
+       <td colspan="2">CERRADO</td>
+     </tr>
+     <tr>
+       <td class="mdl-data-table__cell--non-numeric">Martes</td>
+       <td><input type="radio" name="martes" onclick="utils.abrir(this)"></td>
+       <td><input type="radio" name="martes" checked onclick="utils.cerrar(this)"></td>
+       <td><input type="radio" name="martes" onclick="utils.dividir(this)"></td>
+       <td colspan="2">CERRADO</td>
+     </tr>
+     <tr>
+       <td class="mdl-data-table__cell--non-numeric">Miercoles</td>
+       <td><input type="radio" name="miercoles" onclick="utils.abrir(this)"></td>
+       <td><input type="radio" name="miercoles" checked onclick="utils.cerrar(this)"></td>
+       <td><input type="radio" name="miercoles" onclick="utils.dividir(this)"></td>
+       <td colspan="2">CERRADO</td>
+     </tr>
+     <tr>
+       <td class="mdl-data-table__cell--non-numeric">Jueves</td>
+       <td><input type="radio" name="jueves" onclick="utils.abrir(this)"></td>
+       <td><input type="radio" name="jueves" checked onclick="utils.cerrar(this)"></td>
+       <td><input type="radio" name="jueves" onclick="utils.dividir(this)"></td>
+       <td colspan="2">CERRADO</td>
+     </tr>
+     <tr>
+       <td class="mdl-data-table__cell--non-numeric">Viernes</td>
+       <td><input type="radio" name="viernes" onclick="utils.abrir(this)"></td>
+       <td><input type="radio" name="viernes" checked onclick="utils.cerrar(this)"></td>
+       <td><input type="radio" name="viernes" onclick="utils.dividir(this)"></td>
+       <td colspan="2">CERRADO</td>
+     </tr>
+     <tr>
+       <td class="mdl-data-table__cell--non-numeric">Sabado</td>
+       <td><input type="radio" name="sabado" onclick="utils.abrir(this)"></td>
+       <td><input type="radio" name="sabado" checked onclick="utils.cerrar(this)"></td>
+       <td><input type="radio" name="sabado" onclick="utils.dividir(this)"></td>
+       <td colspan="2">CERRADO</td>
+     </tr>
+     <tr>
+       <td class="mdl-data-table__cell--non-numeric">Domingo</td>
+       <td><input type="radio" name="domingo" onclick="utils.abrir(this)"></td>
+       <td><input type="radio" name="domingo" checked onclick="utils.cerrar(this)"></td>
+       <td><input type="radio" name="domingo" onclick="utils.dividir(this)"></td>
+       <td colspan="2">CERRADO</td>
+     </tr>
+   </table>
+ </div>
+ <div class="mdl-cell mdl-cell--4-col">
+   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="text" id="total_disponible" name="total_disponible"> <label class="mdl-textfield__label" for="total_disponible">Stock</label> </div>
+ </div>
+ <div class="mdl-card__actions">
+  <button id="btn-crearCalendario" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"> CREAR OFERTA </button>
+</div>
+</div>
 </div>
 
 
- <!-- create Oferta -->
- <div class="mdl-cell mdl-cell--4-col servicio" id="createOferta">
+<!-- create Oferta -->
+<div class="mdl-cell mdl-cell--4-col servicio" id="createOferta">
   <div class="demo-card-wide producto">
     <form action="#" name="createOferta">
       <div id="carousel-oferta" class="carousel slide imagenes" data-interval="false" data-ride="carousel-oferta"> 
@@ -569,71 +589,99 @@
           <li data-target="#carousel-oferta" data-slide-to="0" class="active"></li> 
           <li data-target="#carousel-oferta" data-slide-to="1"></li> 
           <li data-target="#carousel-oferta" data-slide-to="2"></li> 
-        </ol> <div class="carousel-inner"> <div class="item active"> 
-          <label class="lamina-image-import default_img"> 
-            <img src="img/default_img.jpg" alt=""> <input type="file" name="fotoPro1" accept=".jpg,.png" hidden=""> </span> <input ng-upload-change="lamina.onFotoChange($event)" hidden="" type="file" accept="image/*" class="ng-isolate-scope"> </label> </div> <div class="item"> <label class="lamina-image-import default_img"> <img src="img/default_img.jpg" alt=""> <input type="file" name="fotoPro2" accept=".jpg,.png" hidden=""> </span> <input ng-upload-change="lamina.onFotoChange($event)" hidden="" type="file" accept="image/*" class="ng-isolate-scope"> </label> </div> <div class="item"> <label class="lamina-image-import default_img"> <img src="img/default_img.jpg" alt=""> <input type="file" name="fotoPro2" accept=".jpg,.png" hidden=""> </span> <input ng-upload-change="lamina.onFotoChange($event)" hidden="" type="file" accept="image/*" class="ng-isolate-scope"> </label> </div> </div> <a class="left carousel-control" href="#carousel-oferta" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> <span class="sr-only">Previous</span> </a> <a class="right carousel-control" href="#carousel-oferta" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> <span class="sr-only">Next</span> </a> </div>
-            <br /><br />
-            <div class="mdl-grid">
-              <div class="mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-               <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" name="nombre-oferta" type="text" id="nombre-oferta">
-                <label class="mdl-textfield__label" for="nombre-oferta">Nombre</label>
-              </div>
-            </div>
+        </ol> 
+        <div class="carousel-inner"> 
+          <div class="item active"> 
+            <label class="lamina-image-import default_img"> 
+              <img src="img/default_img.jpg" alt=""> 
+              <input type="file" name="fotoPro1" accept=".jpg,.png" hidden=""> 
+              <input ng-upload-change="lamina.onFotoChange($event)" hidden="" type="file" accept="image/*" class="ng-isolate-scope"> 
+            </label>
+          </div> 
+          <div class="item"> 
+            <label class="lamina-image-import default_img"> <img src="img/default_img.jpg" alt=""> 
+              <input type="file" name="fotoPro2" accept=".jpg,.png" hidden=""> 
+              <input ng-upload-change="lamina.onFotoChange($event)" hidden="" type="file" accept="image/*" class="ng-isolate-scope">
+            </label> 
+          </div> 
+          <div class="item"> 
+            <label class="lamina-image-import default_img"> 
+              <img src="img/default_img.jpg" alt=""> 
+              <input type="file" name="fotoPro2" accept=".jpg,.png" hidden=""> 
+              <input ng-upload-change="lamina.onFotoChange($event)" hidden="" type="file" accept="image/*" class="ng-isolate-scope"> 
+            </label> 
           </div>
-          <div class="mdl-grid">
-
-            <div class="mdl-cell--8-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height">
-                <input type="text" class="mdl-textfield__input" id="categoria-oferta" readonly> 
-                <input type="hidden" name="categoria-oferta"> 
-                <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i> 
-                <label for="categoria-oferta" class="mdl-textfield__label">Categoria</label> 
-                <ul for="categoria-oferta" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-                 <li class="mdl-menu__item" data-val="DEPORTE">Deporte</li>
-                 <li class="mdl-menu__item" data-val="MOTOR">Motor</li>
-                 <li class="mdl-menu__item" data-val="JUGUETE">Juguetes</li>
-                 <li class="mdl-menu__item" data-val="ADULTO">Adulto</li>
-                 <li class="mdl-menu__item" data-val="ELECTRONICA">Electronica</li>
-               </ul>
-             </div>
-           </div>
-
-           <div class="mdl-cell--4-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <input class="mdl-textfield__input" name="precio-oferta" type="number" id="precio-oferta">
-              <label class="mdl-textfield__label" for="precio-oferta">Precio Base</label>
-            </div>
-          </div>
-        </div>
-        <div class="mdl-grid">
-          <div class="mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
-            <div class="mdl-textfield mdl-js-textfield">
-              <textarea class="mdl-textfield__input" name="descripcion-oferta" type="text" rows= "5" id="descripcion-oferta" ></textarea>
-              <label class="mdl-textfield__label" for="descripcion-oferta">Descripción</label>
-            </div>
+        </div> 
+        <a class="left carousel-control" href="#carousel-oferta" data-slide="prev"> 
+          <span class="glyphicon glyphicon-chevron-left"></span> 
+          <span class="sr-only">Previous</span> 
+        </a> 
+        <a class="right carousel-control" href="#carousel-oferta" data-slide="next"> 
+          <span class="glyphicon glyphicon-chevron-right"></span> 
+          <span class="sr-only">Next</span> 
+        </a> 
+      </div>
+      <br><br>
+      <div class="mdl-grid">
+        <div class="mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" name="nombre-oferta" type="text" id="nombre-oferta">
+            <label class="mdl-textfield__label" for="nombre-oferta">Titulo</label>
           </div>
         </div>
-        <hr>
+      </div>
 
-        <div class="mdl-grid js-condiciones">
+      <div class="mdl-grid">
 
-          <div class="mdl-cell--11-col mdl-cell--7-col-tablet mdl-cell--3-col-phone">
-           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <div class="mdl-cell--8-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label getmdl-select getmdl-select__fix-height">
+            <input type="text" class="mdl-textfield__input" id="categoria-oferta" readonly> 
+            <input type="hidden" name="categoria-oferta"> 
+            <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i> 
+            <label for="categoria-oferta" class="mdl-textfield__label">Categoria</label> 
+            <ul for="categoria-oferta" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+              <li class="mdl-menu__item" data-val="DEPORTE">Deporte</li>
+              <li class="mdl-menu__item" data-val="MOTOR">Motor</li>
+              <li class="mdl-menu__item" data-val="JUGUETE">Juguetes</li>
+              <li class="mdl-menu__item" data-val="ADULTO">Adulto</li>
+              <li class="mdl-menu__item" data-val="ELECTRONICA">Electronica</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mdl-cell--4-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <input class="mdl-textfield__input" name="precio-oferta" type="number" id="precio-oferta">
+            <label class="mdl-textfield__label" for="precio-oferta">Precio Base</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="mdl-grid">
+        <div class="mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
+          <div class="mdl-textfield mdl-js-textfield">
+            <textarea class="mdl-textfield__input" name="descripcion-oferta" type="text" rows= "5" id="descripcion-oferta" ></textarea>
+            <label class="mdl-textfield__label" for="descripcion-oferta">Descripción</label>
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <div class="mdl-grid js-condiciones">
+
+        <div class="mdl-cell--11-col mdl-cell--7-col-tablet mdl-cell--3-col-phone">
+          <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
             <input class="mdl-textfield__input" name="condicion1" type="text" id="condicion1">
             <label class="mdl-textfield__label" for="condicion1">Condición 1</label>
           </div>
         </div>
       </div>
       <div id="condiciones" class="mdl-cell--1-col mdl-cell--1-col-tablet mdl-cell--1-col-phone">
-            <a href="#condiciones" class="js-addCondicion"><i class="material-icons">add</i></a>
+        <a href="#condiciones" class="js-addCondicion"><i class="material-icons">add</i></a>
       </div>
 
     </div>
     <div class="mdl-card__actions">
-      <button type="button" id="btn-crear" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-        CREAR
-      </button>
+      <button type="button" id="btn-crear" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">CREAR</button>
     </div>
   </form>
 </div>

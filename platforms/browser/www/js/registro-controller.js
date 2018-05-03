@@ -1,6 +1,6 @@
 var registroCo = (function() {
 	var ini = ()=>{
-		$('#date').bootstrapMaterialDatePicker({format : 'DD/MM/YYYY', weekStart : 0, time: false });
+		$('#date-registro').bootstrapMaterialDatePicker({format : 'DD/MM/YYYY', weekStart : 0, time: false });
 		$(".dtp-btn-ok").click(function() {
 			$(".js-date").addClass("is-dirty");
 			$(".js-date").removeClass("is-invalid");
@@ -23,10 +23,12 @@ var registroCo = (function() {
 			"nombre":name,
 			"email":email,
 			"tlf":tlf,
-			"fecha_nacimiento":date,
-			"foto_perfil":foto
+			"fecha_nacimiento":date
 		}
-		peticionesAJAX.registro(json, userCo.registro(email, password));
+		if(utils.dataOK(json)){
+			json.foto_perfil = foto;
+			peticionesAJAX.registro(json, userCo.registro);
+		}
 	};
 	var procesarRegistro = ()=>{
 		var foto = "";
