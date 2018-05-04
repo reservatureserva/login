@@ -9,6 +9,7 @@ var contenido = (function() {
 	var faqs;
 	var createOferta;
 	var createCalendar;
+	var modalCondiciones;
 	var ini = ()=>{
 		idLogin = $("#login");
 		idRegistro = $("#registro");
@@ -20,6 +21,7 @@ var contenido = (function() {
 		faqs = $("#faqs");
 		createOferta = $("#createOferta");
 		createCalendar = $("#createCalendar");
+		modalCondiciones = $("#modalCondiciones");
 		//$(".js-draft").html("");
 		globalListeners();
 	};
@@ -87,8 +89,9 @@ var contenido = (function() {
 	};
 
 	//Dialogo de texto con las condiciones que tenga la oferta, un check de aceptar condiciones
-	var alquilarDialog = (json)=>{
-
+	var modalCondicionesView = (json)=>{
+		$(".js-contenido").append(modalCondiciones);
+		modalCondicionesCo.ini();
 	};
 
 	var perfil = (json)=>{
@@ -138,6 +141,10 @@ var contenido = (function() {
 		return cardReserva;
 	};
 
+	var getModalCondiciones = ()=>{
+		return modalCondiciones;
+	}
+
 	return{
 		ini 				: 		ini,
 		login				:		login,
@@ -147,8 +154,7 @@ var contenido = (function() {
 		filtroDialog		: 		filtroDialog,
 		resultCards			: 		resultCards,
 		ofertaView			: 		ofertaView,
-		alquilarDialog		: 		alquilarDialog,
-		alquilarDialog		: 		alquilarDialog,
+		modalCondicionesView: 		modalCondicionesView,
 		feedBack 			: 		feedBack,
 		perfil 				: 		perfil,
 		logOut 				: 		logOut,
@@ -158,6 +164,7 @@ var contenido = (function() {
 		createOfertaView 	: 		createOfertaView,
 		createCalendarView	: 		createCalendarView,
 		getCardBusqueda		: 		getCardBusqueda,
-		getCardReserva 		: 		getCardReserva
+		getCardReserva 		: 		getCardReserva,
+		getModalCondiciones : 		getModalCondiciones
 	}
 })();
