@@ -318,3 +318,11 @@ h6{
      height: 700px;
 }
 }
+
+#calendario-view td{
+    width: 100px;
+}
+
+#calendario-view th, #calendario-view td{
+    text-align: center;
+}

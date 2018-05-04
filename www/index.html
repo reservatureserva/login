@@ -49,6 +49,7 @@
   <script type="text/javascript" src="js/perfil-controller.js"></script>
   <script type="text/javascript" src="js/createOferta-controller.js"></script>
   <script type="text/javascript" src="js/createCalendar-controller.js"></script>
+  <script type="text/javascript" src="js/calendar-controller.js"></script>
   <script type="text/javascript" src="js/ajax-controller.js"></script>
   <script type="text/javascript" src="js/utils.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
@@ -73,6 +74,9 @@
               </div>
               <label class="mdl-button mdl-button--icon mdl-cell--1-col mdl-cell--1-col-tablet search-button">
                 <i class="material-icons">search</i>
+              </label>
+              <label class="mdl-button mdl-button--icon mdl-cell--1-col mdl-cell--1-col-tablet create-button">
+                <i class="material-icons">create</i>
               </label>
             </form> 
           </div>
@@ -510,72 +514,74 @@
  <!-- crear calendario --> 
  <div id="createCalendar" class="mdl-cell mdl-cell--4-col servicio">
    <div class="demo-card-wide producto">
-    <div style="overflow-x: auto">
-     <table style="width:100%;" id="horario" class="mdl-data-table mdl-shadow--2dp">
-      <tr>
-       <th></th>
-       <th class="mdl-data-table__cell--non-numeric">ABIERTO</th>
-       <th>CERRADO</th>
-       <th>DIVIDIR</th>
-       <th>Hora Apertura</th>
-       <th>Hora Cierre</th>
-     </tr>
-     <tr>
-       <td class="mdl-data-table__cell--non-numeric">Lunes</td>
-       <td><input type="radio" name="lunes" onclick="utils.abrir(this)"></td>
-       <td><input type="radio" name="lunes" checked onclick="utils.cerrar(this)"></td>
-       <td><input type="radio" name="lunes" onclick="utils.dividir(this)"></td>
-       <td colspan="2">CERRADO</td>
-     </tr>
-     <tr>
-       <td class="mdl-data-table__cell--non-numeric">Martes</td>
-       <td><input type="radio" name="martes" onclick="utils.abrir(this)"></td>
-       <td><input type="radio" name="martes" checked onclick="utils.cerrar(this)"></td>
-       <td><input type="radio" name="martes" onclick="utils.dividir(this)"></td>
-       <td colspan="2">CERRADO</td>
-     </tr>
-     <tr>
-       <td class="mdl-data-table__cell--non-numeric">Miercoles</td>
-       <td><input type="radio" name="miercoles" onclick="utils.abrir(this)"></td>
-       <td><input type="radio" name="miercoles" checked onclick="utils.cerrar(this)"></td>
-       <td><input type="radio" name="miercoles" onclick="utils.dividir(this)"></td>
-       <td colspan="2">CERRADO</td>
-     </tr>
-     <tr>
-       <td class="mdl-data-table__cell--non-numeric">Jueves</td>
-       <td><input type="radio" name="jueves" onclick="utils.abrir(this)"></td>
-       <td><input type="radio" name="jueves" checked onclick="utils.cerrar(this)"></td>
-       <td><input type="radio" name="jueves" onclick="utils.dividir(this)"></td>
-       <td colspan="2">CERRADO</td>
-     </tr>
-     <tr>
-       <td class="mdl-data-table__cell--non-numeric">Viernes</td>
-       <td><input type="radio" name="viernes" onclick="utils.abrir(this)"></td>
-       <td><input type="radio" name="viernes" checked onclick="utils.cerrar(this)"></td>
-       <td><input type="radio" name="viernes" onclick="utils.dividir(this)"></td>
-       <td colspan="2">CERRADO</td>
-     </tr>
-     <tr>
-       <td class="mdl-data-table__cell--non-numeric">Sabado</td>
-       <td><input type="radio" name="sabado" onclick="utils.abrir(this)"></td>
-       <td><input type="radio" name="sabado" checked onclick="utils.cerrar(this)"></td>
-       <td><input type="radio" name="sabado" onclick="utils.dividir(this)"></td>
-       <td colspan="2">CERRADO</td>
-     </tr>
-     <tr>
-       <td class="mdl-data-table__cell--non-numeric">Domingo</td>
-       <td><input type="radio" name="domingo" onclick="utils.abrir(this)"></td>
-       <td><input type="radio" name="domingo" checked onclick="utils.cerrar(this)"></td>
-       <td><input type="radio" name="domingo" onclick="utils.dividir(this)"></td>
-       <td colspan="2">CERRADO</td>
-     </tr>
-   </table>
- </div>
+    <form action="#" name="createCalendar">
+      <div style="overflow-x: auto">
+       <table style="width:100%;" id="horario" class="mdl-data-table mdl-shadow--2dp">
+        <tr>
+         <th></th>
+         <th class="mdl-data-table__cell--non-numeric">ABIERTO</th>
+         <th>CERRADO</th>
+         <th>DIVIDIR</th>
+         <th>Hora Apertura</th>
+         <th>Hora Cierre</th>
+       </tr>
+       <tr>
+         <td class="mdl-data-table__cell--non-numeric">Lunes</td>
+         <td><input type="radio" name="lunes" onclick="utils.abrir(this)"></td>
+         <td><input type="radio" name="lunes" checked onclick="utils.cerrar(this)"></td>
+         <td><input type="radio" name="lunes" onclick="utils.dividir(this)"></td>
+         <td colspan="2">CERRADO</td>
+       </tr>
+       <tr>
+         <td class="mdl-data-table__cell--non-numeric">Martes</td>
+         <td><input type="radio" name="martes" onclick="utils.abrir(this)"></td>
+         <td><input type="radio" name="martes" checked onclick="utils.cerrar(this)"></td>
+         <td><input type="radio" name="martes" onclick="utils.dividir(this)"></td>
+         <td colspan="2">CERRADO</td>
+       </tr>
+       <tr>
+         <td class="mdl-data-table__cell--non-numeric">Miercoles</td>
+         <td><input type="radio" name="miercoles" onclick="utils.abrir(this)"></td>
+         <td><input type="radio" name="miercoles" checked onclick="utils.cerrar(this)"></td>
+         <td><input type="radio" name="miercoles" onclick="utils.dividir(this)"></td>
+         <td colspan="2">CERRADO</td>
+       </tr>
+       <tr>
+         <td class="mdl-data-table__cell--non-numeric">Jueves</td>
+         <td><input type="radio" name="jueves" onclick="utils.abrir(this)"></td>
+         <td><input type="radio" name="jueves" checked onclick="utils.cerrar(this)"></td>
+         <td><input type="radio" name="jueves" onclick="utils.dividir(this)"></td>
+         <td colspan="2">CERRADO</td>
+       </tr>
+       <tr>
+         <td class="mdl-data-table__cell--non-numeric">Viernes</td>
+         <td><input type="radio" name="viernes" onclick="utils.abrir(this)"></td>
+         <td><input type="radio" name="viernes" checked onclick="utils.cerrar(this)"></td>
+         <td><input type="radio" name="viernes" onclick="utils.dividir(this)"></td>
+         <td colspan="2">CERRADO</td>
+       </tr>
+       <tr>
+         <td class="mdl-data-table__cell--non-numeric">Sabado</td>
+         <td><input type="radio" name="sabado" onclick="utils.abrir(this)"></td>
+         <td><input type="radio" name="sabado" checked onclick="utils.cerrar(this)"></td>
+         <td><input type="radio" name="sabado" onclick="utils.dividir(this)"></td>
+         <td colspan="2">CERRADO</td>
+       </tr>
+       <tr>
+         <td class="mdl-data-table__cell--non-numeric">Domingo</td>
+         <td><input type="radio" name="domingo" onclick="utils.abrir(this)"></td>
+         <td><input type="radio" name="domingo" checked onclick="utils.cerrar(this)"></td>
+         <td><input type="radio" name="domingo" onclick="utils.dividir(this)"></td>
+         <td colspan="2">CERRADO</td>
+       </tr>
+     </table>
+   </div>
+ </form>
  <div class="mdl-cell mdl-cell--4-col">
-   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="text" id="total_disponible" name="total_disponible"> <label class="mdl-textfield__label" for="total_disponible">Stock</label> </div>
+   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="number" id="total_disponible" name="total_disponible"> <label class="mdl-textfield__label" for="total_disponible">Stock</label> </div>
  </div>
  <div class="mdl-card__actions">
-  <button id="btn-crearCalendario" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"> CREAR OFERTA </button>
+  <button id="btn-crearCalendario" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"> Guardar horarios </button>
 </div>
 </div>
 </div>
@@ -686,6 +692,34 @@
     </div>
   </form>
 </div>
+</div>
+
+<!--- Calendario -->
+<div id="calendario" class="mdl-cell mdl-cell--4-col servicio">
+ <div class="demo-card-wide producto">
+  <form action="#" name="createCalendar">
+    <div style="overflow-x: auto">
+     <table style="width:100%;" id="calendario-view" class="mdl-data-table mdl-shadow--2dp">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="mdl-data-table__cell--non-numeric">Lunes</th>
+          <th>Martes</th>
+          <th>Miercoles</th>
+          <th>Jueves</th>
+          <th>Viernes</th>
+          <th>Sabado</th>
+          <th>Domingo</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+     </tbody>
+   </table>
+ </div>
+</form>
+</div>
+
 </div>
 
 </div>
