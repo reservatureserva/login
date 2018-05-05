@@ -13,12 +13,12 @@ var peticionesAJAX = (function() {
 		});
 	};
 
-	var borrarUsuario = (email, callback)=>{
+	var borrarUsuario = (callback)=>{
 		$.ajax({
-			type: "POST",
+			type: "DELETE",
 			dataType: "json",
-			data: {email: email},
-			url: "app/user/borrar"
+			data: {id: id},
+			url: "app/user/delete"
 		}).done(function(user) {
 			callback();
 		}).fail(function(error) {
@@ -39,12 +39,12 @@ var peticionesAJAX = (function() {
 		});
 	};
 
-	var reservas = (email, createRCard)=>{
+	var reservas = (createRCard)=>{
 		$.ajax({
 			type: "POST",
 			dataType: "json",
-			data: {email: email},
-			url: "app/user/reservas"
+			data: {id: $.coockie("user")},//recuperar id de la cookie
+			url: "app/user/booking"
 		}).done(function(jsonArray) {
 			return createRCard(jsonArray);
 		}).fail(function(error) {
@@ -57,7 +57,7 @@ var peticionesAJAX = (function() {
 			type: "POST",
 			dataType: "json",
 			data: json,
-			url: "app/empresa/createOferta"
+			url: "app/empresa/createOffer"
 		}).done(function(oferta) {
 
 		}).fail(function(error) {
