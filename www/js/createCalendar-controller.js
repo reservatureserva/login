@@ -1,7 +1,7 @@
 var createCalendarCo = (function() {
-	var ini = ()=>{
+	var ini = (ofertaId)=>{
 		$('#btn-crearCalendario').click(function() {
-			procesarCalendario();
+			procesarCalendario(ofertaId);
 		});
 	};
 
@@ -9,9 +9,9 @@ var createCalendarCo = (function() {
 		return true;
 	};
 
-	var procesarCalendario = ()=>{
+	var procesarCalendario = (ofertaId)=>{
 		var json = {
-			"oferta":"",
+			"oferta": ofertaId,
 			"lunes":{
 				"hora_inicio": "",
 				"hora_fin":"",
@@ -78,6 +78,8 @@ var createCalendarCo = (function() {
 		json["total_disponible"] = $("form[name='createCalendar'] input[name='total_disponible']").val();
 
 		console.log(json);
+
+		peticionesAJAX.createCalendar(json);
 	};
 	return{
 		ini		: 		ini

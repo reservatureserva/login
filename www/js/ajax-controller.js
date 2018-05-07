@@ -52,12 +52,12 @@ var peticionesAJAX = (function() {
 		});
 	};
 
-	var insertOferta = (json)=>{
+	var getAvailable = (json)=>{
 		$.ajax({
 			type: "POST",
 			dataType: "json",
 			data: json,
-			url: "app/empresa/createOffer"
+			url: "http:/localhost:8000/api/business/createOffer"
 		}).done(function(oferta) {
 
 		}).fail(function(error) {
@@ -65,18 +65,32 @@ var peticionesAJAX = (function() {
 		});
 	};
 
-	var getAvailable = (json)=>{
+	var insertOferta = (json, calendarCo)=>{
 		$.ajax({
 			type: "POST",
 			dataType: "json",
 			data: json,
-			url: "app/calendar"
-		}).done(function(oferta) {
-
+			url: "http:/localhost:8000/api/business/createOffer"
+		}).done(function(ofertaId) {
+			//guardar en cookie
+			calendarCo(ofertaId);
 		}).fail(function(error) {
 			contenido.feedBack(JSON.stringify(error));
 		});
-	}
+	};
+
+	var createCalendar = (json)=>{
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			data: json,
+			url: "http:/localhost:8000/api/business/createCalendar"
+		}).done(function(oferta) {
+			contenido.feedBack("Oferta creada con exito");
+		}).fail(function(error) {
+			contenido.feedBack(JSON.stringify(error));
+		});
+	};
 
 	return{
 		registro		: 		registro,

@@ -46,7 +46,28 @@ var utils = (function() {
 		console.log(dia);
 	};
 
-	var currentWeekRange = ()=>{
+	var getSunday = ()=>{
+		var date = new Date();
+		var day = date.getDay() || 7; 
+		if( day !== 7 ){
+			date.setHours(-24 * (day - 7));			
+		}
+		date.setHours(23);
+		date.setMinutes(59);
+		date.setSeconds(59);
+		return date;
+	}
+
+	var getMonday = ()=>{
+		var date = new Date();
+		var day = date.getDay() || 7; 
+		if( day !== 1 ) {
+			date.setHours(-24 * (day - 1));
+		}
+		date.setHours(0);
+		date.setMinutes(0);
+		date.setSeconds(0);
+		return date;
 
 	};
 
@@ -59,6 +80,8 @@ var utils = (function() {
 		dataOK			: 	dataOK,
 		abrir			: 	abrir,
 		cerrar			: 	cerrar,
-		dividir			: 	dividir
+		dividir			: 	dividir,
+		getSunday		: 	getSunday,
+		getMonday		: 	getMonday
 	}
 })();
