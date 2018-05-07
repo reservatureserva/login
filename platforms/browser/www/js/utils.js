@@ -46,6 +46,10 @@ var utils = (function() {
 		console.log(dia);
 	};
 
+	var currentWeekRange = ()=>{
+
+	};
+
 
 
 	return{

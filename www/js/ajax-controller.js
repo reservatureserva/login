@@ -65,6 +65,19 @@ var peticionesAJAX = (function() {
 		});
 	};
 
+	var getAvailable = (json)=>{
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			data: json,
+			url: "app/calendar"
+		}).done(function(oferta) {
+
+		}).fail(function(error) {
+			contenido.feedBack(JSON.stringify(error));
+		});
+	}
+
 	return{
 		registro		: 		registro,
 		borrarUsuario	:		borrarUsuario,

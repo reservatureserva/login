@@ -274,7 +274,7 @@ h6{
 
 /************ Create oferta *********************/
 #createOferta .mdl-textfield, #createOferta .default_img, #createOferta img{
-     width: 100%;
+ width: 100%;
 }
 
 /************ Perfil *********************/
@@ -293,30 +293,30 @@ h6{
 @media only screen and (min-width: 768px) {
     .buscarMovil {
      display: none;
-}
-.buscarPC{
+ }
+ .buscarPC{
      visibility: visible;
-}
-.botonEmp{
+ }
+ .botonEmp{
      display: none;
-}
-.card-me, .mdl-dialog{
+ }
+ .card-me, .mdl-dialog{
      width: 580px;
-}
-.mdl-textfield{
+ }
+ .mdl-textfield{
      width: 600px;
-}
-.mdl-menu__container {
+ }
+ .mdl-menu__container {
      right: 80px !important;
-}
-.js-contenido{
+ }
+ .js-contenido{
      padding: 8vh;
-}
+ }
 
-.carousel-inner>.item>a>img, .carousel-inner>.item>img {
+ .carousel-inner>.item>a>img, .carousel-inner>.item>img {
      width: 100%;
      height: 700px;
-}
+ }
 }
 
 #calendario-view td{
@@ -325,4 +325,15 @@ h6{
 
 #calendario-view th, #calendario-view td{
     text-align: center;
+}
+
+.closed {
+ border: 0.5px solid white; 
+ background-color: #6f8994;
+ width: 100px;
+}
+.opened {
+ width: 100px;
+ border: 0.5px solid white; 
+ background-color: #55d037;
 }

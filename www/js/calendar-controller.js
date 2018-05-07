@@ -77,52 +77,24 @@ var calendarCo = (function() {
 				var tmpMFin = calendar[dia].hora_fin.split(":")[1];
 				//si no hay descanso
 				if(calendar[dia].hora_inicio2 === ""){
+					var closed1 = tmpHIni - hIni;
+					var closed2 = hFin - tmpHFin;
+					var opened = tmpHFin - tmpHIni;
+					//closed1
+					for (var i = 0; i < closed1; i++) {
+						tds[dia].push("<td class='closed' data-date='24/05/2018 "+hours[0]+"'></td>");
+					}
 
-					//plan B
-					/*if(tmpHIni === hIni && tmpHFin === hFin){
-						//comprobación de disponibilidad, verde o rojo
-						for (var i = hIni; i <= hFin; i++) {
-							tds[dia].push("<td class='open' data-date='24/05/2018 "+hours[0]+"'></td>");
-						}
-					}else{*/
-						
-						/*if(tmpHIni > hIni){
-							//var numTdClosed = tmpHIni - hIni;
-							for (var i = hIni; i < tmpHIni; i++) {
-								tds[dia].push("<td class='closed' data-date='24/05/2018 "+hours[0]+"'></td>");
-							}
-						}
-						for (var i = tmpHIni; i <= tmpHFin; i++) {
-							tds[dia].push("<td class='open' data-date='24/05/2018 "+hours[0]+"'></td>");
-						}
-						if (tmpHFin < hFin) {
-							for (var i = tmpHFin; i < hFin; i++) {
-								tds[dia].push("<td class='closed' data-date='24/05/2018 "+hours[0]+"'></td>");
-							}
-						}*/
+					//opened
+					for (var i = 0; i < opened; i++) {
+						tds[dia].push("<td class='opened' data-date='24/05/2018 "+hours[0]+"'></td>");
+					}
 
+					//closed2
+					for (var i = 0; i < closed2; i++) {
+						tds[dia].push("<td class='closed' data-date='24/05/2018 "+hours[0]+"'></td>");
+					}
 
-						//td cerrados
-						var closed1 = tmpHIni - hIni;
-						var closed2 = hFin - tmpHFin;
-						var opened = tmpHFin - tmpHIni;
-						//closed1
-						for (var i = 0; i < closed1; i++) {
-							tds[dia].push("<td class='closed' data-date='24/05/2018 "+hours[0]+"'></td>");
-						}
-
-						//opened
-						for (var i = 0; i < opened; i++) {
-							tds[dia].push("<td class='opened' data-date='24/05/2018 "+hours[0]+"'></td>");
-						}
-
-						//closed2
-						for (var i = 0; i < closed2; i++) {
-							tds[dia].push("<td class='closed' data-date='24/05/2018 "+hours[0]+"'></td>");
-						}
-
-
-					//}
 
 				}else{
 					var tmpHIni2 = calendar[dia].hora_inicio2.split(":")[0];//5
@@ -147,7 +119,7 @@ var calendarCo = (function() {
 					}
 
 					//opened
-					for (var i = 0; i < opened; i++) {
+					for (var i = 0; i < opened1; i++) {
 						tds[dia].push("<td class='opened' data-date='24/05/2018 "+hours[0]+"'></td>");
 					}
 
@@ -155,15 +127,28 @@ var calendarCo = (function() {
 					for (var i = 0; i < closed2; i++) {
 						tds[dia].push("<td class='closed' data-date='24/05/2018 "+hours[0]+"'></td>");
 					}
+					//opened2
+					for (var i = 0; i < opened2; i++) {
+						tds[dia].push("<td class='opened' data-date='24/05/2018 "+hours[0]+"'></td>");
+					}
+
+					//closed3
+					for (var i = 0; i < closed3; i++) {
+						tds[dia].push("<td class='closed' data-date='24/05/2018 "+hours[0]+"'></td>");
+					}
 				}
 			}
 		}
 		var j = 0;
-		for(var i = hIni; i < hFin; i++){
-			var tr = "<tr><td>".concat(i).concat(":00</td>");
+		for(var i = parseInt(hIni); i < hFin; i++){
+			var tr = "<tr data-hour='"
+			.concat(i < 10 ? "0"+i : i)
+			.concat(":00'><td>")
+			.concat(i < 10 ? "0"+i : i)
+			.concat(":00</td>");
 			for(var dia in tds){
 				var td = tds[dia][j];
-				tr.concat(td);
+				tr += td;
 			}
 			tr.concat("</tr>");
 			j++;
