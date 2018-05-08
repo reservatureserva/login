@@ -46,10 +46,10 @@ var contenido = (function() {
 	};
 
 	//muestra el navBar e inserta en js-contenido el contenido
-	var home = (json)=>{
+	var home = (user)=>{
 		console.log("loading home");
 		$(".js-contenido").html("");
-		homeCo.ini();
+		homeCo.ini(user);
 		filtroDialog();
 		var json = "";
 		reservaCo.createCard(json);
@@ -94,7 +94,7 @@ var contenido = (function() {
 		modalCondicionesCo.ini();
 	};
 
-	var perfil = (json)=>{
+	var perfil = ()=>{
 		console.log("loading login");
 		$(".js-contenido").html(perfil);
 		perfilCo.ini();

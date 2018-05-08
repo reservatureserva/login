@@ -1,4 +1,7 @@
 var utils = (function() {
+	const userCookieName = "userLoggedData";
+	const imageCookieName = "imageBase";
+
 	var truncateTexts = ()=>{
 		var texts = $(".truncate");
 		for(var i = 0; i < texts.length; i++){
@@ -27,8 +30,6 @@ var utils = (function() {
 		}
 		return true;
 	};
-
-
 
 	var abrir = (dia) => {
 		var day = $(dia).attr("name");
@@ -71,6 +72,32 @@ var utils = (function() {
 
 	};
 
+	var encode64 = (str)=>{
+		return window.btoa(str);
+	};
+
+	var decode64 = (cripted)=>{
+		return window.atob(cripted);
+	};
+
+	var imgToBase64 = (image)=>{
+		if (image && image.files[0]) {
+			$("btn").attr("disabled", "true");
+			$("btn").css("background-color", "#cccccc");
+			$("input[type='file']").attr("disabled", "true");
+			var reader  = new FileReader();
+
+			reader.onloadend = function () {
+				cookies.setCookie(utils.imageCookieName, reader.result);
+				$("btn").removeAttr("disabled");
+				$("btn").css("background-color", "#30a7ba");
+				$("input[type='file']").removeAttr("disabled");
+			}
+			reader.readAsDataURL(image.files[0]);
+		} 
+	};
+
+
 
 
 	return{
@@ -82,6 +109,11 @@ var utils = (function() {
 		cerrar			: 	cerrar,
 		dividir			: 	dividir,
 		getSunday		: 	getSunday,
-		getMonday		: 	getMonday
+		getMonday		: 	getMonday,
+		encode64 		: 	encode64,
+		decode64		: 	decode64,
+		userCookieName  : 	userCookieName,
+		imgToBase64		: 	imgToBase64,
+		imageCookieName : 	imageCookieName
 	}
 })();

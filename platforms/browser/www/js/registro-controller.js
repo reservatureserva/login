@@ -14,10 +14,14 @@ var registroCo = (function() {
 			return false;
 		});
 
+		$("form[name='registroFormu'] input[name='avatar']").change(function() {
+			var image = document.querySelector("form[name='registroFormu'] input[name='avatar']");
+			utils.imgToBase64(image);
+		});
 
 
 	};
-	var createJSON = (dni, name, email, tlf, date, foto, password)=>{
+	var createJSON = (dni, name, email, tlf, date, password)=>{
 		var json = {
 			"dni":dni,
 			"nombre":name,
@@ -26,12 +30,12 @@ var registroCo = (function() {
 			"fecha_nacimiento":date
 		}
 		if(utils.dataOK(json)){
-			json.foto_perfil = foto;
+			json.foto_perfil = cookies.getCookie(utils.imageCookieName);
+			cookies.deleteCookie(utils.imageCookieName);
 			peticionesAJAX.registro(json, userCo.registro);
 		}
 	};
 	var procesarRegistro = ()=>{
-		var foto = "";
 		var dni = $("form[name='registroFormu'] input[name='dni']").val();
 		var name = $("form[name='registroFormu'] input[name='name']").val();
 		var email = $("form[name='registroFormu'] input[name='email']").val();
@@ -39,29 +43,13 @@ var registroCo = (function() {
 		var repassword = $("form[name='registroFormu'] input[name='repassword']").val();
 		var tlf = $("form[name='registroFormu'] input[name='tlf']").val();
 		var date = $("form[name='registroFormu'] input[name='date']").val();
-		var avatar = document.querySelector("form[name='registroFormu'] input[name='avatar']");
 		
 		if (password !== repassword) {
 			contenido.feedBack("Contraseña no coincide");
 			return;
 		}
-		if (avatar && avatar.files[0]) {
-			var file    = avatar.files[0];
 
-			var reader  = new FileReader();
-
-			reader.onloadend = function () {
-				foto = reader.result;
-				console.log(foto)
-				createJSON(dni, name, email, tlf, date, foto, password);
-			}
-
-			reader.readAsDataURL(file);
-		} else {
-			createJSON(dni, name, email, tlf, date, foto, password);
-		}
-
-
+		createJSON(dni, name, email, tlf, date, password);
 
 	};
 

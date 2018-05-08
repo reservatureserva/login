@@ -28,8 +28,7 @@ var homeCo = (function() {
 
 
 	var printNav = (json)=>{
-		json = {"dni":"66666666R","nombre":"Arturo Molls","email":"alx@gmail.com","tlf":"666266666","fecha_nacimiento":"704332800","fecha_registro":"704332800","foto_perfil":"http://jsequeiros.com/sites/default/files/imagen-cachorro-comprimir.jpg"}
-		$('.img').css('background-image','url(' + json.foto_perfil + ')');
+		$('.img').css('background-image','url(http://localhost:8000/' + json.foto_perfil + ')');
 		$("#navBar").css("display", "block");
 	};
 

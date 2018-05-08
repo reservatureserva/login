@@ -3,12 +3,12 @@ var app = (function() {
 		var user = firebase.auth().currentUser;
 		contenido.ini();
 		if (user) {
-			contenido.home();
+			var user = cookies.getJsonFromCookie(utils.userCookieName) || peticionesAJAX.login(user.email);
+			contenido.home(user);
 		} else {
 			contenido.login();
 		}
 	};
-
 	return{
 		ini : ini
 	};

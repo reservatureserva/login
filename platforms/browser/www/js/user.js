@@ -21,20 +21,18 @@
     });
   };
 
-  var registro = (email, password)=>{
-    var email = $("input[name='email']").val();
-    var password = $("input[name='password']").val();
-    var repassword = $("input[name='repassword']").val();
+  var registro = (user)=>{
+    //guardar en cookie 
+    cookies.setJsonInCookie(utils.userCookieName, user);
+    var password = $("form[name='registroFormu'] input[name='repassword']").val();
 
-    if(password === repassword && $("input[name='dni']").val() !== ''){
-      console.log("Guardando en ElasticSearch");
-      firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-       var errorCode = error.code;
-       var errorMessage = error.message;
-       contenido.feedBack(error.message);
-       peticionesAJAX.borrarUsuario(email);
-     });
-    } 
+    firebase.auth().createUserWithEmailAndPassword(user.email, password).catch(function(error) {
+     var errorCode = error.code;
+     var errorMessage = error.message;
+     contenido.feedBack(error.message);
+     //recuperar el email de la cookie y borrar la cookie
+     //peticionesAJAX.borrarUsuario(email);
+   });
   };
 
   var google = ()=>{

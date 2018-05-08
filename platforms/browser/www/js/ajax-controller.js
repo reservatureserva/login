@@ -1,17 +1,64 @@
 var peticionesAJAX = (function() {
+	var login = (email)=>{
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			data: {email; email},
+			url: "http://localhost:8000/api/user/profile",
+			async: false
+		}).done(function(user) {
+			if(user.message){
+				contenido.feedBack(user.message);
+				return;
+			}
+			//actualizo la cookie
+			cookies.setJsonInCookie(utils.userCookieName, user);
+			//redirijo al perfil
+			return user;
+		}).fail(function(error) {
+			contenido.feedBack(JSON.stringify(error));
+		});
+	};
+
 	var registro = (json, callback)=>{
 		$.ajax({
 			type: "POST",
 			dataType: "json",
 			data: json,
-			url: "app/user/register"
+			url: "http://localhost:8000/api/user/register",
+			async: false
 		}).done(function(user) {
+			if(user.message){
+				contenido.feedBack(user.message);
+				return;
+			}
 			//registrar en Firebase
-			callback();
+			callback(user);
 		}).fail(function(error) {
 			contenido.feedBack(JSON.stringify(error));
 		});
 	};
+
+	var updateUser = (json, callback)=>{
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			data: json,
+			url: "http://localhost:8000/api/user/update",
+			async: false
+		}).done(function(user) {
+			if(user.message){
+				contenido.feedBack(user.message);
+				return;
+			}
+			//actualizo la cookie
+			cookies.setJsonInCookie(utils.userCookieName, user);
+			//redirijo al perfil
+			callback();
+		}).fail(function(error) {
+			contenido.feedBack(JSON.stringify(error));
+		});
+	}
 
 	var borrarUsuario = (callback)=>{
 		$.ajax({
