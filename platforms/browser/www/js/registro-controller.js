@@ -46,15 +46,17 @@ var registroCo = (function() {
 			return;
 		}
 		if (avatar && avatar.files[0]) {
+			var file    = avatar.files[0];
 
-			var FR = new FileReader();
+			var reader  = new FileReader();
 
-			FR.addEventListener("load", function(e) {
-				foto = e.target.result;
+			reader.onloadend = function () {
+				foto = reader.result;
+				console.log(foto)
 				createJSON(dni, name, email, tlf, date, foto, password);
-			}); 
+			}
 
-			FR.readAsDataURL( avatar.files[0] );
+			reader.readAsDataURL(file);
 		} else {
 			createJSON(dni, name, email, tlf, date, foto, password);
 		}
