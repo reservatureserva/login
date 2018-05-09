@@ -19,10 +19,11 @@ var perfilCo = (function() {
 
 		utils.efectoInputs();
 	};
-	var createJSON = (name, tlf)=>{
+	var createJSON = (name, tlf, id)=>{
 		var json = {
-			"nombre":name,
-			"tlf":tlf
+			id 		: 	id,
+			nombre	: 	name,
+			tlf 	: 	tlf
 		}
 
 		if(utils.dataOK(json)){
@@ -31,6 +32,7 @@ var perfilCo = (function() {
 				json.foto_perfil = cookies.getCookie(utils.imageCookieName);
 				cookies.deleteCookie(utils.imageCookieName);
 			}
+
 			peticionesAJAX.updateUser(json, contenido.perfil);			
 		}
 	};
@@ -65,7 +67,7 @@ var perfilCo = (function() {
 		}
 
 		if(name !== user.nombre || tlf !== user.tlf){
-			createJSON(name, tlf);
+			createJSON(name, tlf, user.id);
 		}
 
 	};

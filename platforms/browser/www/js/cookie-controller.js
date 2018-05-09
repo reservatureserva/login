@@ -16,13 +16,14 @@ var cookies = (function() {
 	};
 
 	var deleteCookie = (cookieName)=>{
-		window.localStorage.removeItem(cookieName, object);
+		window.localStorage.removeItem(cookieName);
 	};
 
 	return{
 		getCookie				: 	getCookie,
 		setCookie				: 	setCookie,
 		setJsonInCookie 		: 	setJsonInCookie,
-		getJsonFromCookie 		: 	getJsonFromCookie
+		getJsonFromCookie 		: 	getJsonFromCookie,
+		deleteCookie 			: 	deleteCookie
 	};
 })();

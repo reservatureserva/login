@@ -28,7 +28,9 @@ var homeCo = (function() {
 
 
 	var printNav = (json)=>{
-		$('.img').css('background-image','url(http://localhost:8000/' + json.foto_perfil + ')');
+		if(json.foto_perfil != undefined && json.foto_perfil != ""){
+			$('.img').css('background-image','url(http://localhost:8000/' + json.foto_perfil + ')');
+		}
 		$("#navBar").css("display", "block");
 	};
 

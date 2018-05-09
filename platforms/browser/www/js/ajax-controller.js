@@ -3,7 +3,7 @@ var peticionesAJAX = (function() {
 		$.ajax({
 			type: "POST",
 			dataType: "json",
-			data: {email; email},
+			data: {email : email},
 			url: "http://localhost:8000/api/user/profile",
 			async: false
 		}).done(function(user) {
@@ -41,7 +41,7 @@ var peticionesAJAX = (function() {
 
 	var updateUser = (json, callback)=>{
 		$.ajax({
-			type: "POST",
+			type: "PUT",
 			dataType: "json",
 			data: json,
 			url: "http://localhost:8000/api/user/update",
@@ -50,11 +50,10 @@ var peticionesAJAX = (function() {
 			if(user.message){
 				contenido.feedBack(user.message);
 				return;
+			}else{
+				cookies.setJsonInCookie(utils.userCookieName, user);
+				callback();
 			}
-			//actualizo la cookie
-			cookies.setJsonInCookie(utils.userCookieName, user);
-			//redirijo al perfil
-			callback();
 		}).fail(function(error) {
 			contenido.feedBack(JSON.stringify(error));
 		});
@@ -144,6 +143,7 @@ var peticionesAJAX = (function() {
 		borrarUsuario	:		borrarUsuario,
 		busqueda		: 		busqueda,
 		reservas		: 		reservas,
-		insertOferta	: 		insertOferta
+		insertOferta	: 		insertOferta,
+		updateUser		: 		updateUser
 	};
 })();
