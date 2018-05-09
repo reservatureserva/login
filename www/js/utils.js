@@ -72,6 +72,11 @@ var utils = (function() {
 
 	};
 
+	var ddMMYYYYtoEpoc = (str)=>{
+		var parts = str.split("/");
+		return new Date(parts[2], parts[1] - 1, parts[0]).getTime();
+	}
+
 	var encode64 = (str)=>{
 		return window.btoa(str);
 	};
@@ -114,6 +119,7 @@ var utils = (function() {
 		decode64		: 	decode64,
 		userCookieName  : 	userCookieName,
 		imgToBase64		: 	imgToBase64,
-		imageCookieName : 	imageCookieName
+		imageCookieName : 	imageCookieName,
+		ddMMYYYYtoEpoc 	: 	ddMMYYYYtoEpoc
 	}
 })();

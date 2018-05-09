@@ -32,6 +32,7 @@ var registroCo = (function() {
 		if(utils.dataOK(json)){
 			json.foto_perfil = cookies.getCookie(utils.imageCookieName);
 			cookies.deleteCookie(utils.imageCookieName);
+			json.fecha_nacimiento = utils.ddMMYYYYtoEpoc(date);
 			peticionesAJAX.registro(json, userCo.registro);
 		}
 	};
