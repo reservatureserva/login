@@ -1,5 +1,5 @@
 var peticionesAJAX = (function() {
-	var login = (email)=>{
+	var login = (email, next)=>{
 		$.ajax({
 			type: "POST",
 			dataType: "json",
@@ -14,7 +14,7 @@ var peticionesAJAX = (function() {
 			//actualizo la cookie
 			cookies.setJsonInCookie(utils.userCookieName, user);
 			//redirijo al perfil
-			return user;
+			return next(user);
 		}).fail(function(error) {
 			contenido.feedBack(JSON.stringify(error));
 		});
@@ -52,7 +52,7 @@ var peticionesAJAX = (function() {
 				return;
 			}else{
 				cookies.setJsonInCookie(utils.userCookieName, user);
-				callback();
+				location.reload();
 			}
 		}).fail(function(error) {
 			contenido.feedBack(JSON.stringify(error));
@@ -139,6 +139,7 @@ var peticionesAJAX = (function() {
 	};
 
 	return{
+		login			: 		login,
 		registro		: 		registro,
 		borrarUsuario	:		borrarUsuario,
 		busqueda		: 		busqueda,

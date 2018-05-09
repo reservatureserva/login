@@ -1,6 +1,10 @@
 var cookies = (function() {
 	var getJsonFromCookie = (cookieName)=>{
-		return JSON.parse(decodeURIComponent(utils.decode64(window.localStorage.getItem(cookieName))));
+		var cookie = getCookie(cookieName)
+		if(cookie){
+			return JSON.parse(decodeURIComponent(utils.decode64(window.localStorage.getItem(cookieName))));			
+		}
+		return undefined;
 	};
 
 	var setJsonInCookie = (cookieName, json)=>{

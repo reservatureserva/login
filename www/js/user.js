@@ -67,6 +67,7 @@
 
   var logOut = ()=>{
     firebase.auth().signOut().then(function() {
+      cookies.deleteCookie(utils.userCookieName);
       location.reload();
     }, function(error) {
       alert('Sign Out Error'+ error);
