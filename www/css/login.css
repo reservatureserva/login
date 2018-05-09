@@ -55,7 +55,7 @@ nav {
 .img {
     height: 50px;
     width: 50px;
-    background-image: url("https://http2.mlstatic.com/fotos-5x5-cm-visa-estados-unidos-eeuu-y-otros-6-fotos-carnet-D_NQ_NP_23142-MLA20241872874_022015-F.jpg");
+    background-image: url("http://localhost:8000/img/users/default.png");
     background-size: 50px 50px;
     border-radius:50%;
     float: right;
@@ -281,7 +281,7 @@ h6{
 .profilePicture {
     height: 100%;
     width: 100%;
-    background-image: url("https://http2.mlstatic.com/fotos-5x5-cm-visa-estados-unidos-eeuu-y-otros-6-fotos-carnet-D_NQ_NP_23142-MLA20241872874_022015-F.jpg");
+    background-image: url("http://localhost:8000/img/users/default.png");
     background-size: 100% 100%;
 }
 

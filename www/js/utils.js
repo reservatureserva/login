@@ -9,8 +9,8 @@ var utils = (function() {
 		}
 	};
 
-	var formatSeconds = (seconds)=>{
-		var date = new Date(seconds*1000);
+	var formatEpoc = (millis)=>{
+		var date = new Date(parseInt(millis));
 		return date.getUTCDate() + '/' + (date.getUTCMonth() + 1)+ '/' + date.getUTCFullYear();
 	};
 
@@ -107,7 +107,7 @@ var utils = (function() {
 
 	return{
 		truncateTexts 	: 	truncateTexts,
-		formatSeconds	: 	formatSeconds,
+		formatEpoc		: 	formatEpoc,
 		efectoInputs	: 	efectoInputs,
 		dataOK			: 	dataOK,
 		abrir			: 	abrir,

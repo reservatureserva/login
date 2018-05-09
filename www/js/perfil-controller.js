@@ -19,7 +19,7 @@ var perfilCo = (function() {
 
 		utils.efectoInputs();
 	};
-	var createJSON = (name, tlf, id)=>{
+	var createJSON = (name, tlf, id, picture)=>{
 		var json = {
 			id 		: 	id,
 			nombre	: 	name,
@@ -27,7 +27,6 @@ var perfilCo = (function() {
 		}
 
 		if(utils.dataOK(json)){
-			var picture = cookies.getCookie(utils.imageCookieName);
 			if(picture){
 				json.foto_perfil = cookies.getCookie(utils.imageCookieName);
 				cookies.deleteCookie(utils.imageCookieName);
@@ -43,7 +42,7 @@ var perfilCo = (function() {
 		$(form).find("input[name='email']").val(json.email);
 		$(form).find("input[name='dni']").val(json.dni);
 		$(form).find("input[name='tlfn']").val(json.tlf);
-		$(form).find("input[name='fecha']").val(json.fecha_nacimiento);
+		$(form).find("input[name='fecha']").val(utils.formatEpoc(json.fecha_nacimiento));
 		if(json.foto_perfil != undefined && json.foto_perfil != ""){
 			$('.profilePicture').css('background-image','url(http://localhost:8000/' + json.foto_perfil + ')');			
 		}
@@ -65,9 +64,9 @@ var perfilCo = (function() {
 		if (password !== undefined && password !== "") {
 			userCo.changePassword(password);
 		}
-
-		if(name !== user.nombre || tlf !== user.tlf){
-			createJSON(name, tlf, user.id);
+		var picture = cookies.getCookie(utils.imageCookieName);
+		if(name !== user.nombre || tlf !== user.tlf || picture){
+			createJSON(name, tlf, user.id, picture);
 		}
 
 	};
