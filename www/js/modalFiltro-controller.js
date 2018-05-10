@@ -79,7 +79,7 @@ var modalFiltro = (function() {
 			min: 0,
 			max: 100,
 			slide: function(event, ui) {
-				var realValue = -1;
+				var realValue = "";
 				$(".js-distancia").addClass("is-dirty");
 				$("input[name='distancia'][type='text']").val(ui.value > 0 && ui.value < 99 ? "menos de "+ui.value + " Km" :"Cualquier distancia");
 				$("input[name='distancia'][type='hidden']").val(ui.value > 0 && ui.value < 99 ? ui.value : realValue);
