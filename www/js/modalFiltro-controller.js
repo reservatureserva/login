@@ -27,8 +27,7 @@ var modalFiltro = (function() {
 
 		//lanzar la query
 		$('.js-buscar').click(function() {
-			/** #### Node #### **/
-			procesarBusqueda();
+			navigator.geolocation.getCurrentPosition(procesarBusqueda, contenido.feedBack);
 			dialog.close();
 		});
 		sliders();
@@ -53,7 +52,7 @@ var modalFiltro = (function() {
 			values: [0, 5000],
 			slide: function( event, ui ) {
 				var value = "Cualquier precio";
-				var realValue = -1;
+				var realValue = "";
 				$(".js-precio").addClass("is-dirty");
 				var min = ui.values[0] + " €";
 				var max = ui.values[1] > 4999 ? " o más" : " - " + ui.values[1] + " €" ;
@@ -85,16 +84,18 @@ var modalFiltro = (function() {
 		});
 	};
 
-	var procesarBusqueda = ()=>{
+	var procesarBusqueda = (position)=>{
+		var position = utils.getPosition(position);
+		var precio = utils.getPrecio($("form[name='dialog'] input[name='precio'][type='hidden']").val());
 		var json = {
-			busqueda: 		$("form[name='dialog'] input[name='busqueda']").val(),
-			categoria: 		$("form[name='dialog'] input[name='categoria']").val(),
-			precio: 		$("form[name='dialog'] input[name='precio'][type='hidden']").val(),
-			distancia: 		$("form[name='dialog'] input[name='distancia'][type='hidden']").val(),
-			ordenar: 		$("form[name='dialog'] input[name='ordenar']").val()
+			busqueda 	: 		$("form[name='dialog'] input[name='busqueda']").val(),
+			categoria 	: 		$("form[name='dialog'] input[name='categoria']").val(),
+			precio 		: 		precio,
+			distancia 	: 		$("form[name='dialog'] input[name='distancia'][type='hidden']").val(),
+			orden 		: 		$("form[name='dialog'] input[name='ordenar']").val(),
+			position 	: 		position
 		};
-		busquedaCo.createCard(json);
-		//peticionesAJAX.busqueda(json, busquedaCo.createCard);
+		peticionesAJAX.busqueda(json, busquedaCo.createCard);
 	};
 
 

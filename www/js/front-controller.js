@@ -1,4 +1,5 @@
 var contenido = (function() {
+	var firstLoad = false;
 	var idLogin;
 	var idRemember;
 	var idRegistro;
@@ -11,21 +12,23 @@ var contenido = (function() {
 	var createCalendar;
 	var modalCondiciones;
 	var ini = ()=>{
-		idLogin = $("#login");
-		idRegistro = $("#registro");
-		idRemember = $("#remember");
-		cardBusqueda = $("#cardBusqueda");
-		cardReserva = $("#cardReserva");
-		perfil = $("#perfil");
-		oferta = $("#oferta");
-		faqs = $("#faqs");
-		createOferta = $("#createOferta");
-		createCalendar = $("#createCalendar");
-		modalCondiciones = $("#modalCondiciones");
-		//$(".js-draft").html("");
-		globalListeners();
+		if(!firstLoad){
+			idLogin = $("#login");
+			idRegistro = $("#registro");
+			idRemember = $("#remember");
+			cardBusqueda = $("#cardBusqueda");
+			cardReserva = $("#cardReserva");
+			perfil = $("#perfil");
+			oferta = $("#oferta");
+			faqs = $("#faqs");
+			createOferta = $("#createOferta");
+			createCalendar = $("#createCalendar");
+			modalCondiciones = $("#modalCondiciones");
+			globalListeners();
+			firstLoad = true;
+		}
 	};
-	
+
 	var globalListeners = ()=>{
 		$(".faqs").click(function() {
 			faqsView();
@@ -102,6 +105,7 @@ var contenido = (function() {
 
 	var feedBack = (mensaje)=>{
 		document.querySelector('#feedBack').MaterialSnackbar.showSnackbar({message: mensaje});
+		return undefined;
 	};
 
 	var logOut = ()=>{

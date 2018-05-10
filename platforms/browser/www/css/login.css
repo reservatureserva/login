@@ -273,7 +273,7 @@ h6{
 }
 
 /************ Create oferta *********************/
-#createOferta .mdl-textfield, #createOferta .default_img, #createOferta img{
+#createOferta .mdl-textfield, #createOferta .default_img, #createOferta img, #btn-crear{
  width: 100%;
 }
 

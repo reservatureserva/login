@@ -7,6 +7,10 @@ var rememberCo = (function() {
 		$("#btn-rem-send").click(function(){
 			userCo.rememberPassword($("#remember-email").val());
 		});
+
+		$(".volver").click(function() {
+			app.auth();
+		});
 	};
 
 	return{

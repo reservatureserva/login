@@ -5,6 +5,10 @@ var registroCo = (function() {
 			$(".js-date").addClass("is-dirty");
 			$(".js-date").removeClass("is-invalid");
 		});
+
+		$(".volver").click(function() {
+			app.auth();
+		});
 		
 		utils.efectoInputs();
 

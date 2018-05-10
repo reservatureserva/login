@@ -1,7 +1,11 @@
 var app = (function() {
 	var ini = ()=>{
-		var user = firebase.auth().currentUser;
 		contenido.ini();
+		auth();
+	};
+
+	var auth = ()=>{
+		var user = firebase.auth().currentUser;
 		if (user) {
 			var cookieUser = cookies.getJsonFromCookie(utils.userCookieName);
 			if(cookieUser){
@@ -14,6 +18,7 @@ var app = (function() {
 		}
 	};
 	return{
-		ini : ini
+		ini : ini,
+		auth : auth
 	};
 })();

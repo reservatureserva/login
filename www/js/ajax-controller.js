@@ -72,14 +72,14 @@ var peticionesAJAX = (function() {
 		});
 	}
 
-	var busqueda = (query, createBCard)=>{
+	var busqueda = (query, callback)=>{
 		$.ajax({
 			type: "POST",
 			dataType: "json",
 			data: query,
-			url: "app/shared/search"
+			url: "http://localhost:8000/api/search"
 		}).done(function(jsonArray) {
-			return createBCard(jsonArray);
+			return callback(jsonArray);
 		}).fail(function(error) {
 			contenido.feedBack(JSON.stringify(error));
 		});

@@ -102,8 +102,22 @@ var utils = (function() {
 		} 
 	};
 
+	var getPosition = (position)=>{
+		return [position.coords.latitude, position.coords.longitude];
+	}
 
-
+	var getPrecio = (precio)=>{
+		if(precio){
+			if(precio.indexOf(",") !== -1){
+				var array = precio.split(",");
+				return [parseInt(array[0]), parseInt(array[1])];
+			}else{
+				return parseInt(precio);
+			}
+		}else{
+			return precio;
+		}
+	};
 
 	return{
 		truncateTexts 	: 	truncateTexts,
@@ -120,6 +134,8 @@ var utils = (function() {
 		userCookieName  : 	userCookieName,
 		imgToBase64		: 	imgToBase64,
 		imageCookieName : 	imageCookieName,
-		ddMMYYYYtoEpoc 	: 	ddMMYYYYtoEpoc
+		ddMMYYYYtoEpoc 	: 	ddMMYYYYtoEpoc,
+		getPosition 	: 	getPosition,
+		getPrecio 		: 	getPrecio
 	}
 })();
