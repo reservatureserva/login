@@ -2,6 +2,7 @@ var utils = (function() {
 	const userCookieName = "userLoggedData";
 	const imageCookieName = "imageBase";
 	const ofertaTmp = "ofertaTmp";
+	const calendarTmp = "calendarTmp";
 
 	var truncateTexts = ()=>{
 		var texts = $(".truncate");
@@ -138,6 +139,7 @@ var utils = (function() {
 		ddMMYYYYtoEpoc 	: 	ddMMYYYYtoEpoc,
 		getPosition 	: 	getPosition,
 		getPrecio 		: 	getPrecio,
-		ofertaTmp		: 	ofertaTmp
+		ofertaTmp		: 	ofertaTmp,
+		calendarTmp 	: 	calendarTmp
 	}
 })();

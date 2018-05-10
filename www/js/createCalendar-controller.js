@@ -76,9 +76,9 @@ var createCalendarCo = (function() {
 		}
 		json["total_disponible"] = $("form[name='createCalendar'] input[name='total_disponible']").val();
 
-		console.log(json);
-		json.oferta = peticionesAJAX.insertOferta(cookies.getJsonFromCookie(ofertaTmp));
-		peticionesAJAX.createCalendar(json);
+		cookies.setJsonInCookie(utils.calendarTmp, json);
+		peticionesAJAX.insertOferta(cookies.getJsonFromCookie(utils.ofertaTmp));
+		;
 	};
 	return{
 		ini		: 		ini

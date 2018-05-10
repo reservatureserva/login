@@ -103,7 +103,7 @@ var peticionesAJAX = (function() {
 			type: "POST",
 			dataType: "json",
 			data: json,
-			url: "http:/localhost:8000/api/business/createOffer"
+			url: "http://localhost:8000/api/business/createOffer"
 		}).done(function(oferta) {
 
 		}).fail(function(error) {
@@ -116,10 +116,12 @@ var peticionesAJAX = (function() {
 			type: "POST",
 			dataType: "json",
 			data: json,
-			url: "http:/localhost:8000/api/business/createOffer",
+			url: "http://localhost:8000/api/business/createOffer",
 			async: false
 		}).done(function(oferta) {
-			return oferta.id;
+			var json = cookies.getJsonFromCookie(utils.calendarTmp);
+			json.oferta =  oferta.id;
+			createCalendar(json);
 		}).fail(function(error) {
 			contenido.feedBack(JSON.stringify(error));
 		});
@@ -130,9 +132,10 @@ var peticionesAJAX = (function() {
 			type: "POST",
 			dataType: "json",
 			data: json,
-			url: "http:/localhost:8000/api/business/createCalendar"
+			url: "http://localhost:8000/api/business/createCalendar"
 		}).done(function(oferta) {
 			contenido.feedBack("Oferta creada con exito");
+			contenido.home();
 		}).fail(function(error) {
 			contenido.feedBack(JSON.stringify(error));
 		});
@@ -145,6 +148,7 @@ var peticionesAJAX = (function() {
 		busqueda		: 		busqueda,
 		reservas		: 		reservas,
 		insertOferta	: 		insertOferta,
-		updateUser		: 		updateUser
+		updateUser		: 		updateUser,
+		createCalendar 	: 		createCalendar
 	};
 })();
