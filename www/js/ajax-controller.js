@@ -111,15 +111,15 @@ var peticionesAJAX = (function() {
 		});
 	};
 
-	var insertOferta = (json, calendarCo)=>{
+	var insertOferta = (json, next)=>{
 		$.ajax({
 			type: "POST",
 			dataType: "json",
 			data: json,
-			url: "http:/localhost:8000/api/business/createOffer"
-		}).done(function(ofertaId) {
-			//guardar en cookie
-			calendarCo(ofertaId);
+			url: "http:/localhost:8000/api/business/createOffer",
+			async: false
+		}).done(function(oferta) {
+			return oferta.id;
 		}).fail(function(error) {
 			contenido.feedBack(JSON.stringify(error));
 		});

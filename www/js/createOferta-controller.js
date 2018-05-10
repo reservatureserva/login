@@ -14,7 +14,7 @@ var createOfertaCo = (function() {
 		if(utils.dataOK(json)){
 			json.condiciones = getConditions();
 			/** peticion ajax insert oferta **/
-			peticionesAJAX.insertOferta(json);
+			cookies.setJsonInCookie(utils.ofertaTmp, json);
 			contenido.createCalendarView();
 		}
 	};
