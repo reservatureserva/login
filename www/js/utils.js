@@ -4,6 +4,8 @@ var utils = (function() {
 	const ofertaTmp = "ofertaTmp";
 	const calendarTmp = "calendarTmp";
 
+	const ofertaImg = "ofertaImg";
+
 	var truncateTexts = ()=>{
 		var texts = $(".truncate");
 		for(var i = 0; i < texts.length; i++){
@@ -87,7 +89,7 @@ var utils = (function() {
 		return window.atob(cripted);
 	};
 
-	var imgToBase64 = (image)=>{
+	var imgToBase64 = (image, cookieName)=>{
 		if (image && image.files[0]) {
 			$("btn").attr("disabled", "true");
 			$("btn").css("background-color", "#cccccc");
@@ -95,7 +97,8 @@ var utils = (function() {
 			var reader  = new FileReader();
 
 			reader.onloadend = function () {
-				cookies.setCookie(utils.imageCookieName, reader.result);
+				var cookie = cookieName ? cookieName : utils.imageCookieName;
+				cookies.setCookie(cookie, reader.result);
 				$("btn").removeAttr("disabled");
 				$("btn").css("background-color", "#30a7ba");
 				$("input[type='file']").removeAttr("disabled");
@@ -140,6 +143,7 @@ var utils = (function() {
 		getPosition 	: 	getPosition,
 		getPrecio 		: 	getPrecio,
 		ofertaTmp		: 	ofertaTmp,
-		calendarTmp 	: 	calendarTmp
+		calendarTmp 	: 	calendarTmp,
+		ofertaImg		: 	ofertaImg
 	}
 })();

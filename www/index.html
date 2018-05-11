@@ -271,7 +271,7 @@
                 </div>
 
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-                  <input class="mdl-textfield__input" name="tlf" type="number" id="tlf-registro" max="999999999"> 
+                  <input class="mdl-textfield__input" name="tlf" type="number" id="tlf-registro" min="0" max="999999999"> 
                   <label class="mdl-textfield__label" for="tlf-registro">Teléfono</label>
                 </div>
 
@@ -454,17 +454,17 @@
                   </div>
                 </div>
                 <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
-                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="text" id="name-perfil" value="pepe" name="nombre"> <label class="mdl-textfield__label" for="name-perfil">Nombre</label> 
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="text" id="name-perfil" name="nombre"> <label class="mdl-textfield__label" for="name-perfil">Nombre</label> 
                   </div>
                   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-                    <input class="mdl-textfield__input" type="email" id="email-perfil" value="pepe@gmail.es" readonly name="email"> 
+                    <input class="mdl-textfield__input" type="email" id="email-perfil" readonly name="email"> 
                     <label class="mdl-textfield__label" for="email-perfil">Email</label>
                   </div>
-                  <div class="js-date mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="text" id="date-perfil" value="24/7/1990" readonly name="fecha"> <label class="mdl-textfield__label" for="date-perfil">Fecha de Nacimiento</label> </div>
+                  <div class="js-date mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="text" id="date-perfil" readonly name="fecha"> <label class="mdl-textfield__label" for="date-perfil">Fecha de Nacimiento</label> </div>
                 </div>
                 <div class="mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet">
-                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="text" id="dni-perfil" value="12345678P" readonly name="dni"> <label class="mdl-textfield__label" for="dni-perfil">DNI</label> </div>
-                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="number" id="tlf-perfil" value="612345678" name="tlfn"> <label class="mdl-textfield__label" for="tlf-registro">Teléfono</label> </div>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="text" id="dni-perfil" readonly name="dni"> <label class="mdl-textfield__label" for="dni-perfil">DNI</label> </div>
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="number" id="tlf-perfil" name="tlfn"> <label class="mdl-textfield__label" for="tlf-registro">Teléfono</label> </div>
                   <div class="js-date mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="text" id="nreservas" value="3" readonly name="nreservas"> <label class="mdl-textfield__label" for="nreservas">Nº de Reservas</label> </div>
                 </div>
               </div>
@@ -580,7 +580,7 @@
    </div>
  </form>
  <div class="mdl-cell mdl-cell--4-col">
-   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="number" id="total_disponible" name="total_disponible"> <label class="mdl-textfield__label" for="total_disponible">Stock</label> </div>
+   <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> <input class="mdl-textfield__input" type="number" id="total_disponible" name="total_disponible" min="0"> <label class="mdl-textfield__label" for="total_disponible">Stock</label> </div>
  </div>
  <div class="mdl-card__actions">
   <button id="btn-crearCalendario" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"> Guardar horarios </button>
@@ -631,21 +631,19 @@
           <div class="item active"> 
             <label class="lamina-image-import default_img"> 
               <img src="img/default_img.jpg" alt=""> 
-              <input type="file" name="fotoPro1" accept=".jpg,.png" hidden=""> 
-              <input ng-upload-change="lamina.onFotoChange($event)" hidden="" type="file" accept="image/*" class="ng-isolate-scope"> 
+              <input type="file" name="0" accept=".jpg,.png" hidden> 
             </label>
           </div> 
           <div class="item"> 
-            <label class="lamina-image-import default_img"> <img src="img/default_img.jpg" alt=""> 
-              <input type="file" name="fotoPro2" accept=".jpg,.png" hidden=""> 
-              <input ng-upload-change="lamina.onFotoChange($event)" hidden="" type="file" accept="image/*" class="ng-isolate-scope">
+            <label class="lamina-image-import default_img"> 
+              <img src="img/default_img.jpg" alt=""> 
+              <input type="file" name="1" accept=".jpg,.png" hidden> 
             </label> 
           </div> 
           <div class="item"> 
             <label class="lamina-image-import default_img"> 
               <img src="img/default_img.jpg" alt=""> 
-              <input type="file" name="fotoPro2" accept=".jpg,.png" hidden=""> 
-              <input ng-upload-change="lamina.onFotoChange($event)" hidden="" type="file" accept="image/*" class="ng-isolate-scope"> 
+              <input type="file" name="2" accept=".jpg,.png" hidden> 
             </label> 
           </div>
         </div> 
@@ -687,7 +685,7 @@
         </div>
         <div class="mdl-cell--4-col mdl-cell--12-col-tablet mdl-cell--12-col-phone">
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-            <input class="mdl-textfield__input" name="precio-oferta" type="number" id="precio-oferta">
+            <input class="mdl-textfield__input" name="precio-oferta" type="number" id="precio-oferta" min="0">
             <label class="mdl-textfield__label" for="precio-oferta">Precio Base</label>
           </div>
         </div>

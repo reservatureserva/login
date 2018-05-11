@@ -13,7 +13,13 @@ var createOfertaCo = (function() {
 		};
 		if(utils.dataOK(json)){
 			json.condiciones = getConditions();
-			/** peticion ajax insert oferta **/
+			var inputs = $("form[name='createOferta'] input[type='file']");
+			json.imagenes = [];
+			for(var i = 0; i < 3; i++){
+				json.imagenes.push(cookies.getCookie(utils.ofertaImg+"_"+i));
+			}
+			json.imagenes = json.imagenes.length > 0 ? json.imagenes : "";
+
 			cookies.setJsonInCookie(utils.ofertaTmp, json);
 			contenido.createCalendarView();
 		}
@@ -44,6 +50,11 @@ var createOfertaCo = (function() {
 			$(".js-condiciones").append(newCondition);
 			utils.efectoInputs();
 		});
+
+		$("form[name='createOferta'] input[type='file']").change(function() {
+				utils.imgToBase64(this, utils.ofertaImg+"_"+this.name);
+		});
+
 
 		$('#btn-crear').click(function() {
 			crearOferta();
