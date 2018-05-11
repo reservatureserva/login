@@ -54,9 +54,8 @@ var contenido = (function() {
 		$(".js-contenido").html("");
 		homeCo.ini(user);
 		filtroDialog();
-		var json = "";
-		reservaCo.createCard(json);
-		//peticionesAJAX.reservas("", reservaCo.createCard);
+		peticionesAJAX.getCategorias();
+		peticionesAJAX.reservas(user.id, reservaCo.createCard);
 	};
 
 	var backHome = ()=>{

@@ -124,6 +124,13 @@ var utils = (function() {
 		}
 	};
 
+	var cargarCategorias = (json) => {
+		//json = JSON.parse(cookies.getCookie("categorias"));
+		for (var i = 0; i < json.length; i++) {
+			$(".js-categorias").append('<li class="mdl-menu__item" data-val="' + json[i].id + '" tabindex="-1">' + json[i].descripcion + '</li>');
+		}
+	}
+
 	return{
 		truncateTexts 	: 	truncateTexts,
 		formatEpoc		: 	formatEpoc,
@@ -144,6 +151,7 @@ var utils = (function() {
 		getPrecio 		: 	getPrecio,
 		ofertaTmp		: 	ofertaTmp,
 		calendarTmp 	: 	calendarTmp,
-		ofertaImg		: 	ofertaImg
+		ofertaImg		: 	ofertaImg,
+		cargarCategorias: 	cargarCategorias
 	}
 })();

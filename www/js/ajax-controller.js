@@ -85,25 +85,26 @@ var peticionesAJAX = (function() {
 		});
 	};
 
-	var reservas = (createRCard)=>{
+	var reservas = (identificador, callback)=>{
 		$.ajax({
 			type: "POST",
 			dataType: "json",
-			data: {id: $.coockie("user")},//recuperar id de la cookie
-			url: "app/user/booking"
+			data: {id: identificador},//recuperar id de la cookie
+			url: "http://localhost:8000/api/user/booking"
 		}).done(function(jsonArray) {
-			return createRCard(jsonArray);
+			callback(jsonArray);
 		}).fail(function(error) {
 			contenido.feedBack(JSON.stringify(error));
 		});
 	};
 
+	///TODO
 	var getAvailable = (json)=>{
 		$.ajax({
 			type: "POST",
 			dataType: "json",
 			data: json,
-			url: "http://localhost:8000/api/business/createOffer"
+			url: "http://localhost:8000"
 		}).done(function(oferta) {
 
 		}).fail(function(error) {
@@ -141,6 +142,19 @@ var peticionesAJAX = (function() {
 		});
 	};
 
+	var getCategorias = () => {
+		$.ajax({
+			type: "GET",
+			dataType: "json",
+			url: "http://localhost:8000/api/categorias"
+		}).done(function(jsonArray) { 
+			//cookies.setCookie("categorias", JSON.stringify(jsonArray)); 
+			utils.cargarCategorias(jsonArray);
+		}).fail(function(error) { 
+			contenido.feedBack(JSON.stringify(error)); 
+		}); 
+	};
+
 	return{
 		login			: 		login,
 		registro		: 		registro,
@@ -149,6 +163,7 @@ var peticionesAJAX = (function() {
 		reservas		: 		reservas,
 		insertOferta	: 		insertOferta,
 		updateUser		: 		updateUser,
-		createCalendar 	: 		createCalendar
+		createCalendar 	: 		createCalendar,
+		getCategorias 	: 		getCategorias
 	};
 })();
