@@ -65,7 +65,7 @@ var calendarCo = (function() {
 		var tds = {};
 		for(var dia in calendar){
 			tds[dia] = [];
-			if(calendar[dia].hora_inicio === ""){
+			if(calendar[dia].hora_inicio === ""){// añadir "o la data-date es menor a la fecha actual"
 				for (var i = hIni; i <= hFin; i++) {
 					tds[dia].push("<td class='closed' data-date='24/05/2018 "+hours[0]+"'></td>");
 				}

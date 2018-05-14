@@ -88,6 +88,7 @@ var contenido = (function() {
 
 	var ofertaView = (json)=>{
 		$(".js-contenido").html(oferta);
+		ofertaCo.ini(json);
 	};
 
 	//Dialogo de texto con las condiciones que tenga la oferta, un check de aceptar condiciones
