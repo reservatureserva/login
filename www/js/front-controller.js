@@ -7,6 +7,7 @@ var contenido = (function() {
 	var cardBusqueda;
 	var perfil;
 	var oferta;
+	var calendar;
 	var faqs;
 	var createOferta;
 	var createCalendar;
@@ -20,6 +21,7 @@ var contenido = (function() {
 			cardReserva = $("#cardReserva");
 			perfil = $("#perfil");
 			oferta = $("#oferta");
+			calendar = $("#calendar");
 			faqs = $("#faqs");
 			createOferta = $("#createOferta");
 			createCalendar = $("#createCalendar");
@@ -89,6 +91,11 @@ var contenido = (function() {
 	var ofertaView = (json)=>{
 		$(".js-contenido").html(oferta);
 		ofertaCo.ini(json);
+	};
+
+	var calendarView = (json)=>{
+		$(".js-contenido").html(calendar);
+		calendarCo.ini(json);
 	};
 
 	//Dialogo de texto con las condiciones que tenga la oferta, un check de aceptar condiciones

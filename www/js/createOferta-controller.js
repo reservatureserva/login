@@ -13,13 +13,6 @@ var createOfertaCo = (function() {
 		};
 		if(utils.dataOK(json)){
 			json.condiciones = getConditions();
-			var inputs = $("form[name='createOferta'] input[type='file']");
-			json.imagenes = [];
-			for(var i = 0; i < 3; i++){
-				json.imagenes.push(cookies.getCookie(utils.ofertaImg+"_"+i));
-			}
-			json.imagenes = json.imagenes.length > 0 ? json.imagenes : "";
-
 			cookies.setJsonInCookie(utils.ofertaTmp, json);
 			contenido.createCalendarView();
 		}

@@ -3,7 +3,7 @@ var busquedaCo = (function() {
 		$(".servicioCard").click((event)=>{
 			var str = dataOfertaID(event);
 			console.log("recupera el json");
-			var json = "";
+			var json = utils.getOfferById(str);
 			contenido.ofertaView(json);
 		});
 	};

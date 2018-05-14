@@ -1,4 +1,5 @@
- var config = {
+$(document).ready(function(){
+  var config = {
    apiKey: "AIzaSyBoylqLp2f2ZO7afv-cso52PhCCncoOgbY",
    authDomain: "login-f6988.firebaseapp.com",
    databaseURL: "https://login-f6988.firebaseio.com",
@@ -11,8 +12,9 @@
  firebase.auth().onAuthStateChanged(function(user) {
   app.ini();
 });
+});
 
- var userCo = (function() {
+var userCo = (function() {
   var login = (email, password)=>{
     firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
       var errorCode = error.code;

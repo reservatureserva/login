@@ -79,6 +79,8 @@ var peticionesAJAX = (function() {
 			data: query,
 			url: "http://localhost:8000/api/search"
 		}).done(function(jsonArray) {
+			//guardar en cookie
+			cookies.setCookie(utils.lastSearch, JSON.stringify(jsonArray));
 			return callback(jsonArray);
 		}).fail(function(error) {
 			contenido.feedBack(JSON.stringify(error));
@@ -98,20 +100,23 @@ var peticionesAJAX = (function() {
 		});
 	};
 
-	///TODO
-	var getAvailable = (json)=>{
+	/************ Usuario **********/
+	var getAvailable = (json, callback)=>{
 		$.ajax({
 			type: "POST",
 			dataType: "json",
 			data: json,
-			url: "http://localhost:8000"
+			url: "http://localhost:8000/api/user/availability",
+			async: false
 		}).done(function(oferta) {
-
+			return callback(oferta);
 		}).fail(function(error) {
 			contenido.feedBack(JSON.stringify(error));
 		});
 	};
 
+
+	/**************** EMPRESA **************/
 	var insertOferta = (json, next)=>{
 		$.ajax({
 			type: "POST",
@@ -142,6 +147,7 @@ var peticionesAJAX = (function() {
 		});
 	};
 
+	/*********** Shared ***********/
 	var getCategorias = () => {
 		$.ajax({
 			type: "GET",

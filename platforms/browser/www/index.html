@@ -51,6 +51,7 @@
   <script type="text/javascript" src="js/createOferta-controller.js"></script>
   <script type="text/javascript" src="js/createCalendar-controller.js"></script>
   <script type="text/javascript" src="js/calendar-controller.js"></script>
+  <script type="text/javascript" src="js/oferta-controller.js"></script>
   <script type="text/javascript" src="js/ajax-controller.js"></script>
   <script type="text/javascript" src="js/utils.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
@@ -362,16 +363,16 @@
 
   <br /><br /> 
   <div >
-   <h1 class="mdl-card__title-text"><font size="20px"><b>COCHE</b></font></h1>
+   <h1 class="mdl-card__title-text"><font size="20px"><b class="js-titol"></b></font></h1>
    <div class="mdl-grid">
     <div class="mdl-cell--10-col">
-     <h3>Empresa</h3>
+     <h3 class="js-empresa"></h3>
    </div>
    <div class="mdl-cell--2-col">
-     <h3>7000 €</h3>
+     <h3 class="js-precio-base"></h3>
    </div>
  </div>
- <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sagittis pellentesque lacus eleifend lacinia...</h4>
+ <h4 class="js-descripcion"></h4>
 </div>
 <div class="mdl-card__actions"> 
   <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" id="btn-reserva"> RESERVAR </button> 
@@ -665,8 +666,8 @@
             <input type="hidden" name="categoria-oferta"> 
             <i class="mdl-icon-toggle__label material-icons">keyboard_arrow_down</i> 
             <label for="categoria-oferta" class="mdl-textfield__label">Categoria</label> 
-            <ul for="categoria-oferta" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
-            <li class="mdl-menu__item" data-val="" data-selected="true">Categoria</li>
+            <ul for="categoria-oferta" class="mdl-menu mdl-menu--bottom-left mdl-js-menu js-categorias">
+           
             </ul>
           </div>
         </div>

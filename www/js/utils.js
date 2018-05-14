@@ -1,5 +1,6 @@
 var utils = (function() {
 	const userCookieName = "userLoggedData";
+	const bussinessCookieName = "bussinessLoggedData";
 	const imageCookieName = "imageBase";
 	const ofertaTmp = "ofertaTmp";
 	const calendarTmp = "calendarTmp";
@@ -125,11 +126,24 @@ var utils = (function() {
 	};
 
 	var cargarCategorias = (json) => {
-		//json = JSON.parse(cookies.getCookie("categorias"));
 		for (var i = 0; i < json.length; i++) {
-			$(".js-categorias").append('<li class="mdl-menu__item" data-val="' + json[i].id + '" tabindex="-1">' + json[i].descripcion + '</li>');
+			$(".js-categorias")[0].innerHTML += '<li class="mdl-menu__item" data-val="' + json[i].id + '" tabindex="-1">' + json[i].descripcion + '</li>';
+			$(".js-categorias")[1].innerHTML += '<li class="mdl-menu__item" data-val="' + json[i].id + '" tabindex="-1">' + json[i].descripcion + '</li>';
 		}
-	}
+		getmdlSelect.init(".getmdl-select");
+	};
+
+	var getOfferById = (id)=>{
+		var arrayOffer = JSON.parse(cookies.getCookie(utils.lastSearch));
+		for(var offer in arrayOffer){
+			if(arrayOffer[offer].id == id){
+				return arrayOffer[offer];
+			}
+		}
+		//return peticionesAjax.getOfferById(id);
+		return {};
+	};
+
 
 	return{
 		truncateTexts 	: 	truncateTexts,
@@ -144,6 +158,7 @@ var utils = (function() {
 		encode64 		: 	encode64,
 		decode64		: 	decode64,
 		userCookieName  : 	userCookieName,
+		bussinessCookieName : bussinessCookieName,
 		imgToBase64		: 	imgToBase64,
 		imageCookieName : 	imageCookieName,
 		ddMMYYYYtoEpoc 	: 	ddMMYYYYtoEpoc,
@@ -152,6 +167,7 @@ var utils = (function() {
 		ofertaTmp		: 	ofertaTmp,
 		calendarTmp 	: 	calendarTmp,
 		ofertaImg		: 	ofertaImg,
-		cargarCategorias: 	cargarCategorias
+		cargarCategorias: 	cargarCategorias,
+		getOfferById 	: 	getOfferById
 	}
 })();

@@ -78,6 +78,23 @@ var createCalendarCo = (function() {
 			json.total_disponible = $("input[name='total_disponible']").val();
 
 			cookies.setJsonInCookie(utils.calendarTmp, json);
+			var bussiness = cookies.getJsonFromCookie(utils.bussinessCookieName);
+			var json = cookies.getJsonFromCookie(utils.ofertaTmp);
+
+			json.imagenes = [];
+			for(var i = 0; i < 3; i++){
+				var img = cookies.getCookie(utils.ofertaImg+"_"+i);
+				if(img){
+					json.imagenes.push(cookies.getCookie(utils.ofertaImg+"_"+i)); 					
+				}
+			}
+			json.imagenes = json.imagenes.length > 0 ? json.imagenes : "";
+			
+			json.agencia = {
+				cif : bussiness.cif,
+				nombre : bussiness.nombre
+			}
+			peticionesAJAX.insertOferta(json);
 			peticionesAJAX.insertOferta(cookies.getJsonFromCookie(utils.ofertaTmp));
 		}else{
 			contenido.feedBack("Debes poner un stock mínimo");
