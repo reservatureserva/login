@@ -59,14 +59,14 @@ var peticionesAJAX = (function() {
 		});
 	}
 
-	var borrarUsuario = (callback)=>{
+	var borrarUsuario = (id, callback)=>{
 		$.ajax({
 			type: "DELETE",
 			dataType: "json",
 			data: {id: id},
-			url: "app/user/delete"
-		}).done(function(user) {
-			callback();
+			url: "http://localhost:8000/api/user/delete"
+		}).done(function(id) {
+			callback(id);
 		}).fail(function(error) {
 			contenido.feedBack(JSON.stringify(error));
 		});

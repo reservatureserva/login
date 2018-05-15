@@ -4,8 +4,8 @@ var utils = (function() {
 	const imageCookieName = "imageBase";
 	const ofertaTmp = "ofertaTmp";
 	const calendarTmp = "calendarTmp";
-
 	const ofertaImg = "ofertaImg";
+	const servidorURL = "http://localhost:8000/";
 
 	var truncateTexts = ()=>{
 		var texts = $(".truncate");
@@ -168,6 +168,7 @@ var utils = (function() {
 		calendarTmp 	: 	calendarTmp,
 		ofertaImg		: 	ofertaImg,
 		cargarCategorias: 	cargarCategorias,
-		getOfferById 	: 	getOfferById
+		getOfferById 	: 	getOfferById,
+		servidorURL 	: 	servidorURL
 	}
 })();

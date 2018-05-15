@@ -26,14 +26,13 @@ var userCo = (function() {
   var registro = (user)=>{
     //guardar en cookie 
     cookies.setJsonInCookie(utils.userCookieName, user);
-    var password = $("form[name='registroFormu'] input[name='repassword']").val();
+    var password = $("form[name='registroFormu'] input[name='password']").val();
 
     firebase.auth().createUserWithEmailAndPassword(user.email, password).catch(function(error) {
      var errorCode = error.code;
      var errorMessage = error.message;
      contenido.feedBack(error.message);
-     //recuperar el email de la cookie y borrar la cookie
-     //peticionesAJAX.borrarUsuario(email);
+     peticionesAJAX.borrarUsuario(user.id, app.ini);
    });
   };
 
@@ -92,12 +91,21 @@ var userCo = (function() {
 
   };
 
+  var deleteUser = ()=>{
+    firebase.auth().currentUser.delete().then(function() {
+      app.ini();
+    }).catch(function(error) {
+      contenido.feedBack("Error al borrar Usuario");
+    });
+  }
+
   return{
     login     :     login,
     registro  :     registro,
     google    :     google,
     logOut    :     logOut,
     rememberPassword  :   rememberPassword,
-    changePassword    :   changePassword
+    changePassword    :   changePassword,
+    deleteUser        :   deleteUser
   }
 })();

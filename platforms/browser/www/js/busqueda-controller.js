@@ -21,10 +21,11 @@ var busquedaCo = (function() {
 			var cardTmp = cardBusqueda.firstElementChild.cloneNode(true);
 			cardTmp.attributes.getNamedItem("data-oferta").value = result.id;
 			//background class cardBackground
-			$(cardTmp).find(".cardBackground").css("background-image", "url('https://ksassets.timeincuk.net/wp/uploads/sites/55/2015/11/2014Skrillex_Getty166442228110314-1.jpg')");
+			var img = "url('"+utils.servidorURL+result.imagenes[0]+"')"
+			$(cardTmp).find(".cardBackground").css("background-image", img);
 
 			//image class cardImg
-			$(cardTmp).find(".cardImg").css("background-image", "url('https://ksassets.timeincuk.net/wp/uploads/sites/55/2015/11/2014Skrillex_Getty166442228110314-1.jpg')");
+			$(cardTmp).find(".cardImg").css("background-image", img);
 
 			//title 
 			$(cardTmp).find("h2").text(result.titulo);

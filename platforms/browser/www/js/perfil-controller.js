@@ -8,7 +8,7 @@ var perfilCo = (function() {
 		});
 		//Borra un usuario
 		$('#btn-borrar').click(function() {
-			
+			peticionesAJAX.borrarUsuario(user.id, userCo.deleteUser);
 		});
 
 		$("form[name='updateFormu'] input[name='fotoPer']").change(function() {
@@ -18,6 +18,7 @@ var perfilCo = (function() {
 
 
 		utils.efectoInputs();
+		$("form[name='updateFormu'] div").addClass("is-dirty");
 	};
 	var createJSON = (name, tlf, id, picture)=>{
 		var json = {
