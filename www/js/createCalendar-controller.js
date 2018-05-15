@@ -78,7 +78,8 @@ var createCalendarCo = (function() {
 			json.total_disponible = $("input[name='total_disponible']").val();
 
 			cookies.setJsonInCookie(utils.calendarTmp, json);
-			var bussiness = cookies.getJsonFromCookie(utils.bussinessCookieName);
+			//var bussiness = cookies.getJsonFromCookie(utils.bussinessCookieName);
+			var bussiness = {cif: "123456F", nombre : "Empresa fake"};
 			var json = cookies.getJsonFromCookie(utils.ofertaTmp);
 
 			json.imagenes = [];

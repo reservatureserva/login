@@ -7,8 +7,7 @@ var calendarCo = (function() {
 		delete calendar.total_dìsponible;
 		var rangeMaxOpenWeek = rangeTime(calendar);
 		printarTabla(rangeMaxOpenWeek, calendar);
-
-
+		eventButtons();
 	};
 
 	/** Comprueba la hora de inicio más temprana para iniciar las horas **/
@@ -65,7 +64,7 @@ var calendarCo = (function() {
 		for(var dia in calendar){
 			tds[dia] = [];
 			var day = calendar[dia].day;
-			if(calendar[dia].hora_inicio === ""){// añadir "o la data-date es menor a la fecha actual"
+			if(calendar[dia].hora_inicio === "" || utils.ddMMYYYYtoEpoc(day) < new Date().getTime()){// añadir "o la data-date es menor a la fecha actual"
 				for (var i = hIni; i <= hFin; i++) {
 					tds[dia].push("<td class='closed' data-date='"+day+"'></td>");
 				}
@@ -152,10 +151,27 @@ var calendarCo = (function() {
 			}
 			tr.concat("</tr>");
 			j++;
-			$("tbody").append(tr);
+			$(".js-tablaCalendar").append(tr);
 		}
 
 	};
+
+	var eventButtons = ()=>{
+		$(".opened").click(function(event) {
+			var fechas = fecha(event);
+			contenido.modalCondicionesView(fechas);
+		});
+	};
+
+
+	var fecha = (event)=>{
+		var fecha = event.target.attributes.getNamedItem('data-date').value;
+		var hour = $(event.target).parents("tr:first")[0].attributes.getNamedItem("data-hour").value;
+		var humanDate = fecha + " " +hour;
+		var parts = humanDate.match(/(\d{2})\/(\d{2})\/(\d{4}) (\d{2}):(\d{2})/);
+		return [humanDate, Date.UTC(+parts[3], parts[2]-1, +parts[1], +parts[4]-1, +parts[5])];
+	};
+
 
 	return{
 		ini 	: 	ini

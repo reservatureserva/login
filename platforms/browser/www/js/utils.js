@@ -129,7 +129,9 @@ var utils = (function() {
 	var cargarCategorias = (json) => {
 		for (var i = 0; i < json.length; i++) {
 			$(".js-categorias")[0].innerHTML += '<li class="mdl-menu__item" data-val="' + json[i].id + '" tabindex="-1">' + json[i].descripcion + '</li>';
-			$(".js-categorias")[1].innerHTML += '<li class="mdl-menu__item" data-val="' + json[i].id + '" tabindex="-1">' + json[i].descripcion + '</li>';
+			if($(".js-categorias")[1]){
+				$(".js-categorias")[1].innerHTML += '<li class="mdl-menu__item" data-val="' + json[i].id + '" tabindex="-1">' + json[i].descripcion + '</li>';				
+			}
 		}
 		getmdlSelect.init(".getmdl-select");
 	};

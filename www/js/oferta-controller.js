@@ -1,6 +1,6 @@
 var ofertaCo = (function() {
 	var ini = (json)=>{
-		cookies.setCookie(utils.offerSelected, json.id);
+		cookies.setJsonInCookie(utils.offerSelected, json);
 		eventButtons(json);
 		printView(json);
 	};
@@ -9,7 +9,7 @@ var ofertaCo = (function() {
 		$("#btn-reserva").click(function() {
 			var query = {
 				lunes 	: 	utils.getMonday().getTime(),
-				oferta 	: 	cookies.getCookie(utils.offerSelected)
+				oferta 	: 	cookies.getJsonFromCookie(utils.offerSelected).id
 			}
 			peticionesAJAX.getAvailable(query, contenido.calendarView);
 		});

@@ -100,9 +100,9 @@ var contenido = (function() {
 	};
 
 	//Dialogo de texto con las condiciones que tenga la oferta, un check de aceptar condiciones
-	var modalCondicionesView = (json)=>{
+	var modalCondicionesView = (fechas)=>{
 		$(".js-contenido").append(modalCondiciones);
-		modalCondicionesCo.ini();
+		modalCondicionesCo.ini(fechas);
 	};
 
 	var perfil = ()=>{
