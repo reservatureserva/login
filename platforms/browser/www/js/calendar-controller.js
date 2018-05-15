@@ -1,7 +1,6 @@
 var calendarCo = (function() {
 
 	var ini = (calendar)=>{
-		calendar = JSON.parse('{"oferta":"asdasdasdX","total_dìsponible":"20","lunes":{"hora_inicio":"08:00","hora_fin":"14:00","hora_inicio2":"15:00","hora_fin2":"20:00"},"martes":{"hora_inicio":"08:00","hora_fin":"14:00","hora_inicio2":"15:00","hora_fin2":"20:00"},"miercoles":{"hora_inicio":"08:00","hora_fin":"14:00","hora_inicio2":"15:00","hora_fin2":"22:00"},"jueves":{"hora_inicio":"08:00","hora_fin":"14:00","hora_inicio2":"15:00","hora_fin2":"20:00"},"viernes":{"hora_inicio":"08:00","hora_fin":"14:00","hora_inicio2":"15:00","hora_fin2":"20:00"},"sabado":{"hora_inicio":"08:00","hora_fin":"14:00","hora_inicio2":"15:00","hora_fin2":"20:00"},"domingo":{"hora_inicio":"08:00","hora_fin":"14:00","hora_inicio2":"15:00","hora_fin2":"20:00"}}');
 		var total_dìsponible = calendar.total_dìsponible;
 		var oferta = calendar.oferta;
 		delete calendar.oferta;
@@ -65,9 +64,10 @@ var calendarCo = (function() {
 		var tds = {};
 		for(var dia in calendar){
 			tds[dia] = [];
+			var day = calendar[dia].day;
 			if(calendar[dia].hora_inicio === ""){// añadir "o la data-date es menor a la fecha actual"
 				for (var i = hIni; i <= hFin; i++) {
-					tds[dia].push("<td class='closed' data-date='24/05/2018 "+hours[0]+"'></td>");
+					tds[dia].push("<td class='closed' data-date='"+day+"'></td>");
 				}
 			}else{
 				var tmpHIni = calendar[dia].hora_inicio.split(":")[0];
@@ -82,17 +82,17 @@ var calendarCo = (function() {
 					var opened = tmpHFin - tmpHIni;
 					//closed1
 					for (var i = 0; i < closed1; i++) {
-						tds[dia].push("<td class='closed' data-date='24/05/2018 "+hours[0]+"'></td>");
+						tds[dia].push("<td class='closed' data-date='"+day+"'></td>");
 					}
 
 					//opened
 					for (var i = 0; i < opened; i++) {
-						tds[dia].push("<td class='opened' data-date='24/05/2018 "+hours[0]+"'></td>");
+						tds[dia].push("<td class='opened' data-date='"+day+"'></td>");
 					}
 
 					//closed2
 					for (var i = 0; i < closed2; i++) {
-						tds[dia].push("<td class='closed' data-date='24/05/2018 "+hours[0]+"'></td>");
+						tds[dia].push("<td class='closed' data-date='"+day+"'></td>");
 					}
 
 
@@ -115,26 +115,26 @@ var calendarCo = (function() {
 
 					//closed1
 					for (var i = 0; i < closed1; i++) {
-						tds[dia].push("<td class='closed' data-date='24/05/2018 "+hours[0]+"'></td>");
+						tds[dia].push("<td class='closed' data-date='"+day+"'></td>");
 					}
 
 					//opened
 					for (var i = 0; i < opened1; i++) {
-						tds[dia].push("<td class='opened' data-date='24/05/2018 "+hours[0]+"'></td>");
+						tds[dia].push("<td class='opened' data-date='"+day+"'></td>");
 					}
 
 					//closed2
 					for (var i = 0; i < closed2; i++) {
-						tds[dia].push("<td class='closed' data-date='24/05/2018 "+hours[0]+"'></td>");
+						tds[dia].push("<td class='closed' data-date='"+day+"'></td>");
 					}
 					//opened2
 					for (var i = 0; i < opened2; i++) {
-						tds[dia].push("<td class='opened' data-date='24/05/2018 "+hours[0]+"'></td>");
+						tds[dia].push("<td class='opened' data-date='"+day+"'></td>");
 					}
 
 					//closed3
 					for (var i = 0; i < closed3; i++) {
-						tds[dia].push("<td class='closed' data-date='24/05/2018 "+hours[0]+"'></td>");
+						tds[dia].push("<td class='closed' data-date='"+day+"'></td>");
 					}
 				}
 			}

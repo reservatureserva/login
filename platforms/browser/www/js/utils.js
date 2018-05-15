@@ -6,6 +6,7 @@ var utils = (function() {
 	const calendarTmp = "calendarTmp";
 	const ofertaImg = "ofertaImg";
 	const servidorURL = "http://localhost:8000/";
+	const offerSelected = "idOffer";
 
 	var truncateTexts = ()=>{
 		var texts = $(".truncate");
@@ -169,6 +170,7 @@ var utils = (function() {
 		ofertaImg		: 	ofertaImg,
 		cargarCategorias: 	cargarCategorias,
 		getOfferById 	: 	getOfferById,
-		servidorURL 	: 	servidorURL
+		servidorURL 	: 	servidorURL,
+		offerSelected  	: 	offerSelected
 	}
 })();

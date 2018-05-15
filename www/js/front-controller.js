@@ -21,7 +21,7 @@ var contenido = (function() {
 			cardReserva = $("#cardReserva");
 			perfil = $("#perfil");
 			oferta = $("#oferta");
-			calendar = $("#calendar");
+			calendar = $("#calendario");
 			faqs = $("#faqs");
 			createOferta = $("#createOferta");
 			createCalendar = $("#createCalendar");
@@ -53,6 +53,7 @@ var contenido = (function() {
 	//muestra el navBar e inserta en js-contenido el contenido
 	var home = (user)=>{
 		console.log("loading home");
+		user = user == undefined ? cookies.getJsonFromCookie(utils.userCookieName) : user;
 		$(".js-contenido").html("");
 		homeCo.ini(user);
 		filtroDialog();
@@ -110,8 +111,10 @@ var contenido = (function() {
 		perfilCo.ini();
 	};
 
-	var feedBack = (mensaje)=>{
+	var feedBack = (mensaje, ok)=>{
+		$('#feedBack').css("background-color",ok ? "#5cb700" : "#f44336");
 		document.querySelector('#feedBack').MaterialSnackbar.showSnackbar({message: mensaje});
+
 		return undefined;
 	};
 
@@ -176,6 +179,7 @@ var contenido = (function() {
 		createCalendarView	: 		createCalendarView,
 		getCardBusqueda		: 		getCardBusqueda,
 		getCardReserva 		: 		getCardReserva,
-		getModalCondiciones : 		getModalCondiciones
+		getModalCondiciones : 		getModalCondiciones,
+		calendarView 		: 		calendarView
 	}
 })();

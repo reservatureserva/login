@@ -95,7 +95,6 @@ var createCalendarCo = (function() {
 				nombre : bussiness.nombre
 			}
 			peticionesAJAX.insertOferta(json);
-			peticionesAJAX.insertOferta(cookies.getJsonFromCookie(utils.ofertaTmp));
 		}else{
 			contenido.feedBack("Debes poner un stock mínimo");
 		}
