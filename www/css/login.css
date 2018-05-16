@@ -263,7 +263,7 @@ h6{
     opacity:0;
 }
 .item img{
- border-radius: 30px;
+   border-radius: 30px;
 }
 .carousel-control.right {
     background: none;
@@ -274,7 +274,7 @@ h6{
 
 /************ Create oferta *********************/
 #createOferta .mdl-textfield, #createOferta .default_img, #createOferta img, #btn-crear{
- width: 100%;
+   width: 100%;
 }
 
 /************ Perfil *********************/
@@ -292,31 +292,35 @@ h6{
 
 @media only screen and (min-width: 768px) {
     .buscarMovil {
-     display: none;
- }
- .buscarPC{
-     visibility: visible;
- }
- .botonEmp{
-     display: none;
- }
- .card-me, .mdl-dialog{
-     width: 580px;
- }
- .mdl-textfield{
-     width: 600px;
- }
- .mdl-menu__container {
-     right: 80px !important;
- }
- .js-contenido{
-     padding: 8vh;
- }
+       display: none;
+   }
+   .buscarPC{
+       visibility: visible;
+   }
+   .botonEmp{
+       display: none;
+   }
+   .card-me, .mdl-dialog{
+       width: 580px;
+   }
+   .mdl-textfield{
+       width: 600px;
+   }
+   .mdl-menu__container {
+       right: 80px !important;
+   }
+   .js-contenido{
+       padding: 8vh;
+   }
 
- .carousel-inner>.item>a>img, .carousel-inner>.item>img {
-     width: 100%;
-     height: 700px;
- }
+   .carousel-inner>.item>a>img, .carousel-inner>.item>img {
+       width: 100%;
+       height: 700px;
+   }
+
+   .truncate{
+    min-height: 66px;
+    }
 }
 
 #calendario-view td{
@@ -328,12 +332,12 @@ h6{
 }
 
 .closed {
- border: 0.5px solid white; 
- background-color: #6f8994;
- width: 100px;
+   border: 0.5px solid white; 
+   background-color: #6f8994;
+   width: 100px;
 }
 .opened {
- width: 100px;
- border: 0.5px solid white; 
- background-color: #55d037;
+   width: 100px;
+   border: 0.5px solid white; 
+   background-color: #55d037;
 }

@@ -13,7 +13,7 @@ var modalCondicionesCo = (function() {
 	};
 
 	var eventButtons = ()=>{
-		$(".js-cancelar").click(function() {
+		$(".js-cancelarCondiciones").click(function() {
 			contenido.getModalCondiciones()[0].close();
 		});
 
@@ -32,8 +32,8 @@ var modalCondicionesCo = (function() {
 	}
 
 	var confirmText = (oferta, hora)=>{
-		$(".js-confirmReserva").append("Reserva para el día "+hora[0]);
-		$(".js-confirmReserva2").append("Al confirmar acepta que cumple con los siguientes requisitos de "+oferta.titulo);
+		$(".js-confirmReserva").html("Reserva para el día "+hora[0]);
+		$(".js-confirmReserva2").html("Al confirmar acepta que cumple con los siguientes requisitos de "+oferta.titulo);
 		var epoc = hora[1];
 		var json = {
 			titulo 			: 	oferta.titulo,
