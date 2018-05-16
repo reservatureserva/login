@@ -7,6 +7,7 @@ var utils = (function() {
 	const ofertaImg = "ofertaImg";
 	const servidorURL = "http://localhost:8000/";
 	const offerSelected = "idOffer";
+	const bookingTmp = "bookingTmp";
 
 	var truncateTexts = ()=>{
 		var texts = $(".truncate");
@@ -82,6 +83,24 @@ var utils = (function() {
 		var parts = str.split("/");
 		return new Date(parts[2], parts[1] - 1, parts[0]).getTime();
 	}
+
+
+	var formatSeconds = (epoch)=>{
+		var today = new Date(parseFloat(epoch));
+
+		var dd = today.getDate();
+		var mm = today.getMonth()+1; 
+
+		var yyyy = today.getFullYear();
+		if(dd<10){
+			dd='0'+dd;
+		} 
+		if(mm<10){
+			mm='0'+mm;
+		}
+		
+		return dd+'/'+mm+'/'+yyyy;
+	};
 
 	var encode64 = (str)=>{
 		return window.btoa(str);
@@ -173,6 +192,8 @@ var utils = (function() {
 		cargarCategorias: 	cargarCategorias,
 		getOfferById 	: 	getOfferById,
 		servidorURL 	: 	servidorURL,
-		offerSelected  	: 	offerSelected
+		offerSelected  	: 	offerSelected,
+		bookingTmp		: 	bookingTmp,
+		formatSeconds 	: 	formatSeconds
 	}
 })();

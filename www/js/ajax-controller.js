@@ -115,6 +115,23 @@ var peticionesAJAX = (function() {
 		});
 	};
 
+	var createBooking = (booking)=>{
+		$.ajax({
+			type: "POST",
+			dataType: "json",
+			data: booking,
+			url: "http://localhost:8000/api/user/createBooking",
+			async: false
+		}).done(function(ok) {
+			return contenido.home();
+		}).fail(function(error) {
+			contenido.feedBack(JSON.stringify(error));
+		}).always(function() {
+			contenido.home();
+		});
+	};
+
+
 
 	/**************** EMPRESA **************/
 	var insertOferta = (json, next)=>{
@@ -174,6 +191,7 @@ var peticionesAJAX = (function() {
 		updateUser		: 		updateUser,
 		createCalendar 	: 		createCalendar,
 		getCategorias 	: 		getCategorias,
-		getAvailable	: 		getAvailable
+		getAvailable	: 		getAvailable,
+		createBooking 	: 		createBooking
 	};
 })();

@@ -64,7 +64,7 @@ var contenido = (function() {
 	var backHome = ()=>{
 		console.log("loading home");
 		$(".js-contenido").html("");
-		reservasCards();
+		peticionesAJAX.reservas(cookies.getJsonFromCookie(utils.userCookieName).id, reservaCo.createCard);
 	};
 
 	//generará y mostrará las reservas actuales recibidas del servidor

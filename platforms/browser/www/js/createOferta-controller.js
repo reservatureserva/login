@@ -21,8 +21,8 @@ var createOfertaCo = (function() {
 	var getConditions = ()=>{
 		var condiciones = [];
 		var length = $(".js-condiciones").find("input").length;
-		for (var i = 0; i < length; i++) {
-			condiciones[i] = $("form[name='createOferta'] input[name='condicion"+(++i)+"']").val();
+		for (var i = 1; i <= length; i++) {
+			condiciones[i] = $("form[name='createOferta'] input[name='condicion"+(i)+"']").val();
 		}
 		return condiciones.length > 0 ? condiciones : "";
 

@@ -18,9 +18,8 @@ var modalCondicionesCo = (function() {
 		});
 
 		$(".js-aceptar").click(function() {
-			//peticion ajax
 			contenido.getModalCondiciones()[0].close();
-			
+			peticionesAJAX.createBooking(cookies.getJsonFromCookie(utils.bookingTmp));			
 		});
 	};
 
@@ -36,6 +35,19 @@ var modalCondicionesCo = (function() {
 		$(".js-confirmReserva").append("Reserva para el día "+hora[0]);
 		$(".js-confirmReserva2").append("Al confirmar acepta que cumple con los siguientes requisitos de "+oferta.titulo);
 		var epoc = hora[1];
+		var json = {
+			titulo 			: 	oferta.titulo,
+			descripcion 	: 	oferta.descripcion,
+			fecha_inicio 	: 	hora[1],
+			fecha_fin		: 	hora[1] + (3600000),
+			fecha_cancelacion : 0,
+			oferta 			: 	oferta.id,
+			agencia 		: 	oferta.agencia,
+			cliente			: 	cookies.getJsonFromCookie(utils.userCookieName).id,
+			costo 			: 	oferta.precio_base
+		}
+
+		cookies.setJsonInCookie(utils.bookingTmp, json);
 	};
 
 	return{
