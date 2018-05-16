@@ -21,7 +21,7 @@ var busquedaCo = (function() {
 			var cardTmp = cardBusqueda.firstElementChild.cloneNode(true);
 			cardTmp.attributes.getNamedItem("data-oferta").value = result.id;
 			//background class cardBackground
-			var img = "url('"+utils.servidorURL+result.imagenes[0]+"')"
+			var img = result.imagenes ? "url('"+utils.servidorURL+result.imagenes[0]+"')" : "url('"+utils.servidorURL+"/img/offers/default.jpg')";
 			$(cardTmp).find(".cardBackground").css("background-image", img);
 
 			//image class cardImg
