@@ -27,10 +27,11 @@ var modalFiltro = (function() {
 
 		//lanzar la query
 		$('.js-buscar').click(function() {
-			navigator.geolocation.getCurrentPosition(procesarBusqueda, function(error) {
+			/*navigator.geolocation.getCurrentPosition(procesarBusqueda, function(error) {
 				contenido.feedBack(error);
 				return [0, 0]; //por si llega a petar, pues estarás en el centro de la tierra :v
-			});
+			});*/
+			procesarBusqueda([41.3910481, 2.1550605]);
 			dialog.close();
 		});
 		sliders();

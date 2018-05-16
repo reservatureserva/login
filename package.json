@@ -15,7 +15,8 @@
       "cordova-plugin-inappbrowser": {},
       "cordova-plugin-network-information": {},
       "cordova-plugin-vibration": {},
-      "cordova-plugin-whitelist": {}
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-sslcertificatechecker": {}
     }
   },
   "dependencies": {
@@ -29,6 +30,7 @@
     "cordova-plugin-inappbrowser": "~1.7.1",
     "cordova-plugin-media-capture": "~1.4.3",
     "cordova-plugin-network-information": "~1.3.3",
+    "cordova-plugin-sslcertificatechecker": "^5.1.0",
     "cordova-plugin-vibration": "~2.1.5",
     "cordova-plugin-whitelist": "^1.3.3"
   },
