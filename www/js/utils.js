@@ -129,7 +129,8 @@ var utils = (function() {
 	};
 
 	var getPosition = (position)=>{
-		return [position.coords.latitude, position.coords.longitude];
+		return position;
+		//return [position.coords.latitude, position.coords.longitude];
 	}
 
 	var getPrecio = (precio)=>{
