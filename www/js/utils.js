@@ -5,7 +5,7 @@ var utils = (function() {
 	const ofertaTmp = "ofertaTmp";
 	const calendarTmp = "calendarTmp";
 	const ofertaImg = "ofertaImg";
-	const servidorURL = "http://localhost:8000/";
+	const servidorURL = "http://reservatureserva.ddns.net:8000/";
 	const offerSelected = "idOffer";
 	const bookingTmp = "bookingTmp";
 

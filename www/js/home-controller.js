@@ -30,7 +30,7 @@ var homeCo = (function() {
 
 	var printNav = (json)=>{
 		if(json.foto_perfil != undefined && json.foto_perfil != ""){
-			$('.img').css('background-image','url(http://localhost:8000/' + json.foto_perfil + ')');
+			$('.img').css('background-image','url('+utils.servidorURL + json.foto_perfil + ')');
 		}
 		$("#navBar").css("display", "block");
 	};
